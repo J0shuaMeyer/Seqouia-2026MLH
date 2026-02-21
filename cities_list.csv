@@ -1,0 +1,28 @@
+city_name,country_name,latitude,longitude,timezone,data_tier
+Jakarta,Indonesia,-6.2088,106.8456,GMT+7,3
+Dhaka,Bangladesh,23.7644,90.3889,GMT+6,3
+Tokyo,Japan,35.6762,139.6503,GMT+9,1
+Delhi,India,28.6353,77.2250,GMT+5:30,1
+Shanghai,China,31.2325,121.4692,GMT+8,1
+Guangzhou,China,23.1291,113.2644,GMT+8,2
+Cairo,Egypt,30.0444,31.2357,GMT+2,2
+Manila,Philippines,14.5995,120.9842,GMT+8,2
+Kolkata,India,22.5726,88.3639,GMT+5:30,2
+Seoul,South Korea,37.5665,126.9780,GMT+9,1
+Karachi,Pakistan,24.8607,67.0011,GMT+5,3
+Mumbai,India,19.0761,72.8775,GMT+5:30,1
+São Paulo,Brazil,-23.5505,-46.6333,GMT-3,1
+Bangkok,Thailand,13.7563,100.5018,GMT+7,2
+Mexico City,Mexico,19.4326,-99.1332,GMT-6,1
+Beijing,China,39.9042,116.4074,GMT+8,1
+Lahore,Pakistan,31.5204,74.3587,GMT+5,3
+Istanbul,Turkey,41.0082,28.9784,GMT+3,1
+Moscow,Russia,55.7558,37.6173,GMT+3,2
+Ho Chi Minh City,Vietnam,10.8231,106.6297,GMT+7,2
+Buenos Aires,Argentina,-34.6037,-58.3816,GMT-3,1
+New York City,United States,40.7128,-74.0060,GMT-5,1
+Shenzhen,China,22.5431,114.0579,GMT+8,2
+Bengaluru,India,12.9716,77.5946,GMT+5:30,2
+Osaka,Japan,34.6937,135.5023,GMT+9,2
+Lagos,Nigeria,6.5244,3.3792,GMT+1,3
+Los Angeles,United States,34.0522,-118.2437,GMT-8,1
