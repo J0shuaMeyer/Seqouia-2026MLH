@@ -6,7 +6,7 @@ import type {
   AgentPersona,
   AgentState,
   CityEnvironment,
-  EmergentPattern,
+  SocialEdge,
   WorkerInMessage,
   WorkerOutMessage,
   SimTickResult,
@@ -24,6 +24,7 @@ import {
   DECISION_INTERVAL,
   RENDER_INTERVAL,
 } from "../lib/simulation-engine";
+import { buildAdjacency } from "../lib/social-graph";
 
 /* ── State ──────────────────────────────────────────────────────── */
 
@@ -31,6 +32,7 @@ let personas: AgentPersona[] = [];
 let agents: AgentState[] = [];
 let environment: CityEnvironment = null!;
 let bbox: [number, number, number, number] = [0, 0, 0, 0];
+let adjacency: Map<string, SocialEdge[]> = new Map();
 let simHour = 0;
 let speedFactor = 144;
 let tick = 0;
@@ -51,14 +53,14 @@ self.onmessage = (e: MessageEvent<WorkerInMessage>) => {
       personas = msg.personas;
       environment = msg.environment;
       bbox = msg.bbox;
+      adjacency = buildAdjacency(msg.socialEdges ?? []);
       simHour = msg.startHour;
       tick = 0;
       prevStats = null;
       prevPatternTypes.clear();
       seedRng(Date.now());
       agents = initAgents(personas);
-      // Run initial decisions so agents aren't all sleeping at start
-      makeDecisions(agents, personas, environment, simHour);
+      makeDecisions(agents, personas, environment, simHour, adjacency);
       running = true;
       post({ type: "ready" });
       loop();
@@ -87,7 +89,7 @@ self.onmessage = (e: MessageEvent<WorkerInMessage>) => {
       prevStats = null;
       prevPatternTypes.clear();
       agents = initAgents(personas);
-      makeDecisions(agents, personas, environment, simHour);
+      makeDecisions(agents, personas, environment, simHour, adjacency);
       break;
   }
 };
@@ -108,12 +110,12 @@ function loop(): void {
 
   // Agent decisions at DECISION_INTERVAL
   if (tick % DECISION_INTERVAL === 0) {
-    makeDecisions(agents, personas, environment, simHour);
+    makeDecisions(agents, personas, environment, simHour, adjacency);
 
     const grid = buildSpatialGrid(agents, bbox);
-    resolveInteractions(agents, personas, grid, environment);
+    resolveInteractions(agents, personas, grid, environment, adjacency);
 
-    const patterns = detectPatterns(agents, personas, simHour, prevStats, grid);
+    const patterns = detectPatterns(agents, personas, simHour, prevStats, grid, adjacency);
 
     // Update prevStats for next comparison
     const total = agents.length || 1;

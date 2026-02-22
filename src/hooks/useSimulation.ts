@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import type { City } from "@/data/cities";
 import type {
   AgentPersona,
+  SocialEdge,
   SimTickResult,
   EmergentPattern,
   WorkerInMessage,
@@ -11,6 +12,7 @@ import type {
   CityEnvironment,
 } from "@/lib/agent-types";
 import { buildCityEnvironment } from "@/lib/agent-environment";
+import { buildSocialGraph } from "@/lib/social-graph";
 import { getLocalHour } from "@/lib/activity";
 
 /** Pattern insight template fallbacks (no LLM needed) */
@@ -26,6 +28,8 @@ const PATTERN_TEMPLATES: Record<string, (p: EmergentPattern, env: CityEnvironmen
     `Transport shift detected — ${env.isRaining ? "rain pushing commuters to transit" : "changing conditions altering travel patterns"}.`,
   weather_exodus: () => `Weather driving people indoors across the city.`,
   congestion_avoidance: () => `Commuters rerouting around congestion hotspots.`,
+  social_clustering: (p) => `A group of ${p.agentCount} friends and family gathering at the same venue.`,
+  information_cascade: (p) => `Word-of-mouth spreading: ${p.agentCount} commuters rerouting through social connections.`,
 };
 
 const ENV_REFRESH_MS = 120_000; // refresh real-world data every 2 min
@@ -39,6 +43,7 @@ export interface SimulationControls {
   simHour: number;
   speed: number;
   personas: AgentPersona[] | null;
+  socialEdges: SocialEdge[];
   setSpeed: (factor: number) => void;
   pause: () => void;
   resume: () => void;
@@ -56,6 +61,7 @@ export function useSimulation(
   const [simHour, setSimHour] = useState(0);
   const [speed, setSpeedState] = useState(144);
   const [personas, setPersonas] = useState<AgentPersona[] | null>(null);
+  const [socialEdges, setSocialEdges] = useState<SocialEdge[]>([]);
 
   const workerRef = useRef<Worker | null>(null);
   const envRef = useRef<CityEnvironment | null>(null);
@@ -84,6 +90,11 @@ export function useSimulation(
     let cancelled = false;
 
     async function start() {
+      // Build social graph from persona data
+      const graph = buildSocialGraph(personas!);
+      if (cancelled) return;
+      setSocialEdges(graph.edges);
+
       // Build initial environment
       const env = await buildCityEnvironment(city);
       if (cancelled) return;
@@ -125,6 +136,7 @@ export function useSimulation(
         environment: env,
         bbox: city.bbox,
         startHour,
+        socialEdges: graph.edges,
       };
       worker.postMessage(initMsg);
     }
@@ -247,6 +259,7 @@ export function useSimulation(
     simHour,
     speed,
     personas,
+    socialEdges,
     setSpeed,
     pause,
     resume,

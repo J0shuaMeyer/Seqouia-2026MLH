@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import type { City } from "@/data/cities";
 import type { UPIResult } from "@/lib/urban-pulse";
@@ -67,6 +68,7 @@ export default function CitySidebar({
   avgActivity,
   updating,
 }: CitySidebarProps) {
+  const [collapsed, setCollapsed] = useState(false);
   const density = Math.round(city.population / city.areaSqMi).toLocaleString();
 
   // Weather damping display
@@ -74,15 +76,35 @@ export default function CitySidebar({
     ? `-${Math.round((1 - pulse.damping) * 100)}%`
     : null;
 
+  if (collapsed) {
+    return (
+      <button
+        onClick={() => setCollapsed(false)}
+        className="fixed left-4 top-4 z-50 px-3 py-2 bg-black/70 backdrop-blur-sm border border-white/20 rounded-full text-[10px] tracking-widest text-white/60 hover:bg-white/10 hover:text-white/80 transition-all"
+      >
+        SEQUOIA &rsaquo;
+      </button>
+    );
+  }
+
   return (
     <aside className="fixed left-0 top-0 bottom-0 w-64 z-50 bg-black/80 backdrop-blur-md border-r border-white/[0.06] flex flex-col overflow-y-auto">
       {/* Header */}
       <div className="px-5 pt-5 pb-4 border-b border-white/[0.06]">
-        <div className="flex items-center gap-2">
-          <SequoiaLogo className="w-3.5 h-[18px] text-white/70" />
-          <h1 className="text-lg font-semibold tracking-[0.25em] text-white/90">
-            SEQUOIA
-          </h1>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <SequoiaLogo className="w-3.5 h-[18px] text-white/70" />
+            <h1 className="text-lg font-semibold tracking-[0.25em] text-white/90">
+              SEQUOIA
+            </h1>
+          </div>
+          <button
+            onClick={() => setCollapsed(true)}
+            className="text-white/25 hover:text-white/60 transition-colors text-sm"
+            title="Collapse panel"
+          >
+            &lsaquo;
+          </button>
         </div>
       </div>
 

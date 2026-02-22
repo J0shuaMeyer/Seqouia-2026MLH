@@ -10,7 +10,9 @@ import type {
   CityEnvironment,
   EmergentPattern,
   SimTickResult,
+  SocialEdge,
 } from "./agent-types";
+import { edgePeer } from "./social-graph";
 
 /* ── Constants ──────────────────────────────────────────────────── */
 
@@ -179,9 +181,13 @@ export function makeDecisions(
   personas: AgentPersona[],
   env: CityEnvironment,
   simHour: number,
+  adjacency?: Map<string, SocialEdge[]>,
 ): void {
   const personaMap = new Map<string, AgentPersona>();
   for (const p of personas) personaMap.set(p.id, p);
+
+  const agentMap = new Map<string, AgentState>();
+  for (const a of agents) agentMap.set(a.id, a);
 
   for (const agent of agents) {
     const persona = personaMap.get(agent.id);
@@ -193,7 +199,7 @@ export function makeDecisions(
     // If at destination and haven't stayed long enough, keep waiting
     if (agent.arrivedAtDest && agent.ticksAtDest < agent.stayDuration) continue;
 
-    const decision = decideAction(agent, persona, env, simHour);
+    const decision = decideAction(agent, persona, env, simHour, adjacency, agentMap);
     agent.activity = decision.activity;
     agent.destination = decision.destination;
     agent.transportMode = decision.mode;
@@ -211,11 +217,68 @@ interface Decision {
   stayDuration: number; // ticks to stay at destination
 }
 
+/** Check if a socially connected agent is already at a POI — follow them */
+function socialDestinationPull(
+  persona: AgentPersona,
+  adjacency: Map<string, SocialEdge[]> | undefined,
+  agentMap: Map<string, AgentState>,
+): { lat: number; lng: number } | null {
+  if (!adjacency) return null;
+  const edges = adjacency.get(persona.id);
+  if (!edges) return null;
+
+  for (const edge of edges) {
+    const peerId = edgePeer(edge, persona.id);
+    const peer = agentMap.get(peerId);
+    if (!peer || !peer.destination) continue;
+    // Peer must be at a social/dining/leisure destination (at a POI)
+    if (peer.activity !== "socializing" && peer.activity !== "dining" && peer.activity !== "leisure") continue;
+    if (!peer.arrivedAtDest) continue;
+
+    const pullProb = edge.strength * persona.socialActivity * 0.4;
+    if (rand() < pullProb) {
+      return { lat: peer.destination.lat, lng: peer.destination.lng };
+    }
+  }
+  return null;
+}
+
+/** Check if a family/coworker is commuting to a similar destination — carpool */
+function tryCarpool(
+  persona: AgentPersona,
+  dest: { lat: number; lng: number },
+  adjacency: Map<string, SocialEdge[]> | undefined,
+  agentMap: Map<string, AgentState>,
+): TransportMode | null {
+  if (!adjacency) return null;
+  const edges = adjacency.get(persona.id);
+  if (!edges) return null;
+
+  for (const edge of edges) {
+    if (edge.strength < 0.5) continue;
+    if (edge.relationship !== "family" && edge.relationship !== "coworker") continue;
+
+    const peerId = edgePeer(edge, persona.id);
+    const peer = agentMap.get(peerId);
+    if (!peer || peer.activity !== "commuting" || !peer.destination) continue;
+
+    // Check if heading in a similar direction (within 0.01 degrees)
+    const dLat = Math.abs(peer.destination.lat - dest.lat);
+    const dLng = Math.abs(peer.destination.lng - dest.lng);
+    if (dLat < 0.01 && dLng < 0.01) {
+      return peer.transportMode !== "stationary" ? peer.transportMode : null;
+    }
+  }
+  return null;
+}
+
 function decideAction(
   agent: AgentState,
   persona: AgentPersona,
   env: CityEnvironment,
   simHour: number,
+  adjacency?: Map<string, SocialEdge[]>,
+  agentMap?: Map<string, AgentState>,
 ): Decision {
   const hourIndex = Math.floor(simHour) % 24;
   const baseActivityProb = persona.activityCurve[hourIndex] ?? 0.3;
@@ -257,18 +320,27 @@ function decideAction(
     const dest = simHour < 12
       ? { lat: persona.workLat, lng: persona.workLng }
       : home;
-    const mode = selectTransportMode(persona, env);
+
+    let mode = selectTransportMode(persona, env);
+    // Carpooling: match transport mode with a connected commuter heading the same way
+    const carpoolMode = tryCarpool(persona, dest, adjacency, agentMap ?? new Map());
+    if (carpoolMode) mode = carpoolMode;
+
     return {
       activity: "commuting",
       destination: dest,
       mode,
-      stayDuration: Math.floor(DECISION_INTERVAL * (3 + rand() * 5)), // stay at work/home
+      stayDuration: Math.floor(DECISION_INTERVAL * (3 + rand() * 5)),
     };
   }
 
+  // Social destination pull: join a friend/family member who's already at a venue
+  const socialPull = socialDestinationPull(persona, adjacency, agentMap ?? new Map());
+
   // Lunch / dining
   if (isLunchHour && rand() < persona.socialActivity * 0.6) {
-    const dest = selectNearestPOI(agent.lat, agent.lng, env.pois, ["restaurant", "cafe", "food"]);
+    const dest = socialPull
+      ?? selectNearestPOI(agent.lat, agent.lng, env.pois, ["restaurant", "cafe", "food"]);
     if (dest) {
       return {
         activity: "dining",
@@ -281,7 +353,8 @@ function decideAction(
 
   // Evening social
   if (isEveningHour && rand() < persona.personality.extraversion * 0.7) {
-    const dest = selectNearestPOI(agent.lat, agent.lng, env.pois, ["restaurant", "bar", "plaza", "entertainment"]);
+    const dest = socialPull
+      ?? selectNearestPOI(agent.lat, agent.lng, env.pois, ["restaurant", "bar", "plaza", "entertainment"]);
     if (dest) {
       const mode = selectTransportMode(persona, env);
       return {
@@ -293,9 +366,10 @@ function decideAction(
     }
   }
 
-  // General leisure/errands
+  // General leisure/errands — social pull can redirect here too
   if (rand() < persona.socialActivity * 0.4) {
-    const dest = selectRandomPOI(env.pois, agent.lat, agent.lng, 0.02);
+    const dest = socialPull
+      ?? selectRandomPOI(env.pois, agent.lat, agent.lng, 0.02);
     if (dest) {
       const mode = selectTransportMode(persona, env);
       return {
@@ -359,14 +433,24 @@ function getNeighborAgents(
 
 /* ── Interaction Resolution ─────────────────────────────────────── */
 
+/** Tracks agents who switched mode this tick (for cascade counting) */
+export let cascadeSwitchCount = 0;
+
 export function resolveInteractions(
   agents: AgentState[],
   personas: AgentPersona[],
   grid: SpatialGrid,
   env: CityEnvironment,
+  adjacency?: Map<string, SocialEdge[]>,
 ): void {
   const personaMap = new Map<string, AgentPersona>();
   for (const p of personas) personaMap.set(p.id, p);
+
+  const agentMap = new Map<string, AgentState>();
+  for (const a of agents) agentMap.set(a.id, a);
+
+  const modeSwitched = new Set<string>();
+  cascadeSwitchCount = 0;
 
   for (const [key, cellAgents] of grid) {
     const [cxStr, cyStr] = key.split(",");
@@ -400,6 +484,32 @@ export function resolveInteractions(
         if (p && p.personality.agreeableness > 0.5 && rand() < 0.2) {
           driver.transportMode = "transit";
           driver.speed = SPEED_TABLE.transit;
+          modeSwitched.add(driver.id);
+        }
+      }
+    }
+  }
+
+  // Information cascade: agents who switched propagate signal to social connections
+  if (adjacency && modeSwitched.size > 0) {
+    for (const switchedId of modeSwitched) {
+      const edges = adjacency.get(switchedId);
+      if (!edges) continue;
+
+      for (const edge of edges) {
+        const peerId = edgePeer(edge, switchedId);
+        if (modeSwitched.has(peerId)) continue;
+
+        const peer = agentMap.get(peerId);
+        const peerPersona = personaMap.get(peerId);
+        if (!peer || !peerPersona) continue;
+        if (peer.transportMode !== "driving") continue;
+
+        const cascadeProb = edge.strength * peerPersona.personality.agreeableness * 0.3;
+        if (rand() < cascadeProb) {
+          peer.transportMode = "transit";
+          peer.speed = SPEED_TABLE.transit;
+          cascadeSwitchCount++;
         }
       }
     }
@@ -420,6 +530,7 @@ export function detectPatterns(
   simHour: number,
   prevStats: PrevStats | null,
   grid: SpatialGrid,
+  adjacency?: Map<string, SocialEdge[]>,
 ): EmergentPattern[] {
   const patterns: EmergentPattern[] = [];
   const total = agents.length || 1;
@@ -506,6 +617,56 @@ export function detectPatterns(
         simHour,
       });
     }
+  }
+
+  // 6. Social clustering: 3+ connected agents at the same destination
+  if (adjacency) {
+    const destGroups = new Map<string, AgentState[]>();
+    for (const a of agents) {
+      if (!a.destination || !a.arrivedAtDest) continue;
+      if (a.activity === "sleeping" || a.activity === "home_active") continue;
+      const key = `${a.destination.lat.toFixed(4)},${a.destination.lng.toFixed(4)}`;
+      const arr = destGroups.get(key);
+      if (arr) arr.push(a);
+      else destGroups.set(key, [a]);
+    }
+
+    for (const [, group] of destGroups) {
+      if (group.length < 3) continue;
+      let connectedPairs = 0;
+      for (let i = 0; i < group.length; i++) {
+        const edges = adjacency.get(group[i].id);
+        if (!edges) continue;
+        const peerIds = new Set(edges.map((e) => edgePeer(e, group[i].id)));
+        for (let j = i + 1; j < group.length; j++) {
+          if (peerIds.has(group[j].id)) connectedPairs++;
+        }
+      }
+      if (connectedPairs >= 2) {
+        const latAvg = group.reduce((s, a) => s + a.lat, 0) / group.length;
+        const lngAvg = group.reduce((s, a) => s + a.lng, 0) / group.length;
+        patterns.push({
+          type: "social_clustering",
+          description: `A group of ${group.length} connected citizens gathering`,
+          location: { lat: latAvg, lng: lngAvg },
+          agentCount: group.length,
+          confidence: Math.min(1, connectedPairs / group.length),
+          simHour,
+        });
+      }
+    }
+  }
+
+  // 7. Information cascade: word-of-mouth transport mode switches
+  if (cascadeSwitchCount >= 3) {
+    patterns.push({
+      type: "information_cascade",
+      description: `Word spreading: ${cascadeSwitchCount} commuters rerouting via social connections`,
+      location: null,
+      agentCount: cascadeSwitchCount,
+      confidence: Math.min(1, cascadeSwitchCount / 6),
+      simHour,
+    });
   }
 
   return patterns;

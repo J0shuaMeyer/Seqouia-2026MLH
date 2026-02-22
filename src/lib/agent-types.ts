@@ -12,7 +12,7 @@ export type OccupationType =
   | "healthcare" | "retail" | "construction" | "tech_worker"
   | "gig_driver" | "retired" | "remote_worker" | "government";
 
-/** Static persona — generated once by Gemini, immutable during simulation */
+/** Static persona — generated once by Claude, immutable during simulation */
 export interface AgentPersona {
   id: string;
   name: string;
@@ -56,10 +56,28 @@ export interface AgentState {
   stayDuration: number;
 }
 
+/* ── Social Network Graph ──────────────────────────────────── */
+
+export type RelationshipType = "family" | "coworker" | "friend" | "acquaintance";
+
+export interface SocialEdge {
+  source: string;
+  target: string;
+  relationship: RelationshipType;
+  /** 0.0–1.0 influence weight */
+  strength: number;
+}
+
+export interface SocialGraph {
+  edges: SocialEdge[];
+  adjacency: Map<string, SocialEdge[]>;
+}
+
 /** Detected emergent pattern */
 export interface EmergentPattern {
   type: "cluster" | "mode_shift" | "rush_hour" | "ghost_town"
-      | "weather_exodus" | "nightlife_surge" | "congestion_avoidance";
+      | "weather_exodus" | "nightlife_surge" | "congestion_avoidance"
+      | "social_clustering" | "information_cascade";
   description: string;
   location: { lat: number; lng: number } | null;
   agentCount: number;
@@ -106,7 +124,8 @@ export interface SimTickResult {
 
 export type WorkerInMessage =
   | { type: "init"; personas: AgentPersona[]; environment: CityEnvironment;
-      bbox: [number, number, number, number]; startHour: number }
+      bbox: [number, number, number, number]; startHour: number;
+      socialEdges: SocialEdge[] }
   | { type: "updateEnvironment"; environment: CityEnvironment }
   | { type: "setSpeed"; factor: number }
   | { type: "pause" }

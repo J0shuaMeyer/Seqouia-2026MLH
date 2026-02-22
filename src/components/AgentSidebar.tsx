@@ -1,8 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import type { City } from "@/data/cities";
 import type { SimulationControls } from "@/hooks/useSimulation";
-import type { AgentActivity } from "@/lib/agent-types";
+import type { AgentActivity, SocialEdge } from "@/lib/agent-types";
 
 interface AgentSidebarProps {
   city: City;
@@ -105,7 +106,8 @@ function MiniBar({ pct, color }: { pct: number; color: string }) {
 /* ── Main Component ─────────────────────────────────────────────── */
 
 export default function AgentSidebar({ city, simulation }: AgentSidebarProps) {
-  const { tickResult, patterns, narrative, isRunning, simHour, speed, personas } = simulation;
+  const [collapsed, setCollapsed] = useState(false);
+  const { tickResult, patterns, narrative, isRunning, simHour, speed, personas, socialEdges } = simulation;
   const total = personas?.length ?? 0;
   const stats = tickResult?.stats;
   const agents = tickResult?.agents ?? [];
@@ -138,6 +140,18 @@ export default function AgentSidebar({ city, simulation }: AgentSidebarProps) {
       }
     : null;
 
+  if (collapsed) {
+    return (
+      <button
+        onClick={() => setCollapsed(false)}
+        className="fixed right-4 top-4 z-50 px-3 py-2 bg-black/70 backdrop-blur-sm border border-white/20 rounded-full text-[10px] tracking-widest text-white/60 hover:bg-white/10 hover:text-white/80 transition-all flex items-center gap-2"
+      >
+        <span className={`w-1.5 h-1.5 rounded-full ${isRunning ? "bg-emerald-400 animate-pulse" : "bg-white/20"}`} />
+        &lsaquo; AGENTS
+      </button>
+    );
+  }
+
   return (
     <aside className="fixed right-0 top-0 bottom-0 w-72 z-50 bg-black/80 backdrop-blur-md border-l border-white/[0.06] flex flex-col overflow-y-auto">
 
@@ -147,9 +161,18 @@ export default function AgentSidebar({ city, simulation }: AgentSidebarProps) {
           <h2 className="text-[11px] tracking-[0.2em] uppercase font-bold text-white/80">
             Agent Simulation
           </h2>
-          <div className="flex items-center gap-1.5">
-            <span className={`w-1.5 h-1.5 rounded-full ${isRunning ? "bg-emerald-400 animate-pulse" : "bg-white/20"}`} />
-            <span className="text-[9px] text-white/30">{isRunning ? "LIVE" : "PAUSED"}</span>
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1.5">
+              <span className={`w-1.5 h-1.5 rounded-full ${isRunning ? "bg-emerald-400 animate-pulse" : "bg-white/20"}`} />
+              <span className="text-[9px] text-white/30">{isRunning ? "LIVE" : "PAUSED"}</span>
+            </div>
+            <button
+              onClick={() => setCollapsed(true)}
+              className="text-white/25 hover:text-white/60 transition-colors text-sm"
+              title="Collapse panel"
+            >
+              &rsaquo;
+            </button>
           </div>
         </div>
         <div className="flex items-baseline gap-2 mt-2">
@@ -237,6 +260,54 @@ export default function AgentSidebar({ city, simulation }: AgentSidebarProps) {
           })}
         </div>
       </div>
+
+      {/* ── Social Network ───────────────────────────────────────── */}
+      {socialEdges.length > 0 && (
+        <div className="px-5 py-4 border-b border-white/[0.06]">
+          <SectionHeader title="Social Network" />
+          {(() => {
+            const relCounts: Record<string, number> = { family: 0, coworker: 0, friend: 0, acquaintance: 0 };
+            for (const e of socialEdges) relCounts[e.relationship]++;
+            const avgDegree = total > 0 ? ((socialEdges.length * 2) / total).toFixed(1) : "0";
+
+            const RELATION_COLORS: Record<string, string> = {
+              family: "#f472b6",
+              coworker: "#60a5fa",
+              friend: "#a78bfa",
+              acquaintance: "#6b7280",
+            };
+
+            return (
+              <>
+                <div className="flex items-baseline justify-between mb-3">
+                  <span className="text-[10px] text-white/50">{socialEdges.length} connections</span>
+                  <span className="text-[10px] text-white/30 tabular-nums">{avgDegree} avg/agent</span>
+                </div>
+                <div className="space-y-2">
+                  {(["family", "coworker", "friend", "acquaintance"] as const).map((rel) => {
+                    const pct = socialEdges.length > 0 ? Math.round((relCounts[rel] / socialEdges.length) * 100) : 0;
+                    return (
+                      <div key={rel} className="flex items-center gap-2.5">
+                        <div className="flex items-center gap-1.5 w-20 shrink-0">
+                          <span
+                            className="w-1.5 h-1.5 rounded-full shrink-0"
+                            style={{ backgroundColor: RELATION_COLORS[rel], opacity: 0.8 }}
+                          />
+                          <span className="text-[10px] text-white/50 capitalize">{rel}</span>
+                        </div>
+                        <MiniBar pct={pct} color={RELATION_COLORS[rel]} />
+                        <span className="text-[10px] text-white/40 tabular-nums w-7 text-right shrink-0">
+                          {relCounts[rel]}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </>
+            );
+          })()}
+        </div>
+      )}
 
       {/* ── Detected Patterns ────────────────────────────────────── */}
       {patterns.length > 0 && (

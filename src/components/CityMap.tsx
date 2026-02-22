@@ -19,7 +19,7 @@ const WAZE_REFRESH_MS = 120_000;    // 2 minutes
 const BIKESHARE_REFRESH_MS = 60_000; // 1 minute
 const TRANSIT_REFRESH_MS = 30_000;   // 30 seconds
 const WEATHER_REFRESH_MS = 300_000;  // 5 minutes
-const AIRCRAFT_REFRESH_MS = 30_000;  // 30 seconds
+const AIRCRAFT_REFRESH_MS = 120_000;  // 2 minutes (matches OpenSky server cache)
 const MARITIME_REFRESH_MS = 60_000;  // 60 seconds
 const EARTHQUAKE_REFRESH_MS = 60_000; // 60 seconds
 const POI_REFRESH_MS = 300_000;      // 5 minutes (matches server cache TTL)
@@ -222,7 +222,7 @@ export default function CityMap({ city }: CityMapProps) {
 
   // ── Filter state ──────────────────────────────────────────────
   const availableFilters = useMemo(() => getAvailableFilters(city), [city]);
-  const DEFAULT_OFF = useMemo(() => new Set(["flights", "maritime", "quakes", "agents"]), []);
+  const DEFAULT_OFF = useMemo(() => new Set(["flights", "maritime", "agents"]), []);
   const [filters, setFilters] = useState<Record<string, boolean>>(() =>
     Object.fromEntries(availableFilters.map((f) => [f.key, !DEFAULT_OFF.has(f.key)]))
   );
@@ -490,6 +490,9 @@ export default function CityMap({ city }: CityMapProps) {
     if (!mapLoaded) return;
     const m = mapRef.current;
     if (!m) return;
+
+    // Guard against double-invocation (React Strict Mode)
+    if (m.getSource("gibs-satellite")) return;
 
     // Compute yesterday's date for GIBS tiles
     const yesterday = new Date();
