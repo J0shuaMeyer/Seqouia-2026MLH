@@ -7,7 +7,6 @@ function alertToFeature(a: WazeAlert): GeoJSON.Feature {
     type: "Feature",
     geometry: { type: "Point", coordinates: [a.location.x, a.location.y] },
     properties: {
-      kind: "alert",
       type: a.type,
       subtype: a.subtype,
       reliability: a.reliability,
@@ -25,9 +24,8 @@ function jamToFeature(j: WazeJam): GeoJSON.Feature {
       coordinates: j.line.map((p) => [p.x, p.y]),
     },
     properties: {
-      kind: "jam",
       level: j.level,
-      speed: j.speed,
+      speedKMH: j.speedKMH,
       delay: j.delay,
       length: j.length,
       street: j.street ?? null,
@@ -45,17 +43,17 @@ export async function GET(
     return NextResponse.json({ error: "City not found" }, { status: 404 });
   }
 
-  const { alerts, jams } = await fetchCityWazeData(city.bbox);
+  const { alerts, jams } = await fetchCityWazeData(city.bbox, city.country);
 
   const geojson: GeoJSON.FeatureCollection = {
     type: "FeatureCollection",
     features: [
-      ...alerts.map(alertToFeature),
       ...jams.map(jamToFeature),
+      ...alerts.map(alertToFeature),
     ],
   };
 
   return NextResponse.json(geojson, {
-    headers: { "Cache-Control": "public, max-age=120" },
+    headers: { "Cache-Control": "no-store" },
   });
 }

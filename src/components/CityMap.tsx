@@ -11,32 +11,14 @@ interface CityMapProps {
 
 const REFRESH_INTERVAL_MS = 120_000; // 2 minutes
 
-// Alert type → color
-const ALERT_COLORS: [string, string][] = [
-  ["ACCIDENT", "#ef4444"],        // red
-  ["JAM", "#f97316"],             // orange
-  ["WEATHERHAZARD", "#eab308"],   // yellow
-  ["ROAD_CLOSED", "#6b7280"],     // gray
-  ["POLICE", "#3b82f6"],          // blue
-];
-const ALERT_COLOR_DEFAULT = "#9ca3af"; // gray-400
-
-// Jam level → color (0=free flow … 5=blocked)
-const JAM_COLORS: [number, string][] = [
-  [0, "#22c55e"],   // green
-  [1, "#84cc16"],   // lime
-  [2, "#eab308"],   // yellow
-  [3, "#f97316"],   // orange
-  [4, "#ef4444"],   // red
-  [5, "#991b1b"],   // dark red
-];
+// Subtle warm orange — visible on dark basemap without being loud
+const REPORT_COLOR = "#e8853b";
 
 export default function CityMap({ city }: CityMapProps) {
   const mapContainer = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const [mapLoaded, setMapLoaded] = useState(false);
-  const [alertCount, setAlertCount] = useState<number | null>(null);
-  const [jamCount, setJamCount] = useState<number | null>(null);
+  const [reportCount, setReportCount] = useState<number | null>(null);
   const [updating, setUpdating] = useState(false);
 
   const fetchWazeData = useCallback(async () => {
@@ -46,17 +28,8 @@ export default function CityMap({ city }: CityMapProps) {
       if (!res.ok) return;
       const geojson = await res.json();
 
-      // Count alerts and jams
-      let alerts = 0;
-      let jams = 0;
-      for (const f of geojson.features ?? []) {
-        if (f.properties?.kind === "alert") alerts++;
-        else if (f.properties?.kind === "jam") jams++;
-      }
-      setAlertCount(alerts);
-      setJamCount(jams);
+      setReportCount(geojson.features?.length ?? 0);
 
-      // Update or add the MapLibre source
       const m = mapRef.current;
       if (!m) return;
 
@@ -65,7 +38,8 @@ export default function CityMap({ city }: CityMapProps) {
         src.setData(geojson);
       } else {
         m.addSource("waze", { type: "geojson", data: geojson });
-        addWazeLayers(m);
+        addJamLayer(m);     // lines first (below)
+        addReportLayer(m);  // dots on top
       }
     } catch (err) {
       console.error("[CityMap] waze fetch error:", err);
@@ -126,11 +100,11 @@ export default function CityMap({ city }: CityMapProps) {
             {city.country} &middot; {city.timezone}
           </p>
           <p className="text-xs text-white/40 mt-1">
-            {alertCount === null
-              ? "Loading traffic data…"
+            {reportCount === null
+              ? "Loading reports…"
               : updating
                 ? "Updating…"
-                : `${alertCount} alerts · ${jamCount} jams`}
+                : `${reportCount.toLocaleString()} reports`}
           </p>
         </div>
       </div>
@@ -146,44 +120,48 @@ export default function CityMap({ city }: CityMapProps) {
 
 // ── MapLibre layer setup ──────────────────────────────────────────
 
-function addWazeLayers(m: maplibregl.Map) {
-  // Circle layer for alerts (Point geometry)
-  m.addLayer({
-    id: "waze-alerts",
-    type: "circle",
-    source: "waze",
-    filter: ["==", ["geometry-type"], "Point"],
-    paint: {
-      "circle-radius": 5,
-      "circle-opacity": 0.8,
-      "circle-color": [
-        "match",
-        ["get", "type"],
-        ...ALERT_COLORS.flat(),
-        ALERT_COLOR_DEFAULT,
-      ] as unknown as maplibregl.ExpressionSpecification,
-    },
-  });
-
-  // Line layer for jams (LineString geometry)
+function addJamLayer(m: maplibregl.Map) {
   m.addLayer({
     id: "waze-jams",
     type: "line",
     source: "waze",
     filter: ["==", ["geometry-type"], "LineString"],
-    paint: {
-      "line-width": 3,
-      "line-opacity": 0.7,
-      "line-color": [
-        "interpolate",
-        ["linear"],
-        ["get", "level"],
-        ...JAM_COLORS.flat(),
-      ] as unknown as maplibregl.ExpressionSpecification,
-    },
     layout: {
       "line-cap": "round",
       "line-join": "round",
+    },
+    paint: {
+      "line-color": [
+        "interpolate", ["linear"], ["get", "level"],
+        2, "#d4a017",   // amber — light congestion
+        3, "#e07020",   // orange — moderate
+        4, "#d03030",   // red — heavy
+        5, "#8b1a1a",   // dark red — standstill
+      ],
+      "line-width": [
+        "interpolate", ["linear"], ["zoom"],
+        8, 1.5,
+        12, 3,
+        16, 5,
+      ],
+      "line-opacity": 0.8,
+    },
+  });
+}
+
+function addReportLayer(m: maplibregl.Map) {
+  m.addLayer({
+    id: "waze-reports",
+    type: "circle",
+    source: "waze",
+    filter: ["==", ["geometry-type"], "Point"],
+    paint: {
+      "circle-radius": 4,
+      "circle-color": REPORT_COLOR,
+      "circle-opacity": 0.75,
+      "circle-stroke-width": 0.5,
+      "circle-stroke-color": "#ffffff",
+      "circle-stroke-opacity": 0.15,
     },
   });
 }

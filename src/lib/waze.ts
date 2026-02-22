@@ -16,16 +16,15 @@ export interface WazeAlert {
 }
 
 export interface WazeJam {
-  uuid: string;
-  line: { x: number; y: number }[]; // polyline coordinates
-  speed: number;       // meters/second
+  id: number;
+  level: number;       // 0-5 congestion level (0=free flow, 5=blocked)
+  speedKMH: number;
+  speed: number;
   length: number;      // meters
-  delay: number;       // seconds (-1 if blocked)
-  level: number;       // 0=free flow, 5=blocked
+  delay: number;       // seconds of delay
+  line: { x: number; y: number }[];  // polyline coordinates
   street?: string;
-  city?: string;
-  roadType: number;
-  pubMillis: number;
+  roadType?: number;
 }
 
 interface WazeResponse {
@@ -40,63 +39,65 @@ interface BBoxChunk {
   right: number;
 }
 
+// ── Waze region mapping ────────────────────────────────────────────
+// "na" = North America, "row" = Rest of World, "il" = Israel
+
+type WazeEnv = "na" | "row" | "il";
+
+const NA_COUNTRIES = new Set([
+  "United States", "Canada",
+]);
+
+export function getWazeEnv(country: string): WazeEnv {
+  if (country === "Israel") return "il";
+  if (NA_COUNTRIES.has(country)) return "na";
+  return "row";
+}
+
 // ── Constants ──────────────────────────────────────────────────────
 
+const WAZE_URL = "https://www.waze.com/live-map/api/georss";
 const DENSITY_THRESHOLD = 190;
 const MAX_DEPTH = 2;
-const STAGGER_MS = 50;
+const STAGGER_MS = 100;
 const RETRY_DELAY_MS = 1000;
-
-const WAZE_ENDPOINTS = [
-  "https://www.waze.com/live-map/api/georss",
-  "https://www.waze.com/row-rtserver/web/TGeoRSS",
-  "https://world-georss.waze.com/rtserver/web/TGeoRSS",
-];
 
 const UA =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
 
 // ── Fetch a single chunk ───────────────────────────────────────────
 
-async function tryEndpoint(
-  url: string,
+async function fetchWazeChunk(
   chunk: BBoxChunk,
-  signal?: AbortSignal,
-): Promise<WazeResponse | null> {
+  env: WazeEnv,
+): Promise<WazeResponse> {
+  const empty: WazeResponse = { alerts: [], jams: [] };
+
   const params = new URLSearchParams({
     top: String(chunk.top),
     bottom: String(chunk.bottom),
     left: String(chunk.left),
     right: String(chunk.right),
-    env: "row",
+    env,
     types: "alerts,traffic",
   });
 
   try {
-    const res = await fetch(`${url}?${params}`, {
-      headers: { referer: "https://www.waze.com/live-map", "user-agent": UA },
-      signal,
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10000);
+    const res = await fetch(`${WAZE_URL}?${params}`, {
+      headers: {
+        referer: "https://www.waze.com/live-map",
+        "user-agent": UA,
+      },
+      signal: controller.signal,
     });
-    if (!res.ok) return null;
+    clearTimeout(timeout);
+    if (!res.ok) return empty;
     return (await res.json()) as WazeResponse;
   } catch {
-    return null;
+    return empty;
   }
-}
-
-async function fetchWazeChunk(chunk: BBoxChunk): Promise<WazeResponse> {
-  const empty: WazeResponse = { alerts: [], jams: [] };
-
-  // Try each known endpoint until one works
-  for (const endpoint of WAZE_ENDPOINTS) {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 8000);
-    const result = await tryEndpoint(endpoint, chunk, controller.signal);
-    clearTimeout(timeout);
-    if (result) return result;
-  }
-
-  return empty;
 }
 
 // ── Subdivide a bounding box ───────────────────────────────────────
@@ -132,10 +133,11 @@ function delay(ms: number): Promise<void> {
 
 async function fetchChunksStaggered(
   chunks: BBoxChunk[],
+  env: WazeEnv,
 ): Promise<{ chunk: BBoxChunk; data: WazeResponse }[]> {
   const tasks = chunks.map((chunk, i) =>
     delay(i * STAGGER_MS).then(async () => {
-      const data = await fetchWazeChunk(chunk);
+      const data = await fetchWazeChunk(chunk, env);
       return { chunk, data };
     }),
   );
@@ -146,11 +148,12 @@ async function fetchChunksStaggered(
 
 async function fetchAdaptive(
   chunks: BBoxChunk[],
+  env: WazeEnv,
   depth: number,
   alertMap: Map<string, WazeAlert>,
-  jamMap: Map<string, WazeJam>,
+  jamMap: Map<number, WazeJam>,
 ): Promise<void> {
-  const results = await fetchChunksStaggered(chunks);
+  const results = await fetchChunksStaggered(chunks, env);
 
   const toSubdivide: BBoxChunk[] = [];
 
@@ -158,23 +161,20 @@ async function fetchAdaptive(
     const alerts = data.alerts ?? [];
     const jams = data.jams ?? [];
 
-    // Check if this chunk is saturated and can be subdivided further
-    const saturated =
-      (alerts.length >= DENSITY_THRESHOLD || jams.length >= DENSITY_THRESHOLD) &&
-      depth < MAX_DEPTH;
+    for (const j of jams) {
+      if (j.level >= 2 && j.line?.length >= 2) jamMap.set(j.id, j);
+    }
 
-    if (saturated) {
+    if (alerts.length >= DENSITY_THRESHOLD && depth < MAX_DEPTH) {
       toSubdivide.push(chunk);
     } else {
-      // Collect results, dedup by uuid
       for (const a of alerts) alertMap.set(a.uuid, a);
-      for (const j of jams) jamMap.set(j.uuid, j);
     }
   }
 
   if (toSubdivide.length > 0) {
     const subChunks = toSubdivide.flatMap((c) => subdivideBox(c, 2, 2));
-    await fetchAdaptive(subChunks, depth + 1, alertMap, jamMap);
+    await fetchAdaptive(subChunks, env, depth + 1, alertMap, jamMap);
   }
 }
 
@@ -182,27 +182,27 @@ async function fetchAdaptive(
 
 export async function fetchCityWazeData(
   bbox: BBox,
+  country: string,
 ): Promise<{ alerts: WazeAlert[]; jams: WazeJam[] }> {
   const [south, west, north, east] = bbox;
   const root: BBoxChunk = { top: north, bottom: south, left: west, right: east };
+  const env = getWazeEnv(country);
 
-  // Start with a 3×3 grid
   const initialChunks = subdivideBox(root, 3, 3);
-
   const alertMap = new Map<string, WazeAlert>();
-  const jamMap = new Map<string, WazeJam>();
+  const jamMap = new Map<number, WazeJam>();
 
   try {
-    await fetchAdaptive(initialChunks, 0, alertMap, jamMap);
+    await fetchAdaptive(initialChunks, env, 0, alertMap, jamMap);
   } catch (err) {
     console.error("[waze] fetch failed:", err);
   }
 
-  // Retry once if we got nothing — the first endpoint may have been slow
+  // Retry once if we got nothing
   if (alertMap.size === 0 && jamMap.size === 0) {
     await delay(RETRY_DELAY_MS);
     try {
-      await fetchAdaptive(initialChunks, 0, alertMap, jamMap);
+      await fetchAdaptive(initialChunks, env, 0, alertMap, jamMap);
     } catch (err) {
       console.error("[waze] retry failed:", err);
     }

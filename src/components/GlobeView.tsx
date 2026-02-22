@@ -1,10 +1,17 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import * as THREE from "three";
 import Globe, { GlobeMethods } from "react-globe.gl";
 import { cities } from "@/data/cities";
+import { useGlobeData } from "@/context/GlobeDataContext";
+import { getSunPosition } from "@/lib/sun";
+import { activityToRingParams } from "@/lib/activity";
+import { useGlobeShader } from "@/hooks/useGlobeShader";
+import { createOuterGlow } from "@/lib/globe-shader";
+
+// ── Types ──────────────────────────────────────────────────────────
 
 interface CityPoint {
   lat: number;
@@ -15,34 +22,63 @@ interface CityPoint {
   size: number;
 }
 
-const pointsData: CityPoint[] = cities.map((c) => ({
-  lat: c.lat,
-  lng: c.lng,
-  name: c.name,
-  slug: c.slug,
-  color: "rgba(255, 180, 80, 0.9)",
-  size: c.dataTier === 1 ? 0.5 : c.dataTier === 2 ? 0.35 : 0.25,
-}));
+interface RingDatum {
+  lat: number;
+  lng: number;
+  maxRadius: number;
+  propagationSpeed: number;
+  repeatPeriod: number;
+  color: (t: number) => string;
+}
 
-const GLOBE_IMG =
-  "https://cdn.jsdelivr.net/npm/three-globe@2/example/img/earth-night.jpg";
-const BUMP_IMG =
-  "https://cdn.jsdelivr.net/npm/three-globe@2/example/img/earth-topology.png";
+// ── Constants ──────────────────────────────────────────────────────
+
 const STARS_BG =
   "https://cdn.jsdelivr.net/npm/three-globe@2/example/img/night-sky.png";
-const WATER_IMG =
-  "https://cdn.jsdelivr.net/npm/three-globe@2/example/img/earth-water.png";
 const CLOUDS_IMG = "/clouds.png";
 const COUNTRY_GEOJSON_URL = "/ne_110m_admin_0_countries.geojson";
 const CLOUDS_ALT = 0.004;
 const CLOUDS_ROTATION_SPEED = -0.006; // deg/frame
 
+// Small center dots for click targets (rings provide the visual)
+const pointsData: CityPoint[] = cities.map((c) => ({
+  lat: c.lat,
+  lng: c.lng,
+  name: c.name,
+  slug: c.slug,
+  color: "rgba(255, 200, 100, 0.7)",
+  size: 0.15,
+}));
+
+// ── Component ──────────────────────────────────────────────────────
+
 export default function GlobeView() {
   const globeRef = useRef<GlobeMethods | undefined>(undefined);
+  const dirLightRef = useRef<THREE.DirectionalLight | null>(null);
   const router = useRouter();
+  const { activityMap } = useGlobeData();
+  const { material, uniforms } = useGlobeShader();
+
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [globeReady, setGlobeReady] = useState(false);
   const [countriesData, setCountriesData] = useState<object[]>([]);
+
+  // ── Rings data from activity levels ─────────────────────────────
+
+  const ringsData: RingDatum[] = useMemo(() => {
+    return cities.map((city) => {
+      const activity = activityMap[city.slug] ?? 0.2;
+      const params = activityToRingParams(activity);
+      return {
+        lat: city.lat,
+        lng: city.lng,
+        ...params,
+        color: (t: number) => `rgba(255, 160, 50, ${Math.max(0, 1 - t)})`,
+      };
+    });
+  }, [activityMap]);
+
+  // ── Fetch country boundaries ────────────────────────────────────
 
   useEffect(() => {
     fetch(COUNTRY_GEOJSON_URL)
@@ -57,6 +93,8 @@ export default function GlobeView() {
       .catch(() => setCountriesData([]));
   }, []);
 
+  // ── Responsive dimensions ───────────────────────────────────────
+
   useEffect(() => {
     const update = () =>
       setDimensions({
@@ -67,6 +105,8 @@ export default function GlobeView() {
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
   }, []);
+
+  // ── Controls setup ──────────────────────────────────────────────
 
   useEffect(() => {
     if (!globeReady || !globeRef.current) return;
@@ -81,6 +121,34 @@ export default function GlobeView() {
     }
   }, [globeReady]);
 
+  // ── Sun position updates (directional lighting) ─────────────────
+
+  useEffect(() => {
+    if (!globeReady || !globeRef.current || !dirLightRef.current) return;
+    const globe = globeRef.current;
+    const dirLight = dirLightRef.current;
+
+    const updateSun = () => {
+      const { lat, lng } = getSunPosition(new Date());
+
+      // Reposition directional light to match sun
+      const pos = globe.getCoords(lat, lng, 10);
+      if (pos) {
+        dirLight.position.set(pos.x, pos.y, pos.z);
+
+        // Update shader sun direction uniform (normalized world-space vector)
+        const dir = new THREE.Vector3(pos.x, pos.y, pos.z).normalize();
+        uniforms.current.sunDirection.value.copy(dir);
+      }
+    };
+
+    updateSun();
+    const id = setInterval(updateSun, 60_000);
+    return () => clearInterval(id);
+  }, [globeReady, uniforms]);
+
+  // ── Click handler ───────────────────────────────────────────────
+
   const handlePointClick = useCallback(
     (point: object) => {
       const p = point as CityPoint;
@@ -88,6 +156,8 @@ export default function GlobeView() {
     },
     [router]
   );
+
+  // ── Globe ready: setup materials, clouds, and lighting ──────────
 
   const handleGlobeReady = useCallback(() => {
     setGlobeReady(true);
@@ -97,17 +167,23 @@ export default function GlobeView() {
     const radius = globe.getGlobeRadius();
     if (!scene) return;
 
-    // Custom globe material: bumpScale + specular for water
-    const globeMaterial = (globe as { globeMaterial?: () => THREE.Material }).globeMaterial?.();
-    if (globeMaterial && "bumpScale" in globeMaterial) {
-      (globeMaterial as THREE.MeshPhongMaterial).bumpScale = 10;
-      new THREE.TextureLoader().load(WATER_IMG, (texture) => {
-        const mat = globeMaterial as THREE.MeshPhongMaterial;
-        mat.specularMap = texture;
-        mat.specular = new THREE.Color("grey");
-        mat.shininess = 15;
-      });
+    // Adjust lighting (only affects cloud layer now — globe uses custom shader)
+    const currentLights = globe.lights();
+    const ambLight = currentLights.find(
+      (l): l is THREE.AmbientLight => l instanceof THREE.AmbientLight
+    );
+    const dirLight = currentLights.find(
+      (l): l is THREE.DirectionalLight => l instanceof THREE.DirectionalLight
+    );
+
+    if (ambLight) ambLight.intensity = 0.4;
+    if (dirLight) {
+      dirLight.intensity = 1.0;
+      dirLightRef.current = dirLight;
     }
+
+    // Outer atmospheric glow
+    scene.add(createOuterGlow(radius));
 
     // Cloud layer
     new THREE.TextureLoader().load(CLOUDS_IMG, (cloudsTexture) => {
@@ -116,6 +192,8 @@ export default function GlobeView() {
         new THREE.MeshPhongMaterial({
           map: cloudsTexture,
           transparent: true,
+          opacity: 0.65,
+          depthWrite: false,
         })
       );
       scene.add(clouds);
@@ -126,6 +204,8 @@ export default function GlobeView() {
       animate();
     });
   }, []);
+
+  // ── Render ──────────────────────────────────────────────────────
 
   if (dimensions.width <= 0 || dimensions.height <= 0) {
     return (
@@ -140,20 +220,33 @@ export default function GlobeView() {
       ref={globeRef}
       width={dimensions.width}
       height={dimensions.height}
-      globeImageUrl={GLOBE_IMG}
-      bumpImageUrl={BUMP_IMG}
+      globeImageUrl=""
+      globeMaterial={material}
       backgroundImageUrl={STARS_BG}
       backgroundColor="#05050a"
       globeCurvatureResolution={3}
+      // Country polygons
       polygonsData={countriesData}
       polygonGeoJsonGeometry="geometry"
       polygonCapColor="rgba(0,0,0,0)"
       polygonSideColor="rgba(0,0,0,0)"
       polygonStrokeColor="rgba(255,255,255,0.25)"
       polygonAltitude={0.001}
+      // Atmosphere
       showAtmosphere={true}
-      atmosphereColor="#6b9bc7"
+      atmosphereColor="#5a9fd4"
       atmosphereAltitude={0.18}
+      // Pulsing activity rings
+      ringsData={ringsData}
+      ringLat="lat"
+      ringLng="lng"
+      ringColor="color"
+      ringMaxRadius="maxRadius"
+      ringPropagationSpeed="propagationSpeed"
+      ringRepeatPeriod="repeatPeriod"
+      ringAltitude={0.005}
+      ringResolution={48}
+      // City center dots (click targets)
       pointsData={pointsData}
       pointLat="lat"
       pointLng="lng"
