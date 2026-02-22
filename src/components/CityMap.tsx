@@ -17,6 +17,7 @@ const BIKESHARE_REFRESH_MS = 60_000; // 1 minute
 const TRANSIT_REFRESH_MS = 30_000;   // 30 seconds
 const WEATHER_REFRESH_MS = 300_000;  // 5 minutes
 const AIRCRAFT_REFRESH_MS = 30_000;  // 30 seconds
+const MARITIME_REFRESH_MS = 60_000;  // 60 seconds
 
 const EMPTY_FC: GeoJSON.FeatureCollection = {
   type: "FeatureCollection",
@@ -192,6 +193,7 @@ export default function CityMap({ city }: CityMapProps) {
   const [mapLoaded, setMapLoaded] = useState(false);
   const [reportCount, setReportCount] = useState<number | null>(null);
   const [aircraftCount, setAircraftCount] = useState<number | null>(null);
+  const [vesselCount, setVesselCount] = useState<number | null>(null);
   const [updating, setUpdating] = useState(false);
   const [weather, setWeather] = useState<WeatherInfo | null>(null);
   const [localTime, setLocalTime] = useState(() => getLocalTimeWithSeconds(city.timezone));
@@ -334,6 +336,27 @@ export default function CityMap({ city }: CityMapProps) {
     }
   }, [city.slug]);
 
+  // ── Maritime data ──────────────────────────────────────────────
+
+  const fetchMaritimeData = useCallback(async () => {
+    if (!city.isCoastal) return;
+    try {
+      const res = await fetch(`/api/maritime/${city.slug}`);
+      if (!res.ok) return;
+      const geojson = await res.json();
+
+      setVesselCount(geojson.features?.length ?? 0);
+
+      const m = mapRef.current;
+      if (!m) return;
+
+      const src = m.getSource("maritime") as maplibregl.GeoJSONSource | undefined;
+      if (src) src.setData(geojson);
+    } catch (err) {
+      console.error("[CityMap] maritime fetch error:", err);
+    }
+  }, [city.slug, city.isCoastal]);
+
   // ── POI data (one-time fetch) ─────────────────────────────────
 
   const fetchPOIData = useCallback(async () => {
@@ -424,6 +447,7 @@ export default function CityMap({ city }: CityMapProps) {
     m.addSource("transit", { type: "geojson", data: EMPTY_FC });
     m.addSource("transit-network", { type: "geojson", data: EMPTY_FC });
     m.addSource("waze", { type: "geojson", data: EMPTY_FC });
+    m.addSource("maritime", { type: "geojson", data: EMPTY_FC });
 
     // ── Layers (bottom → top) — uniform color palette ──
 
@@ -560,6 +584,23 @@ export default function CityMap({ city }: CityMapProps) {
       },
     });
 
+    // Maritime: blue circles sized by vessel type
+    m.addLayer({
+      id: "maritime",
+      type: "circle",
+      source: "maritime",
+      paint: {
+        "circle-radius": ["match", ["get", "shipCategory"],
+          "cargo", 5, "tanker", 5, "passenger", 4,
+          "fishing", 2.5, "pleasure", 2, 3],
+        "circle-color": "#0ea5e9",
+        "circle-opacity": 0.7,
+        "circle-stroke-width": 1,
+        "circle-stroke-color": "#ffffff",
+        "circle-stroke-opacity": 0.3,
+      },
+    });
+
     // Aircraft: cyan airplane icons rotated by heading (always visible)
     m.addLayer({
       id: "aircraft",
@@ -596,13 +637,14 @@ export default function CityMap({ city }: CityMapProps) {
     ];
     if (city.bikeNetwork) fetches.push(fetchBikeData());
     if (city.transitType) fetches.push(fetchTransitData());
+    if (city.isCoastal) fetches.push(fetchMaritimeData());
 
     Promise.allSettled(fetches).then(() => {
       window.dispatchEvent(
         new CustomEvent("city-data-ready", { detail: { slug: city.slug } })
       );
     });
-  }, [mapLoaded, city.slug, city.bikeNetwork, city.transitType, fetchWazeData, fetchWeatherInfo, fetchPOIData, fetchBikeData, fetchTransitData, fetchAircraftData]);
+  }, [mapLoaded, city.slug, city.bikeNetwork, city.transitType, city.isCoastal, fetchWazeData, fetchWeatherInfo, fetchPOIData, fetchBikeData, fetchTransitData, fetchAircraftData, fetchMaritimeData]);
 
   // ── Refresh intervals (no initial call — coordinated effect handles it) ──
 
@@ -636,6 +678,12 @@ export default function CityMap({ city }: CityMapProps) {
     return () => clearInterval(id);
   }, [mapLoaded, fetchAircraftData]);
 
+  useEffect(() => {
+    if (!mapLoaded || !city.isCoastal) return;
+    const id = setInterval(fetchMaritimeData, MARITIME_REFRESH_MS);
+    return () => clearInterval(id);
+  }, [mapLoaded, fetchMaritimeData, city.isCoastal]);
+
   // ── Live clock (updates every second) ──
   useEffect(() => {
     const id = setInterval(() => {
@@ -658,6 +706,7 @@ export default function CityMap({ city }: CityMapProps) {
         weather={weather}
         reportCount={reportCount}
         aircraftCount={aircraftCount}
+        vesselCount={vesselCount}
         bikeStationCount={bikeStationCount}
         transitStopCount={transitStopCount}
         poiCount={poiCount}

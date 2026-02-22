@@ -16,6 +16,7 @@ interface CitySidebarProps {
   weather: WeatherInfo | null;
   reportCount: number | null;
   aircraftCount: number | null;
+  vesselCount: number | null;
   bikeStationCount: number | null;
   transitStopCount: number | null;
   poiCount: number | null;
@@ -44,6 +45,7 @@ export default function CitySidebar({
   weather,
   reportCount,
   aircraftCount,
+  vesselCount,
   bikeStationCount,
   transitStopCount,
   poiCount,
@@ -93,6 +95,9 @@ export default function CitySidebar({
         </p>
         <DataRow label="Traffic Reports" value={reportCount !== null ? reportCount.toLocaleString() : "—"} />
         <DataRow label="Aircraft" value={aircraftCount !== null ? aircraftCount.toLocaleString() : "—"} />
+        {city.isCoastal && (
+          <DataRow label="Vessels" value={vesselCount !== null ? vesselCount.toLocaleString() : "—"} />
+        )}
         {city.bikeNetwork && (
           <DataRow label="Bike Stations" value={bikeStationCount !== null ? bikeStationCount.toLocaleString() : "—"} />
         )}

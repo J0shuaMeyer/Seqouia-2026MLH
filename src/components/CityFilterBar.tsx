@@ -17,6 +17,7 @@ export const ALL_FILTERS: FilterDefinition[] = [
   { key: "bikes",     icon: "", label: "BIKES",     layerIds: ["bikeshare", "bikeshare-network"], color: "#a3e635", available: (c) => !!c.bikeNetwork },
   { key: "transit",   icon: "", label: "TRANSIT",   layerIds: ["transit", "transit-network"],     color: "#a78bfa", available: (c) => !!c.transitType },
   { key: "flights",   icon: "", label: "FLIGHTS",   layerIds: ["aircraft"],                       color: "#22d3ee", available: () => true },
+  { key: "maritime",  icon: "", label: "MARITIME",  layerIds: ["maritime"],                       color: "#0ea5e9", available: (c) => !!c.isCoastal },
   { key: "places",    icon: "", label: "PLACES",    layerIds: ["pois", "pois-labels"],            color: "#d4d4d8", available: () => true },
   { key: "satellite", icon: "", label: "SATELLITE", layerIds: ["gibs-satellite"],                 color: "#818cf8", available: () => true },
 ];

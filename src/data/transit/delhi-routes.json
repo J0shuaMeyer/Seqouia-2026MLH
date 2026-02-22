@@ -1,0 +1,42 @@
+{
+  "dl-red": {
+    "name": "Red Line",
+    "color": "#EE1C25",
+    "stopIds": ["dl-RD-01","dl-RD-02","dl-RD-03","dl-RD-04","dl-RD-05","dl-RD-06","dl-RD-07","dl-RD-08","dl-RD-09","dl-RD-10","dl-RD-11","dl-RD-12","dl-RD-13","dl-RD-14","dl-RD-15","dl-RD-16","dl-RD-17","dl-RD-18","dl-RD-19","dl-RD-20","dl-RD-21","dl-RD-22","dl-RD-23","dl-RD-24","dl-RD-25","dl-RD-26","dl-RD-27","dl-RD-28"]
+  },
+  "dl-yellow": {
+    "name": "Yellow Line",
+    "color": "#FFCB08",
+    "stopIds": ["dl-YL-01","dl-YL-02","dl-YL-03","dl-YL-04","dl-YL-05","dl-YL-06","dl-YL-07","dl-YL-08","dl-YL-09","dl-YL-10","dl-YL-11","dl-YL-12","dl-YL-13","dl-YL-14","dl-YL-15","dl-YL-16","dl-YL-17","dl-YL-18","dl-YL-19","dl-YL-20","dl-YL-21","dl-YL-22","dl-YL-23","dl-YL-24","dl-YL-25","dl-YL-26","dl-YL-27","dl-YL-28","dl-YL-29","dl-YL-30","dl-YL-31","dl-YL-32","dl-YL-33","dl-YL-34","dl-YL-35","dl-YL-36","dl-YL-37"]
+  },
+  "dl-blue": {
+    "name": "Blue Line",
+    "color": "#0B56A7",
+    "stopIds": ["dl-BL-01","dl-BL-02","dl-BL-03","dl-BL-04","dl-BL-05","dl-BL-06","dl-BL-07","dl-BL-08","dl-BL-09","dl-BL-10","dl-BL-11","dl-BL-12","dl-BL-13","dl-BL-14","dl-BL-15","dl-BL-16","dl-BL-17","dl-BL-18","dl-BL-19","dl-BL-20","dl-BL-21","dl-BL-22","dl-BL-23","dl-BL-24","dl-BL-25","dl-BL-26","dl-BL-27","dl-BL-28","dl-BL-29","dl-BL-30","dl-BL-31","dl-BL-32","dl-BL-33","dl-BL-34","dl-BL-35","dl-BL-36","dl-BL-37","dl-BL-38","dl-BL-39","dl-BL-40","dl-BL-41","dl-BL-42","dl-BL-43","dl-BL-44","dl-BL-45","dl-BL-46","dl-BL-47","dl-BL-48","dl-BL-49","dl-BL-50","dl-BL-51","dl-BL-52","dl-BL-53","dl-BL-54","dl-BL-55","dl-BL-56","dl-BL-57"]
+  },
+  "dl-green": {
+    "name": "Green Line",
+    "color": "#00A651",
+    "stopIds": ["dl-GL-01","dl-GL-02","dl-GL-03","dl-GL-04","dl-GL-05","dl-GL-06","dl-GL-07","dl-GL-08","dl-GL-09","dl-GL-10","dl-GL-11","dl-GL-12","dl-GL-13","dl-GL-14","dl-GL-15","dl-GL-16","dl-GL-17","dl-GL-18","dl-GL-19","dl-GL-20","dl-GL-21"]
+  },
+  "dl-violet": {
+    "name": "Violet Line",
+    "color": "#8B569F",
+    "stopIds": ["dl-VL-01","dl-VL-02","dl-VL-03","dl-VL-04","dl-VL-05","dl-VL-06","dl-VL-07","dl-VL-08","dl-VL-09","dl-VL-10","dl-VL-11","dl-VL-12","dl-VL-13","dl-VL-14","dl-VL-15","dl-VL-16","dl-VL-17","dl-VL-18","dl-VL-19","dl-VL-20","dl-VL-21","dl-VL-22","dl-VL-23","dl-VL-24","dl-VL-25","dl-VL-26","dl-VL-27","dl-VL-28","dl-VL-29","dl-VL-30","dl-VL-31","dl-VL-32","dl-VL-33","dl-VL-34"]
+  },
+  "dl-magenta": {
+    "name": "Magenta Line",
+    "color": "#E4007C",
+    "stopIds": ["dl-MG-01","dl-MG-02","dl-MG-03","dl-MG-04","dl-MG-05","dl-MG-06","dl-MG-07","dl-MG-08","dl-MG-09","dl-MG-10","dl-MG-11","dl-MG-12","dl-MG-13","dl-MG-14","dl-MG-15","dl-MG-16","dl-MG-17","dl-MG-18","dl-MG-19","dl-MG-20","dl-MG-21","dl-MG-22","dl-MG-23","dl-MG-24","dl-MG-25"]
+  },
+  "dl-pink": {
+    "name": "Pink Line",
+    "color": "#FF69B4",
+    "stopIds": ["dl-PK-01","dl-PK-02","dl-PK-03","dl-PK-04","dl-PK-05","dl-PK-06","dl-PK-07","dl-PK-08","dl-PK-09","dl-PK-10","dl-PK-11","dl-PK-12","dl-PK-13","dl-PK-14","dl-PK-15","dl-PK-16","dl-PK-17","dl-PK-18","dl-PK-19","dl-PK-20","dl-PK-21","dl-PK-22","dl-PK-23","dl-PK-24","dl-PK-25","dl-PK-26","dl-PK-27","dl-PK-28","dl-PK-29","dl-PK-30","dl-PK-31","dl-PK-32","dl-PK-33","dl-PK-34","dl-PK-35","dl-PK-36","dl-PK-37","dl-PK-38"]
+  },
+  "dl-airport": {
+    "name": "Airport Express",
+    "color": "#F58220",
+    "stopIds": ["dl-AE-01","dl-AE-02","dl-AE-03","dl-AE-04","dl-AE-05","dl-AE-06"]
+  }
+}
