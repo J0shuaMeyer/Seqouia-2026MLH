@@ -1,0 +1,210 @@
+[
+  {
+    "name": "Hazrat Shahjalal International Airport",
+    "lat": 23.8433,
+    "lon": 90.3978,
+    "category": "airport",
+    "hours": "24h",
+    "google_place_id": "ChIJgWsCh7C_VTcRwgRZ3btjpY4"
+  },
+  {
+    "name": "Kamalapur Railway Station",
+    "lat": 23.7305,
+    "lon": 90.4263,
+    "category": "transit_hub",
+    "hours": "24h",
+    "google_place_id": "ChIJW_Nvmm7HVTcRKXVf2D_cZ_E"
+  },
+  {
+    "name": "Sadarghat River Terminal",
+    "lat": 23.7053,
+    "lon": 90.4095,
+    "category": "transit_hub",
+    "hours": "06:00-22:00",
+    "google_place_id": "ChIJhXPYAVzHVTcRhBvkE7TQsks"
+  },
+  {
+    "name": "Sher-e-Bangla National Cricket Stadium",
+    "lat": 23.8041,
+    "lon": 90.3581,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": "ChIJbf7bN7G_VTcR0EMVY1MAnPk"
+  },
+  {
+    "name": "Bangabandhu National Stadium",
+    "lat": 23.7234,
+    "lon": 90.4081,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": "ChIJK0SRem_HVTcR1tXiVCRqNjk"
+  },
+  {
+    "name": "Bashundhara City",
+    "lat": 23.7508,
+    "lon": 90.3877,
+    "category": "mall",
+    "hours": "10:00-21:00",
+    "google_place_id": "ChIJ2Ys_zXjHVTcRH7qNLY5qDno"
+  },
+  {
+    "name": "Jamuna Future Park",
+    "lat": 23.8133,
+    "lon": 90.4242,
+    "category": "mall",
+    "hours": "10:00-21:00",
+    "google_place_id": "ChIJi2AJZuS_VTcRcOIAdScV2JY"
+  },
+  {
+    "name": "Shimanto Shambhar",
+    "lat": 23.7374,
+    "lon": 90.3774,
+    "category": "mall",
+    "hours": "10:00-21:00",
+    "google_place_id": "ChIJNy7YrWDHVTcRxuR9QKFHQ6c"
+  },
+  {
+    "name": "Shimanto Square",
+    "lat": 23.7381,
+    "lon": 90.3769,
+    "category": "mall",
+    "hours": "10:00-21:00",
+    "google_place_id": "ChIJr4BXrGDHVTcRVl8hA_pXqZU"
+  },
+  {
+    "name": "New Market (Dhaka)",
+    "lat": 23.7333,
+    "lon": 90.3839,
+    "category": "plaza",
+    "hours": "09:00-20:00",
+    "google_place_id": "ChIJ66jEf2THVTcR3NbZkgqcgOU"
+  },
+  {
+    "name": "Kawran Bazar",
+    "lat": 23.7543,
+    "lon": 90.3934,
+    "category": "plaza",
+    "hours": "06:00-22:00",
+    "google_place_id": "ChIJY2_rZ3rHVTcR7nwPO7LGGGA"
+  },
+  {
+    "name": "Gulshan DCC Market",
+    "lat": 23.7798,
+    "lon": 90.4160,
+    "category": "plaza",
+    "hours": "09:00-21:00",
+    "google_place_id": "ChIJyQZhRo-_VTcRqLdhWRYb4oE"
+  },
+  {
+    "name": "Lalbagh Fort",
+    "lat": 23.7193,
+    "lon": 90.3877,
+    "category": "museum",
+    "hours": "10:00-18:00",
+    "google_place_id": "ChIJ-4hnnlvHVTcRNI3G5Xwf7ik"
+  },
+  {
+    "name": "Ahsan Manzil",
+    "lat": 23.7052,
+    "lon": 90.4037,
+    "category": "museum",
+    "hours": "10:30-17:00",
+    "google_place_id": "ChIJa1j2DVzHVTcRkxXp_lJrOYo"
+  },
+  {
+    "name": "Jatiya Sangsad Bhaban (National Parliament House)",
+    "lat": 23.7625,
+    "lon": 90.3785,
+    "category": "museum",
+    "hours": "varies",
+    "google_place_id": "ChIJ89FN_nfHVTcR6A5xO23kXbo"
+  },
+  {
+    "name": "Hatirjheel",
+    "lat": 23.7496,
+    "lon": 90.3968,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJB7KZZHjHVTcR_NJf5xjfxXQ"
+  },
+  {
+    "name": "University of Dhaka",
+    "lat": 23.7350,
+    "lon": 90.3908,
+    "category": "university",
+    "hours": "07:00-21:00",
+    "google_place_id": "ChIJ_R7_VWTHVTcRnZCpXxnzKMA"
+  },
+  {
+    "name": "BUET",
+    "lat": 23.7259,
+    "lon": 90.3925,
+    "category": "university",
+    "hours": "07:00-21:00",
+    "google_place_id": "ChIJf3n6UGPHVTcRBHGb-qRt1ys"
+  },
+  {
+    "name": "North South University",
+    "lat": 23.7940,
+    "lon": 90.4035,
+    "category": "university",
+    "hours": "08:00-20:00",
+    "google_place_id": "ChIJ67r-LJO_VTcRq3cwZvXPIlQ"
+  },
+  {
+    "name": "BRAC University",
+    "lat": 23.7748,
+    "lon": 90.4043,
+    "category": "university",
+    "hours": "08:00-20:00",
+    "google_place_id": "ChIJKzG4UIq_VTcR7TFE7UEAMF0"
+  },
+  {
+    "name": "Motijheel CBD",
+    "lat": 23.7333,
+    "lon": 90.4175,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJqasmpm_HVTcRq6dL4H2lVJU"
+  },
+  {
+    "name": "Gulshan Circle 1",
+    "lat": 23.7798,
+    "lon": 90.4144,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJkUVw_oq_VTcRpXpHpQ0rRDc"
+  },
+  {
+    "name": "Banani",
+    "lat": 23.7607,
+    "lon": 90.4043,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJT4t7yH-_VTcRRIhUsPvFJjY"
+  },
+  {
+    "name": "National Museum of Bangladesh",
+    "lat": 23.7389,
+    "lon": 90.3914,
+    "category": "museum",
+    "hours": "10:30-17:00",
+    "google_place_id": "ChIJBe1Q3mTHVTcRkHDSmHkWLmo"
+  },
+  {
+    "name": "Liberation War Museum",
+    "lat": 23.7590,
+    "lon": 90.3890,
+    "category": "museum",
+    "hours": "10:00-18:00",
+    "google_place_id": "ChIJXeT5VXfHVTcRSTuJ8fGYR1c"
+  },
+  {
+    "name": "Dhaka Medical College Hospital",
+    "lat": 23.7270,
+    "lon": 90.3970,
+    "category": "hospital",
+    "hours": "24h",
+    "google_place_id": "ChIJT0n_f2PHVTcRQ5F3RBaVY3M"
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "kol-blue": {
+    "name": "Blue Line",
+    "color": "#0057A7",
+    "stopIds": ["kol-BL-01","kol-BL-02","kol-BL-03","kol-BL-04","kol-BL-05","kol-BL-06","kol-BL-07","kol-BL-08","kol-BL-09","kol-BL-10","kol-BL-11","kol-BL-12","kol-BL-13","kol-BL-14","kol-BL-15","kol-BL-16","kol-BL-17","kol-BL-18","kol-BL-19","kol-BL-20","kol-BL-21","kol-BL-22","kol-BL-23","kol-BL-24","kol-BL-25","kol-BL-26"]
+  },
+  "kol-green": {
+    "name": "Green Line",
+    "color": "#00A651",
+    "stopIds": ["kol-GR-01","kol-GR-02","kol-GR-03","kol-GR-04","kol-GR-05","kol-GR-06","kol-GR-07","kol-GR-08","kol-GR-09","kol-GR-10","kol-GR-11","kol-GR-12"]
+  },
+  "kol-purple": {
+    "name": "Purple Line",
+    "color": "#800080",
+    "stopIds": ["kol-PR-01","kol-PR-02","kol-PR-03","kol-PR-04","kol-PR-05","kol-PR-06","kol-PR-07"]
+  },
+  "kol-yellow": {
+    "name": "Yellow Line",
+    "color": "#FFD700",
+    "stopIds": ["kol-YL-01","kol-YL-02","kol-YL-03","kol-YL-04"]
+  },
+  "kol-orange": {
+    "name": "Orange Line",
+    "color": "#FF8C00",
+    "stopIds": ["kol-OL-01","kol-OL-02","kol-OL-03","kol-OL-04","kol-OL-05","kol-OL-06","kol-OL-07","kol-OL-08","kol-OL-09"]
+  }
+}

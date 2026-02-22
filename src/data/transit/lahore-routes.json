@@ -1,0 +1,12 @@
+{
+  "lhr-orange": {
+    "name": "Orange Line Metro",
+    "color": "#FF8C00",
+    "stopIds": ["lhr-OL-01","lhr-OL-02","lhr-OL-03","lhr-OL-04","lhr-OL-05","lhr-OL-06","lhr-OL-07","lhr-OL-08","lhr-OL-09","lhr-OL-10","lhr-OL-11","lhr-OL-12","lhr-OL-13","lhr-OL-14","lhr-OL-15","lhr-OL-16","lhr-OL-17","lhr-OL-18","lhr-OL-19","lhr-OL-20","lhr-OL-21","lhr-OL-22","lhr-OL-23","lhr-OL-24","lhr-OL-25","lhr-OL-26"]
+  },
+  "lhr-metrobus": {
+    "name": "Metrobus BRT",
+    "color": "#E4002B",
+    "stopIds": ["lhr-MB-01","lhr-MB-02","lhr-MB-03","lhr-MB-04","lhr-MB-05","lhr-MB-06","lhr-MB-07","lhr-MB-08","lhr-MB-09","lhr-MB-10","lhr-MB-11","lhr-MB-12","lhr-MB-13","lhr-MB-14","lhr-MB-15","lhr-MB-16","lhr-MB-17","lhr-MB-18","lhr-MB-19","lhr-MB-20","lhr-MB-21","lhr-MB-22","lhr-MB-23","lhr-MB-24","lhr-MB-25","lhr-MB-26","lhr-MB-27"]
+  }
+}

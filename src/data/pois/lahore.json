@@ -1,0 +1,242 @@
+[
+  {
+    "name": "Allama Iqbal International Airport",
+    "lat": 31.5215,
+    "lon": 74.4036,
+    "category": "airport",
+    "hours": "24h",
+    "google_place_id": "ChIJR2zl7bYJGTkR7OkOYVRnNCA"
+  },
+  {
+    "name": "Lahore Junction Railway Station",
+    "lat": 31.5771,
+    "lon": 74.3362,
+    "category": "transit_hub",
+    "hours": "24h",
+    "google_place_id": "ChIJv5Uy8P0JGTkR7M2HB50dU2g"
+  },
+  {
+    "name": "Lahore Fort (Shahi Qila)",
+    "lat": 31.5886,
+    "lon": 74.3091,
+    "category": "museum",
+    "hours": "08:30-17:00",
+    "google_place_id": "ChIJ39_7ixAKGTkRWP3BYQVmVPQ"
+  },
+  {
+    "name": "Badshahi Mosque",
+    "lat": 31.5862,
+    "lon": 74.3061,
+    "category": "museum",
+    "hours": "05:00-20:00",
+    "google_place_id": "ChIJJTQ6qRAKGTkRLJVRJGzJkL4"
+  },
+  {
+    "name": "Shalimar Gardens (UNESCO)",
+    "lat": 31.5848,
+    "lon": 74.3758,
+    "category": "museum",
+    "hours": "08:00-18:00",
+    "google_place_id": "ChIJZaICkW0KGTkRkxJz6t3Y5EU"
+  },
+  {
+    "name": "Minar-e-Pakistan",
+    "lat": 31.5888,
+    "lon": 74.3057,
+    "category": "museum",
+    "hours": "08:00-22:00",
+    "google_place_id": "ChIJ1fRNhhAKGTkRD2KT5mbLxrs"
+  },
+  {
+    "name": "Gaddafi Stadium",
+    "lat": 31.5204,
+    "lon": 74.3461,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": "ChIJ_eHLIfgJGTkR6wvCdGHpxQY"
+  },
+  {
+    "name": "Punjab Stadium",
+    "lat": 31.5065,
+    "lon": 74.3258,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": "ChIJ8cRbFNQJGTkRVJOFMkZVbz0"
+  },
+  {
+    "name": "Packages Mall",
+    "lat": 31.4712,
+    "lon": 74.3560,
+    "category": "mall",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJ23uQ3ZIJGTkR5T4KKJLrjfI"
+  },
+  {
+    "name": "Emporium Mall",
+    "lat": 31.4678,
+    "lon": 74.2666,
+    "category": "mall",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJVfxnmhsIGTkRxC_JDvDvIvc"
+  },
+  {
+    "name": "Fortress Square",
+    "lat": 31.5324,
+    "lon": 74.3631,
+    "category": "mall",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJm-YlAwEKGTkRKTfh-v6UiL4"
+  },
+  {
+    "name": "Mall of Lahore",
+    "lat": 31.5294,
+    "lon": 74.3784,
+    "category": "mall",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJC5cXnfMJGTkRlIaS8fvKMeU"
+  },
+  {
+    "name": "Anarkali Bazaar",
+    "lat": 31.5486,
+    "lon": 74.3150,
+    "category": "plaza",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJsxFGhPAJGTkRq3-q0VlN0oI"
+  },
+  {
+    "name": "Liberty Market",
+    "lat": 31.5110,
+    "lon": 74.3438,
+    "category": "plaza",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJe6EPMM4JGTkRgkA-VKDM0Qo"
+  },
+  {
+    "name": "Hall Road Electronics Market",
+    "lat": 31.5636,
+    "lon": 74.3189,
+    "category": "plaza",
+    "hours": "10:00-20:00",
+    "google_place_id": "ChIJbTj_LPcJGTkR-LxTfPVHfBg"
+  },
+  {
+    "name": "University of the Punjab",
+    "lat": 31.4993,
+    "lon": 74.3054,
+    "category": "university",
+    "hours": "08:00-17:00",
+    "google_place_id": "ChIJ55a6X98JGTkR8RyF75y5Xdg"
+  },
+  {
+    "name": "LUMS",
+    "lat": 31.4451,
+    "lon": 74.3074,
+    "category": "university",
+    "hours": "08:00-20:00",
+    "google_place_id": "ChIJl49bNNcIGTkR4WIx_TdGzWE"
+  },
+  {
+    "name": "UET Lahore",
+    "lat": 31.5737,
+    "lon": 74.3553,
+    "category": "university",
+    "hours": "08:00-17:00",
+    "google_place_id": "ChIJVc6yXfcJGTkRVCblJv_JkgE"
+  },
+  {
+    "name": "GCU Lahore",
+    "lat": 31.5728,
+    "lon": 74.3078,
+    "category": "university",
+    "hours": "08:00-17:00",
+    "google_place_id": "ChIJR8MFdgUKGTkR3VqGrQM-oqI"
+  },
+  {
+    "name": "FAST-NU Lahore",
+    "lat": 31.4811,
+    "lon": 74.3035,
+    "category": "university",
+    "hours": "08:00-18:00",
+    "google_place_id": "ChIJQ0LKjtgJGTkRw8n8kGdxjm0"
+  },
+  {
+    "name": "Jilani Park (Race Course)",
+    "lat": 31.5445,
+    "lon": 74.3345,
+    "category": "plaza",
+    "hours": "06:00-22:00",
+    "google_place_id": "ChIJAyD_OfAJGTkR-EWSV9N4-Ss"
+  },
+  {
+    "name": "Fort Road Food Street",
+    "lat": 31.5870,
+    "lon": 74.3112,
+    "category": "restaurant",
+    "hours": "17:00-01:00",
+    "google_place_id": "ChIJE6v5mhAKGTkR7Zzz6D0HPsE"
+  },
+  {
+    "name": "Gawalmandi Food Street",
+    "lat": 31.5657,
+    "lon": 74.3142,
+    "category": "restaurant",
+    "hours": "12:00-01:00",
+    "google_place_id": "ChIJb1R90PgJGTkRxqv2Qg8WJjI"
+  },
+  {
+    "name": "Walled City of Lahore",
+    "lat": 31.5820,
+    "lon": 74.3150,
+    "category": "museum",
+    "hours": "24h",
+    "google_place_id": "ChIJ1eqQUAUKGTkRl5vxS2_SjBs"
+  },
+  {
+    "name": "Lahore Museum",
+    "lat": 31.5678,
+    "lon": 74.3120,
+    "category": "museum",
+    "hours": "09:00-17:00",
+    "google_place_id": "ChIJyyCIq_wJGTkRQ4S3v9nqD8U"
+  },
+  {
+    "name": "Shahi Hammam",
+    "lat": 31.5860,
+    "lon": 74.3110,
+    "category": "museum",
+    "hours": "09:00-17:00",
+    "google_place_id": "ChIJidZGpQ8KGTkRX-3pRrQaLOQ"
+  },
+  {
+    "name": "Iqbal Park",
+    "lat": 31.5888,
+    "lon": 74.3057,
+    "category": "plaza",
+    "hours": "06:00-22:00",
+    "google_place_id": "ChIJ73MamBAKGTkR5sMz7xBi5Z8"
+  },
+  {
+    "name": "Gulberg Main Boulevard",
+    "lat": 31.5150,
+    "lon": 74.3500,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJy2YTAM4JGTkRAIVN4V44hHQ"
+  },
+  {
+    "name": "Defence DHA Phase 5",
+    "lat": 31.4640,
+    "lon": 74.3720,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJyeNJ_4oJGTkRW3bH9YQBB5Q"
+  },
+  {
+    "name": "Expo Centre Lahore",
+    "lat": 31.4630,
+    "lon": 74.3820,
+    "category": "convention_center",
+    "hours": "varies",
+    "google_place_id": "ChIJz12Fx5AJGTkRG7SZ4LGTJRU"
+  }
+]

@@ -1,0 +1,282 @@
+[
+  {
+    "name": "Netaji Subhas Chandra Bose International Airport",
+    "lat": 22.6528,
+    "lon": 88.4413,
+    "category": "airport",
+    "hours": "24h",
+    "google_place_id": "ChIJL3MOSuZ2AjoRrGVkOqDZg3Q"
+  },
+  {
+    "name": "Howrah Junction Railway Station",
+    "lat": 22.5849,
+    "lon": 88.3421,
+    "category": "transit_hub",
+    "hours": "24h",
+    "google_place_id": "ChIJyeCKq8N5AjoR6K_4xXo3Moc"
+  },
+  {
+    "name": "Sealdah Railway Station",
+    "lat": 22.5680,
+    "lon": 88.3711,
+    "category": "transit_hub",
+    "hours": "24h",
+    "google_place_id": "ChIJe7H4Gd95AjoRdB6O7rM8A6Y"
+  },
+  {
+    "name": "Eden Gardens",
+    "lat": 22.5587,
+    "lon": 88.3393,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": "ChIJp91VEch5AjoRUKb1D6VVL_I"
+  },
+  {
+    "name": "Salt Lake Stadium (Vivekananda Yuba Bharati Krirangan)",
+    "lat": 22.5680,
+    "lon": 88.4055,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": "ChIJK4lz8WJ6AjoRFyy87SPQBiY"
+  },
+  {
+    "name": "Netaji Indoor Stadium",
+    "lat": 22.5597,
+    "lon": 88.3383,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": "ChIJrQx5Qsh5AjoR4wEjWwUXr-g"
+  },
+  {
+    "name": "Victoria Memorial",
+    "lat": 22.5449,
+    "lon": 88.3425,
+    "category": "museum",
+    "hours": "10:00-18:00",
+    "google_place_id": "ChIJbV_RPNF5AjoRKGbi4KE6dro"
+  },
+  {
+    "name": "Indian Museum",
+    "lat": 22.5579,
+    "lon": 88.3512,
+    "category": "museum",
+    "hours": "10:00-17:00",
+    "google_place_id": "ChIJZYsrj9R5AjoR3D5YR2DFPRI"
+  },
+  {
+    "name": "Howrah Bridge (Rabindra Setu)",
+    "lat": 22.5845,
+    "lon": 88.3415,
+    "category": "museum",
+    "hours": "24h",
+    "google_place_id": "ChIJzfwYesl5AjoRQUQ8_VKiB50"
+  },
+  {
+    "name": "Dakshineswar Kali Temple",
+    "lat": 22.6549,
+    "lon": 88.3577,
+    "category": "museum",
+    "hours": "06:00-20:30",
+    "google_place_id": "ChIJofDzz4J3AjoRRrHFxnJT5Mo"
+  },
+  {
+    "name": "Belur Math",
+    "lat": 22.6322,
+    "lon": 88.3559,
+    "category": "museum",
+    "hours": "06:00-12:00",
+    "google_place_id": "ChIJm2yW5HF3AjoRJTWTJDbbexI"
+  },
+  {
+    "name": "South City Mall",
+    "lat": 22.5015,
+    "lon": 88.3612,
+    "category": "mall",
+    "hours": "10:00-21:30",
+    "google_place_id": "ChIJi46cg7F5AjoRn4U8zDCJAQI"
+  },
+  {
+    "name": "Quest Mall",
+    "lat": 22.5390,
+    "lon": 88.3658,
+    "category": "mall",
+    "hours": "10:00-21:30",
+    "google_place_id": "ChIJU0I3B-55AjoRL6sKFh_WDh4"
+  },
+  {
+    "name": "Forum Courtyard",
+    "lat": 22.5365,
+    "lon": 88.3510,
+    "category": "mall",
+    "hours": "10:00-21:00",
+    "google_place_id": "ChIJaRxZNu95AjoRHaW3BPjUVdM"
+  },
+  {
+    "name": "Acropolis Mall",
+    "lat": 22.5050,
+    "lon": 88.3990,
+    "category": "mall",
+    "hours": "10:00-21:00",
+    "google_place_id": "ChIJn6VnJSJ6AjoRKDYBaOpJ4lY"
+  },
+  {
+    "name": "City Centre Salt Lake",
+    "lat": 22.5840,
+    "lon": 88.4120,
+    "category": "mall",
+    "hours": "10:00-21:30",
+    "google_place_id": "ChIJv6GHXGV6AjoRbbcqJ7KqxR4"
+  },
+  {
+    "name": "New Market (Hogg Market)",
+    "lat": 22.5604,
+    "lon": 88.3528,
+    "category": "plaza",
+    "hours": "10:00-20:00",
+    "google_place_id": "ChIJu3DPINR5AjoRM1F84k_rQlQ"
+  },
+  {
+    "name": "Gariahat Market",
+    "lat": 22.5170,
+    "lon": 88.3658,
+    "category": "plaza",
+    "hours": "10:00-21:00",
+    "google_place_id": "ChIJf6vHQtt5AjoRMqPR_NLHwqc"
+  },
+  {
+    "name": "College Street Book Market",
+    "lat": 22.5767,
+    "lon": 88.3619,
+    "category": "plaza",
+    "hours": "10:00-20:00",
+    "google_place_id": "ChIJvyCVR9Z5AjoR7pZPRV0qrz0"
+  },
+  {
+    "name": "Jadavpur University",
+    "lat": 22.4993,
+    "lon": 88.3718,
+    "category": "university",
+    "hours": "08:00-18:00",
+    "google_place_id": "ChIJS0hBYqx5AjoRkMVRX2-LhZU"
+  },
+  {
+    "name": "University of Calcutta",
+    "lat": 22.5676,
+    "lon": 88.3634,
+    "category": "university",
+    "hours": "08:00-17:00",
+    "google_place_id": "ChIJH0KxyNN5AjoRLvUt9f7I-U8"
+  },
+  {
+    "name": "Presidency University",
+    "lat": 22.5769,
+    "lon": 88.3633,
+    "category": "university",
+    "hours": "08:00-17:00",
+    "google_place_id": "ChIJ25tGNtd5AjoRBpEJI6FGLWk"
+  },
+  {
+    "name": "Sector V Salt Lake IT Hub",
+    "lat": 22.5730,
+    "lon": 88.4310,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJkaXNfnB6AjoRcGnKHfOKlAQ"
+  },
+  {
+    "name": "Science City Kolkata",
+    "lat": 22.5405,
+    "lon": 88.3965,
+    "category": "museum",
+    "hours": "09:00-21:00",
+    "google_place_id": "ChIJq3H0-Ox5AjoRjN5h-7KNT-0"
+  },
+  {
+    "name": "Nicco Park",
+    "lat": 22.5750,
+    "lon": 88.4050,
+    "category": "theme_park",
+    "hours": "10:30-19:30",
+    "google_place_id": "ChIJP0xqP2J6AjoRCBvVGkl5E1I"
+  },
+  {
+    "name": "Eco Park (Prakriti Tirtha)",
+    "lat": 22.6020,
+    "lon": 88.4550,
+    "category": "theme_park",
+    "hours": "12:00-20:30",
+    "google_place_id": "ChIJcXbpkIR6AjoRYqBpS1bIbhI"
+  },
+  {
+    "name": "Park Street",
+    "lat": 22.5552,
+    "lon": 88.3501,
+    "category": "bar",
+    "hours": "11:00-01:00",
+    "google_place_id": "ChIJx8qsZdR5AjoR_LRdDRCkFHY"
+  },
+  {
+    "name": "SSKM Hospital",
+    "lat": 22.5380,
+    "lon": 88.3440,
+    "category": "hospital",
+    "hours": "24h",
+    "google_place_id": "ChIJW-FWE-95AjoR7NM9n6wFjWA"
+  },
+  {
+    "name": "Millennium Park",
+    "lat": 22.5720,
+    "lon": 88.3390,
+    "category": "plaza",
+    "hours": "10:00-20:00",
+    "google_place_id": "ChIJzccQG9F5AjoRGKVm5KMFNxI"
+  },
+  {
+    "name": "Prinsep Ghat",
+    "lat": 22.5490,
+    "lon": 88.3370,
+    "category": "plaza",
+    "hours": "06:00-21:00",
+    "google_place_id": "ChIJV-F5HvB5AjoR7fWy_-fCt5k"
+  },
+  {
+    "name": "Birla Planetarium",
+    "lat": 22.5513,
+    "lon": 88.3445,
+    "category": "museum",
+    "hours": "12:00-20:00",
+    "google_place_id": "ChIJR7C9HfF5AjoRKQqgS1uHlf0"
+  },
+  {
+    "name": "Mother House (Missionaries of Charity)",
+    "lat": 22.5660,
+    "lon": 88.3600,
+    "category": "museum",
+    "hours": "08:00-12:00",
+    "google_place_id": "ChIJ__8QUtN5AjoR9T3g5nKAblk"
+  },
+  {
+    "name": "BBD Bagh (Dalhousie Square)",
+    "lat": 22.5695,
+    "lon": 88.3490,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJkbx_mdF5AjoRz_G0jP-KOPY"
+  },
+  {
+    "name": "Kalighat Temple",
+    "lat": 22.5199,
+    "lon": 88.3430,
+    "category": "museum",
+    "hours": "05:00-22:00",
+    "google_place_id": "ChIJ0UQpH-B5AjoR9t0nQfB0ZhI"
+  },
+  {
+    "name": "Rabindra Sadan",
+    "lat": 22.5415,
+    "lon": 88.3474,
+    "category": "convention_center",
+    "hours": "varies",
+    "google_place_id": "ChIJrTN_0O95AjoRMFZPhPm3B4Q"
+  }
+]

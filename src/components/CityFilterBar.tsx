@@ -20,6 +20,7 @@ export const ALL_FILTERS: FilterDefinition[] = [
   { key: "maritime",  icon: "", label: "MARITIME",  layerIds: ["maritime"],                       color: "#2dd4bf", available: (c) => !!c.isCoastal },
   { key: "quakes",    icon: "", label: "QUAKES",    layerIds: ["earthquakes", "earthquakes-glow", "earthquakes-labels"], color: "#ef4444", available: () => true },
   { key: "places",    icon: "", label: "POI'S",    layerIds: ["pois", "pois-labels", "pois-aura"], color: "#f472b6", available: () => true },
+  { key: "agents",    icon: "", label: "AGENTS",   layerIds: ["agents", "agents-glow"],              color: "#fef9ef", available: () => true },
 ];
 
 export function getAvailableFilters(city: City): FilterDefinition[] {
@@ -30,15 +31,19 @@ interface CityFilterBarProps {
   filters: Record<string, boolean>;
   availableFilters: FilterDefinition[];
   onToggle: (key: string) => void;
+  agentsPanelOpen?: boolean;
 }
 
-export default function CityFilterBar({ filters, availableFilters, onToggle }: CityFilterBarProps) {
+export default function CityFilterBar({ filters, availableFilters, onToggle, agentsPanelOpen }: CityFilterBarProps) {
+  // Center between left sidebar (256px) and right sidebar (288px when open)
+  const rightOffset = agentsPanelOpen ? 288 : 0;
   return (
     <div
-      className="fixed top-4 z-10 flex flex-nowrap gap-4 pointer-events-auto max-w-[calc(100vw-256px-2rem)]"
+      className="fixed top-4 z-10 flex flex-nowrap gap-4 pointer-events-auto"
       style={{
-        left: "calc(256px + (100vw - 256px) / 2)",
+        left: `calc(256px + (100vw - 256px - ${rightOffset}px) / 2)`,
         transform: "translateX(-50%)",
+        maxWidth: `calc(100vw - 256px - ${rightOffset}px - 2rem)`,
       }}
     >
       {availableFilters.map((f) => {

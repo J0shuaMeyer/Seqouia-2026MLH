@@ -1,0 +1,18 @@
+{
+  "dha-L6-01": { "name": "Uttara North", "lat": 23.8692, "lon": 90.3675 },
+  "dha-L6-02": { "name": "Uttara Center", "lat": 23.8594, "lon": 90.3650 },
+  "dha-L6-03": { "name": "Uttara South", "lat": 23.8458, "lon": 90.3631 },
+  "dha-L6-04": { "name": "Pallabi", "lat": 23.8260, "lon": 90.3642 },
+  "dha-L6-05": { "name": "Mirpur 11", "lat": 23.8191, "lon": 90.3653 },
+  "dha-L6-06": { "name": "Mirpur 10", "lat": 23.8084, "lon": 90.3682 },
+  "dha-L6-07": { "name": "Kazipara", "lat": 23.7992, "lon": 90.3720 },
+  "dha-L6-08": { "name": "Shewrapara", "lat": 23.7908, "lon": 90.3756 },
+  "dha-L6-09": { "name": "Agargaon", "lat": 23.7772, "lon": 90.3800 },
+  "dha-L6-10": { "name": "Bijoy Sarani", "lat": 23.7666, "lon": 90.3831 },
+  "dha-L6-11": { "name": "Farmgate", "lat": 23.7590, "lon": 90.3871 },
+  "dha-L6-12": { "name": "Karwan Bazar", "lat": 23.7513, "lon": 90.3927 },
+  "dha-L6-13": { "name": "Shahbag", "lat": 23.7389, "lon": 90.3959 },
+  "dha-L6-14": { "name": "Dhaka University", "lat": 23.7318, "lon": 90.3967 },
+  "dha-L6-15": { "name": "Bangladesh Secretariat", "lat": 23.7300, "lon": 90.4077 },
+  "dha-L6-16": { "name": "Motijheel", "lat": 23.7281, "lon": 90.4190 }
+}

@@ -1,0 +1,7 @@
+{
+  "dha-line6": {
+    "name": "MRT Line 6",
+    "color": "#00A651",
+    "stopIds": ["dha-L6-01","dha-L6-02","dha-L6-03","dha-L6-04","dha-L6-05","dha-L6-06","dha-L6-07","dha-L6-08","dha-L6-09","dha-L6-10","dha-L6-11","dha-L6-12","dha-L6-13","dha-L6-14","dha-L6-15","dha-L6-16"]
+  }
+}

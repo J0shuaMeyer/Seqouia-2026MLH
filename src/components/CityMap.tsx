@@ -8,6 +8,8 @@ import { getLocalTimeWithSeconds } from "@/lib/activity";
 import type { UPIResult } from "@/lib/urban-pulse";
 import CitySidebar from "@/components/CitySidebar";
 import CityFilterBar, { getAvailableFilters } from "@/components/CityFilterBar";
+import AgentSidebar from "@/components/AgentSidebar";
+import { useSimulation } from "@/hooks/useSimulation";
 
 interface CityMapProps {
   city: City;
@@ -220,10 +222,14 @@ export default function CityMap({ city }: CityMapProps) {
 
   // ── Filter state ──────────────────────────────────────────────
   const availableFilters = useMemo(() => getAvailableFilters(city), [city]);
-  const DEFAULT_OFF = useMemo(() => new Set(["flights", "maritime", "quakes"]), []);
+  const DEFAULT_OFF = useMemo(() => new Set(["flights", "maritime", "quakes", "agents"]), []);
   const [filters, setFilters] = useState<Record<string, boolean>>(() =>
     Object.fromEntries(availableFilters.map((f) => [f.key, !DEFAULT_OFF.has(f.key)]))
   );
+
+  // ── Agent simulation ──────────────────────────────────────────
+  const agentsEnabled = filters.agents ?? false;
+  const simulation = useSimulation(city, agentsEnabled);
 
   const toggleFilter = useCallback(
     (key: string) => {
@@ -522,6 +528,7 @@ export default function CityMap({ city }: CityMapProps) {
     m.addSource("waze", { type: "geojson", data: EMPTY_FC });
     m.addSource("maritime", { type: "geojson", data: EMPTY_FC });
     m.addSource("earthquakes", { type: "geojson", data: EMPTY_FC });
+    m.addSource("agents", { type: "geojson", data: EMPTY_FC });
 
     // ── Layers (bottom → top) — uniform color palette ──
 
@@ -799,6 +806,57 @@ export default function CityMap({ city }: CityMapProps) {
       },
     });
 
+    // ── Agent simulation: soft glow behind active agents ──
+    m.addLayer({
+      id: "agents-glow",
+      type: "circle",
+      source: "agents",
+      paint: {
+        "circle-radius": [
+          "interpolate", ["linear"], ["zoom"],
+          9, 8,
+          13, 14,
+        ],
+        "circle-color": "#fffbeb",
+        "circle-opacity": [
+          "match", ["get", "activity"],
+          "sleeping",    0.0,
+          "home_active", 0.02,
+          0.08,
+        ],
+        "circle-blur": 1,
+      },
+    });
+
+    // ── Agent simulation layer: bright white/cream dots ──
+    m.addLayer({
+      id: "agents",
+      type: "circle",
+      source: "agents",
+      paint: {
+        "circle-radius": [
+          "interpolate", ["linear"], ["zoom"],
+          9, 2.5,
+          12, 4.5,
+          14, 6,
+        ],
+        "circle-color": "#fef9ef",
+        "circle-opacity": [
+          "match", ["get", "activity"],
+          "sleeping",    0.0,
+          "home_active", 0.12,
+          0.92,
+        ],
+        "circle-blur": 0.15,
+        "circle-stroke-width": [
+          "interpolate", ["linear"], ["zoom"],
+          9, 0,
+          12, 0.8,
+        ],
+        "circle-stroke-color": "rgba(255, 251, 235, 0.3)",
+      },
+    });
+
     // ── Apply initial visibility for default-OFF layers ──
     for (const def of availableFilters) {
       if (DEFAULT_OFF.has(def.key)) {
@@ -893,6 +951,31 @@ export default function CityMap({ city }: CityMapProps) {
     return () => clearInterval(id);
   }, [mapLoaded, fetchPulseData]);
 
+  // ── Agent simulation GeoJSON updates ──
+  useEffect(() => {
+    if (!mapLoaded || !simulation.tickResult) return;
+    const m = mapRef.current;
+    if (!m) return;
+    const src = m.getSource("agents") as maplibregl.GeoJSONSource | undefined;
+    if (!src) return;
+
+    src.setData({
+      type: "FeatureCollection",
+      features: simulation.tickResult.agents
+        .filter((a) => a.activity !== "sleeping")
+        .map((a) => ({
+          type: "Feature" as const,
+          geometry: { type: "Point" as const, coordinates: [a.lng, a.lat] },
+          properties: {
+            id: a.id,
+            activity: a.activity,
+            transportMode: a.transportMode,
+            heading: a.heading,
+          },
+        })),
+    });
+  }, [mapLoaded, simulation.tickResult]);
+
   // ── Live clock (updates every second) ──
   useEffect(() => {
     const id = setInterval(() => {
@@ -926,10 +1009,15 @@ export default function CityMap({ city }: CityMapProps) {
         updating={updating}
       />
 
+      {agentsEnabled && simulation.tickResult && (
+        <AgentSidebar city={city} simulation={simulation} />
+      )}
+
       <CityFilterBar
         filters={filters}
         availableFilters={availableFilters}
         onToggle={toggleFilter}
+        agentsPanelOpen={agentsEnabled && !!simulation.tickResult}
       />
     </>
   );
