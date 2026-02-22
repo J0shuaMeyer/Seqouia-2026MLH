@@ -13,6 +13,7 @@ import { useSimulation } from "@/hooks/useSimulation";
 
 interface CityMapProps {
   city: City;
+  onMapReady?: () => void;
 }
 
 const WAZE_REFRESH_MS = 120_000;    // 2 minutes
@@ -194,7 +195,7 @@ interface WeatherInfo {
   aqiLabel: string;
 }
 
-export default function CityMap({ city }: CityMapProps) {
+export default function CityMap({ city, onMapReady }: CityMapProps) {
   const mapContainer = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const [mapLoaded, setMapLoaded] = useState(false);
@@ -489,7 +490,10 @@ export default function CityMap({ city }: CityMapProps) {
     // Expose map for debugging
     (window as unknown as Record<string, unknown>).__map = mapRef.current;
 
-    mapRef.current.on("load", () => setMapLoaded(true));
+    mapRef.current.on("load", () => {
+      setMapLoaded(true);
+      onMapReady?.();
+    });
 
     return () => {
       mapRef.current?.remove();
