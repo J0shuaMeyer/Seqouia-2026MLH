@@ -1,10 +1,12 @@
 "use client";
 
-import { useRef, useEffect, useState, useCallback } from "react";
+import { useRef, useEffect, useState, useCallback, useMemo } from "react";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import type { City } from "@/data/cities";
 import { getLocalTimeWithSeconds } from "@/lib/activity";
+import CitySidebar from "@/components/CitySidebar";
+import CityFilterBar, { getAvailableFilters } from "@/components/CityFilterBar";
 
 interface CityMapProps {
   city: City;
@@ -193,7 +195,38 @@ export default function CityMap({ city }: CityMapProps) {
   const [updating, setUpdating] = useState(false);
   const [weather, setWeather] = useState<WeatherInfo | null>(null);
   const [localTime, setLocalTime] = useState(() => getLocalTimeWithSeconds(city.timezone));
+  const [bikeStationCount, setBikeStationCount] = useState<number | null>(null);
+  const [transitStopCount, setTransitStopCount] = useState<number | null>(null);
+  const [poiCount, setPoiCount] = useState<number | null>(null);
   const initialFetchDone = useRef(false);
+
+  // ── Filter state ──────────────────────────────────────────────
+  const availableFilters = useMemo(() => getAvailableFilters(city), [city]);
+  const [filters, setFilters] = useState<Record<string, boolean>>(() =>
+    Object.fromEntries(availableFilters.map((f) => [f.key, true]))
+  );
+
+  const toggleFilter = useCallback(
+    (key: string) => {
+      setFilters((prev) => {
+        const next = { ...prev, [key]: !prev[key] };
+        const m = mapRef.current;
+        if (m) {
+          const def = availableFilters.find((f) => f.key === key);
+          if (def) {
+            const vis = next[key] ? "visible" : "none";
+            for (const layerId of def.layerIds) {
+              if (m.getLayer(layerId)) {
+                m.setLayoutProperty(layerId, "visibility", vis);
+              }
+            }
+          }
+        }
+        return next;
+      });
+    },
+    [availableFilters],
+  );
 
   // ── Waze data ───────────────────────────────────────────────────
 
@@ -230,6 +263,8 @@ export default function CityMap({ city }: CityMapProps) {
       const m = mapRef.current;
       if (!m) return;
 
+      setBikeStationCount(geojson.features?.length ?? 0);
+
       const src = m.getSource("bikeshare") as maplibregl.GeoJSONSource | undefined;
       if (src) src.setData(geojson);
 
@@ -252,6 +287,8 @@ export default function CityMap({ city }: CityMapProps) {
 
       const m = mapRef.current;
       if (!m) return;
+
+      setTransitStopCount(geojson.features?.length ?? 0);
 
       const src = m.getSource("transit") as maplibregl.GeoJSONSource | undefined;
       if (src) src.setData(geojson);
@@ -307,6 +344,8 @@ export default function CityMap({ city }: CityMapProps) {
 
       const m = mapRef.current;
       if (!m) return;
+
+      setPoiCount(geojson.features?.length ?? 0);
 
       const src = m.getSource("pois") as maplibregl.GeoJSONSource | undefined;
       if (src) src.setData(geojson);
@@ -623,28 +662,23 @@ export default function CityMap({ city }: CityMapProps) {
         style={{ position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh" }}
       />
 
-      {/* City info overlay */}
-      <div className="fixed top-4 left-4 z-10 pointer-events-none">
-        <div className="bg-black/70 backdrop-blur-sm rounded-lg px-4 py-3 border border-white/10">
-          <h2 className="text-xl font-bold text-white">{city.name}</h2>
-          <p className="text-xs text-white/50 mt-0.5">
-            {city.country} &middot;{" "}
-            <span className="tabular-nums">{localTime}</span>
-          </p>
-          {weather && (
-            <p className="text-xs text-white/50 mt-0.5">
-              {weather.tempF}°F &middot; AQI {weather.aqi} {weather.aqiLabel}
-            </p>
-          )}
-          <p className="text-xs text-white/40 mt-1">
-            {reportCount === null
-              ? "Loading reports…"
-              : updating
-                ? "Updating…"
-                : `${reportCount.toLocaleString()} reports${aircraftCount && aircraftCount > 0 ? ` · ${aircraftCount} aircraft` : ""}`}
-          </p>
-        </div>
-      </div>
+      <CitySidebar
+        city={city}
+        localTime={localTime}
+        weather={weather}
+        reportCount={reportCount}
+        aircraftCount={aircraftCount}
+        bikeStationCount={bikeStationCount}
+        transitStopCount={transitStopCount}
+        poiCount={poiCount}
+        updating={updating}
+      />
+
+      <CityFilterBar
+        filters={filters}
+        availableFilters={availableFilters}
+        onToggle={toggleFilter}
+      />
     </>
   );
 }

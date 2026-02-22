@@ -29,8 +29,7 @@ function buildSparqlQuery(lat: number, lng: number): string {
   return `
 SELECT ?place ?placeLabel ?poiType ?lat ?lng WHERE {
   VALUES ?type { ${QID_LIST} }
-  ?place wdt:P31/wdt:P279* ?type .
-  ?place wdt:P625 ?loc .
+  ?place wdt:P31 ?type .
   BIND(?type AS ?poiType)
   SERVICE wikibase:around {
     ?place wdt:P625 ?loc .
