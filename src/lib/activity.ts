@@ -38,11 +38,22 @@ export function activityToRingParams(activity: number): RingParams {
   };
 }
 
-/** Returns an activity color for sidebar display (green → amber → red). */
-export function activityColor(activity: number): string {
-  if (activity < 0.35) return "#22c55e"; // green
-  if (activity < 0.65) return "#f59e0b"; // amber
-  return "#ef4444"; // red
+/** Returns the local time as "HH:MM" for a GMT-offset timezone string. */
+export function getLocalTime(timezone: string): string {
+  const now = new Date();
+  const utcMinutes = now.getUTCHours() * 60 + now.getUTCMinutes();
+
+  const match = timezone.match(/GMT([+-]\d+)(?::(\d+))?/);
+  if (!match) return "--:--";
+
+  const offsetHours = parseInt(match[1], 10);
+  const offsetMins = match[2] ? parseInt(match[2], 10) * Math.sign(offsetHours) : 0;
+  const totalOffset = offsetHours * 60 + offsetMins;
+
+  const localMinutes = ((utcMinutes + totalOffset) % 1440 + 1440) % 1440;
+  const h = Math.floor(localMinutes / 60);
+  const m = localMinutes % 60;
+  return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`;
 }
 
 /** Parses a GMT offset timezone string and returns the current local hour (0-23). */
