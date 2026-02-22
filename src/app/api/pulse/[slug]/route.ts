@@ -30,7 +30,7 @@ export async function GET(
   const localHour = getLocalHour(city.timezone);
   const utcOffset = parseTimezoneOffset(city.timezone);
   const now = new Date();
-  const utcTotalHours = now.getUTCHours() + utcOffset;
+  const utcTotalHours = now.getUTCHours() + now.getUTCMinutes() / 60 + utcOffset;
   const utcDay = now.getUTCDay();
   const dayOfWeek =
     utcTotalHours >= 24 ? (utcDay + 1) % 7 :

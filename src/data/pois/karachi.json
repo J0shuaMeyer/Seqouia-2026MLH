@@ -1,0 +1,226 @@
+[
+  {
+    "name": "Jinnah International Airport",
+    "lat": 24.9065,
+    "lon": 67.1609,
+    "category": "airport",
+    "hours": "24h",
+    "google_place_id": "ChIJIYuVj-U-sz4Ra8Km3VPLSuA"
+  },
+  {
+    "name": "Karachi City Station",
+    "lat": 24.8520,
+    "lon": 67.0280,
+    "category": "transit_hub",
+    "hours": "24h",
+    "google_place_id": "ChIJH_GfzBw_sz4R8q7ZMNXYRJ0"
+  },
+  {
+    "name": "Karachi Cantt Station",
+    "lat": 24.8560,
+    "lon": 67.0430,
+    "category": "transit_hub",
+    "hours": "24h",
+    "google_place_id": "ChIJQ-bXyTU_sz4RZHmS0VR3uYI"
+  },
+  {
+    "name": "Karachi Port Trust",
+    "lat": 24.8260,
+    "lon": 66.9910,
+    "category": "transit_hub",
+    "hours": "24h",
+    "google_place_id": "ChIJP3q7YCU_sz4ROUFmNVFnlMs"
+  },
+  {
+    "name": "Port Qasim",
+    "lat": 24.7870,
+    "lon": 67.3300,
+    "category": "transit_hub",
+    "hours": "24h",
+    "google_place_id": "ChIJr4x6LvFGsz4RKfp7yBv1J4w"
+  },
+  {
+    "name": "National Stadium Karachi",
+    "lat": 24.8920,
+    "lon": 67.0647,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": "ChIJ8yxb7Z0_sz4RFQh0aqmjL3o"
+  },
+  {
+    "name": "Peoples Cricket Ground",
+    "lat": 24.8760,
+    "lon": 67.0370,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": "ChIJIZTY1Bk_sz4R2bJmxvmVKEs"
+  },
+  {
+    "name": "Dolmen Mall Clifton",
+    "lat": 24.8215,
+    "lon": 67.0320,
+    "category": "mall",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJo0fVsBs_sz4RNIaZLBuBsuw"
+  },
+  {
+    "name": "Dolmen Mall Tariq Road",
+    "lat": 24.8650,
+    "lon": 67.0520,
+    "category": "mall",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJ_2VyLXc_sz4R8WOmm3cFCKA"
+  },
+  {
+    "name": "Lucky One Mall",
+    "lat": 24.9230,
+    "lon": 67.0820,
+    "category": "mall",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJOxTfD8g_sz4RcUBBPn_Lq2g"
+  },
+  {
+    "name": "Ocean Mall",
+    "lat": 24.8190,
+    "lon": 67.0340,
+    "category": "mall",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJw-p5GR8_sz4RjPQOSQ-aF1Y"
+  },
+  {
+    "name": "Tariq Road Shopping Area",
+    "lat": 24.8650,
+    "lon": 67.0540,
+    "category": "plaza",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJkyJuCHo_sz4R0D2r-Zy1fLQ"
+  },
+  {
+    "name": "Saddar Bazaar",
+    "lat": 24.8560,
+    "lon": 67.0240,
+    "category": "plaza",
+    "hours": "09:00-21:00",
+    "google_place_id": "ChIJGbbqURw_sz4R7PRHBMJLxyI"
+  },
+  {
+    "name": "Quaid-e-Azam's Mausoleum (Mazar-e-Quaid)",
+    "lat": 24.8756,
+    "lon": 67.0420,
+    "category": "museum",
+    "hours": "08:00-20:00",
+    "google_place_id": "ChIJv-a-ZCQ_sz4RjGEzqWgWxp4"
+  },
+  {
+    "name": "Mohatta Palace Museum",
+    "lat": 24.8180,
+    "lon": 67.0320,
+    "category": "museum",
+    "hours": "10:00-18:00",
+    "google_place_id": "ChIJgbgdrBs_sz4RKJFc6eDqrhs"
+  },
+  {
+    "name": "Pakistan Maritime Museum",
+    "lat": 24.8290,
+    "lon": 67.0290,
+    "category": "museum",
+    "hours": "09:00-21:00",
+    "google_place_id": "ChIJ6WFqwBg_sz4R4f3j0DTkMbA"
+  },
+  {
+    "name": "Clifton Beach",
+    "lat": 24.7980,
+    "lon": 67.0180,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJ43h9pA8_sz4R1pvyN_IgBzs"
+  },
+  {
+    "name": "Sea View (Do Darya)",
+    "lat": 24.7930,
+    "lon": 67.0300,
+    "category": "restaurant",
+    "hours": "17:00-01:00",
+    "google_place_id": "ChIJn14G6Q4_sz4RlA6RD8hQ7s0"
+  },
+  {
+    "name": "University of Karachi",
+    "lat": 24.9416,
+    "lon": 67.1198,
+    "category": "university",
+    "hours": "08:00-17:00",
+    "google_place_id": "ChIJqwGxkLk_sz4Rl1qPTvpCqmI"
+  },
+  {
+    "name": "NED University of Engineering",
+    "lat": 24.9341,
+    "lon": 67.1105,
+    "category": "university",
+    "hours": "08:00-17:00",
+    "google_place_id": "ChIJ46sYB5o_sz4Rmz8qXbcqbps"
+  },
+  {
+    "name": "Institute of Business Administration (IBA)",
+    "lat": 24.8585,
+    "lon": 67.0240,
+    "category": "university",
+    "hours": "08:00-20:00",
+    "google_place_id": "ChIJ0UY7QBw_sz4Ruv0H7FEKKMs"
+  },
+  {
+    "name": "Aga Khan University Hospital",
+    "lat": 24.8920,
+    "lon": 67.0760,
+    "category": "hospital",
+    "hours": "24h",
+    "google_place_id": "ChIJ95cLJow_sz4R5z_T0IxUjps"
+  },
+  {
+    "name": "Frere Hall",
+    "lat": 24.8510,
+    "lon": 67.0300,
+    "category": "museum",
+    "hours": "08:00-20:00",
+    "google_place_id": "ChIJIVrRahw_sz4R3pJ_H3C8tG4"
+  },
+  {
+    "name": "Port Grand Food Street",
+    "lat": 24.8450,
+    "lon": 67.0070,
+    "category": "restaurant",
+    "hours": "17:00-01:00",
+    "google_place_id": "ChIJJdQnOQw_sz4RTHQxjQB8kLw"
+  },
+  {
+    "name": "Empress Market",
+    "lat": 24.8578,
+    "lon": 67.0210,
+    "category": "plaza",
+    "hours": "08:00-20:00",
+    "google_place_id": "ChIJq8N2Ixw_sz4R5pjHjrVSr-g"
+  },
+  {
+    "name": "Bahria Icon Tower",
+    "lat": 24.8190,
+    "lon": 67.0320,
+    "category": "mall",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJ-1mDIBs_sz4R0CaP8R66TvA"
+  },
+  {
+    "name": "Hill Park",
+    "lat": 24.8670,
+    "lon": 67.0700,
+    "category": "plaza",
+    "hours": "06:00-22:00",
+    "google_place_id": "ChIJcQhqFng_sz4RBIaO5r2FjgI"
+  },
+  {
+    "name": "DHA Phase 6",
+    "lat": 24.8080,
+    "lon": 67.0580,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJQ4h6wQ8_sz4RBd7O6cM_r5A"
+  }
+]

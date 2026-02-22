@@ -1,0 +1,282 @@
+[
+  {
+    "name": "Kempegowda International Airport",
+    "lat": 13.1979,
+    "lon": 77.7063,
+    "category": "airport",
+    "hours": "24h",
+    "google_place_id": "ChIJL6p0sdzUrjsRXqEU5JxmsRA"
+  },
+  {
+    "name": "KSR Bengaluru City Railway Station",
+    "lat": 12.9784,
+    "lon": 77.5710,
+    "category": "transit_hub",
+    "hours": "24h",
+    "google_place_id": "ChIJxfvGR_oWrjsRyA-wnJLmGgg"
+  },
+  {
+    "name": "Kempegowda Bus Station (Majestic)",
+    "lat": 12.9770,
+    "lon": 77.5726,
+    "category": "transit_hub",
+    "hours": "24h",
+    "google_place_id": "ChIJIQl3K_oWrjsRq3E5X8a5Ak8"
+  },
+  {
+    "name": "M. Chinnaswamy Stadium",
+    "lat": 12.9788,
+    "lon": 77.5996,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": "ChIJ0caFNL0UrjsRN2JtPmWJX2Y"
+  },
+  {
+    "name": "Sree Kanteerava Stadium",
+    "lat": 12.9620,
+    "lon": 77.5760,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": "ChIJVVVFhMUWrjsR5HjnhWqUOgA"
+  },
+  {
+    "name": "Manyata Tech Park",
+    "lat": 13.0477,
+    "lon": 77.6217,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJ4-aa1S8UrjsR2YMEqkFdXkc"
+  },
+  {
+    "name": "Embassy Tech Village",
+    "lat": 12.9260,
+    "lon": 77.6830,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJp3a6ffITrjsRH78BXlFqCXE"
+  },
+  {
+    "name": "Bagmane Tech Park",
+    "lat": 12.9600,
+    "lon": 77.6580,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJ0wPwphUTrjsRGvHH3bvOFQM"
+  },
+  {
+    "name": "RMZ Ecoworld",
+    "lat": 12.9390,
+    "lon": 77.6900,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJb5k9CesTrjsR6WpZ-fOlBAQ"
+  },
+  {
+    "name": "Orion Mall",
+    "lat": 13.0105,
+    "lon": 77.5550,
+    "category": "mall",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJJ0HYRnIWrjsRfqMd06bDVA8"
+  },
+  {
+    "name": "Phoenix Marketcity Whitefield",
+    "lat": 12.9968,
+    "lon": 77.6960,
+    "category": "mall",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJhzmvlCATrjsRE4mS00bQ-bI"
+  },
+  {
+    "name": "Forum Mall Koramangala",
+    "lat": 12.9353,
+    "lon": 77.6119,
+    "category": "mall",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJfVnLWg0VrjsRoREQzR6RNf0"
+  },
+  {
+    "name": "Mantri Square Mall",
+    "lat": 12.9910,
+    "lon": 77.5700,
+    "category": "mall",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJQ-r2nvsWrjsRZBRh4SXg0hU"
+  },
+  {
+    "name": "UB City Mall",
+    "lat": 12.9716,
+    "lon": 77.5965,
+    "category": "mall",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJj3h2KsgWrjsRqrVb2pWQhac"
+  },
+  {
+    "name": "VR Bengaluru",
+    "lat": 12.9958,
+    "lon": 77.6960,
+    "category": "mall",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJb0n5hx4TrjsR72_WV8MpIao"
+  },
+  {
+    "name": "KR Market (City Market)",
+    "lat": 12.9638,
+    "lon": 77.5775,
+    "category": "plaza",
+    "hours": "06:00-21:00",
+    "google_place_id": "ChIJpYUMYcQWrjsRnTwU-sJQN2E"
+  },
+  {
+    "name": "Commercial Street",
+    "lat": 12.9827,
+    "lon": 77.6079,
+    "category": "plaza",
+    "hours": "10:00-21:00",
+    "google_place_id": "ChIJiWjZm7gWrjsRBUbwRQYYWWA"
+  },
+  {
+    "name": "Brigade Road",
+    "lat": 12.9720,
+    "lon": 77.6078,
+    "category": "plaza",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJa2MILcoWrjsRQV8P7VFEXog"
+  },
+  {
+    "name": "Cubbon Park",
+    "lat": 12.9763,
+    "lon": 77.5929,
+    "category": "plaza",
+    "hours": "06:00-18:00",
+    "google_place_id": "ChIJj_AMGbcWrjsRFtAYI3WCDQI"
+  },
+  {
+    "name": "Lalbagh Botanical Garden",
+    "lat": 12.9507,
+    "lon": 77.5848,
+    "category": "plaza",
+    "hours": "06:00-19:00",
+    "google_place_id": "ChIJy-Td_cMWrjsRXHEWnmm_Y3Y"
+  },
+  {
+    "name": "Vidhana Soudha",
+    "lat": 12.9793,
+    "lon": 77.5913,
+    "category": "museum",
+    "hours": "varies",
+    "google_place_id": "ChIJ5cIj7bcWrjsRDZR0ifNHJXo"
+  },
+  {
+    "name": "Bangalore Palace",
+    "lat": 12.9987,
+    "lon": 77.5921,
+    "category": "museum",
+    "hours": "10:00-17:30",
+    "google_place_id": "ChIJT2ZvI_kWrjsRK8cUNZGDMrg"
+  },
+  {
+    "name": "Indian Institute of Science",
+    "lat": 13.0219,
+    "lon": 77.5671,
+    "category": "university",
+    "hours": "24h",
+    "google_place_id": "ChIJC5pq24MWrjsRqB7PtB4mkV0"
+  },
+  {
+    "name": "Christ University",
+    "lat": 12.9345,
+    "lon": 77.6049,
+    "category": "university",
+    "hours": "08:00-17:00",
+    "google_place_id": "ChIJ-0SoP0QVrjsRN-Sv99T9P6k"
+  },
+  {
+    "name": "National Institute of Mental Health and Neurosciences",
+    "lat": 12.9430,
+    "lon": 77.5960,
+    "category": "hospital",
+    "hours": "24h",
+    "google_place_id": "ChIJZ0GvqsUWrjsRLFz0A-OAHVM"
+  },
+  {
+    "name": "Bangalore International Exhibition Centre",
+    "lat": 13.2050,
+    "lon": 77.7100,
+    "category": "convention_center",
+    "hours": "varies",
+    "google_place_id": "ChIJ1cjuI5rqrjsRHN5B8P7V1K4"
+  },
+  {
+    "name": "Wonderla Bengaluru",
+    "lat": 12.8340,
+    "lon": 77.4010,
+    "category": "theme_park",
+    "hours": "11:00-18:00",
+    "google_place_id": "ChIJXzmDo8WbrjsRQ_S9_YEXFTU"
+  },
+  {
+    "name": "ISKCON Temple Bangalore",
+    "lat": 13.0098,
+    "lon": 77.5511,
+    "category": "museum",
+    "hours": "04:15-20:30",
+    "google_place_id": "ChIJYRCFE4IWrjsRP3IG_OSDLAE"
+  },
+  {
+    "name": "Koramangala 4th Block",
+    "lat": 12.9341,
+    "lon": 77.6262,
+    "category": "bar",
+    "hours": "11:00-01:00",
+    "google_place_id": "ChIJBUlEYB4VrjsRKQPNO1Rk1BI"
+  },
+  {
+    "name": "Indiranagar 100 Feet Road",
+    "lat": 12.9784,
+    "lon": 77.6408,
+    "category": "bar",
+    "hours": "11:00-01:00",
+    "google_place_id": "ChIJrxF9RdUTrjsROUZlsQe0uVQ"
+  },
+  {
+    "name": "Whitefield IT Corridor",
+    "lat": 12.9698,
+    "lon": 77.7500,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJt3S5kPITrjsRfGFSSjF0kXg"
+  },
+  {
+    "name": "Electronic City Phase 1",
+    "lat": 12.8450,
+    "lon": 77.6680,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJK7HQwxoVrjsR3PLU94TiF20"
+  },
+  {
+    "name": "Hebbal Flyover Junction",
+    "lat": 13.0358,
+    "lon": 77.5970,
+    "category": "transit_hub",
+    "hours": "24h",
+    "google_place_id": "ChIJW2vO7hYUrjsRkGHJ2ACzd3g"
+  },
+  {
+    "name": "Yeshwanthpur Junction",
+    "lat": 13.0265,
+    "lon": 77.5413,
+    "category": "transit_hub",
+    "hours": "24h",
+    "google_place_id": "ChIJk5kU73MWrjsR6dB3xJhqbLs"
+  },
+  {
+    "name": "Garuda Mall",
+    "lat": 12.9705,
+    "lon": 77.6095,
+    "category": "mall",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJmfbJo8oWrjsRNTFNHKGnXms"
+  }
+]

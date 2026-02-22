@@ -1,0 +1,12 @@
+{
+  "khi-green": {
+    "name": "Green Line BRT",
+    "color": "#00A651",
+    "stopIds": ["khi-GL-01","khi-GL-02","khi-GL-03","khi-GL-04","khi-GL-05","khi-GL-06","khi-GL-07","khi-GL-08","khi-GL-09","khi-GL-10","khi-GL-11","khi-GL-12","khi-GL-13","khi-GL-14","khi-GL-15","khi-GL-16","khi-GL-17","khi-GL-18","khi-GL-19","khi-GL-20","khi-GL-21","khi-GL-22"]
+  },
+  "khi-orange": {
+    "name": "Orange Line BRT",
+    "color": "#FF8C00",
+    "stopIds": ["khi-OL-01","khi-OL-02","khi-OL-03","khi-OL-04","khi-OL-05","khi-OL-06","khi-OL-07","khi-OL-08","khi-OL-09","khi-OL-10"]
+  }
+}

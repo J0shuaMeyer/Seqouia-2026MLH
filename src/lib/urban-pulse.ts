@@ -177,11 +177,12 @@ export function computeUPI(
 ): UPIResult {
   const B = circadianBaseline(localHour);
   const signals: Record<string, SignalDetail> = {};
-  const EPS = 1; // prevent division by zero
+  const EPS = 0.01; // prevent division by zero
 
   // ── Compute per-signal quality and deviation ──
 
   // Traffic (Waze)
+  // naiveExpected already includes B(t), so deviation divides by naiveExpected directly
   if (bundle.traffic) {
     const observed = bundle.traffic.alertCount;
     const naiveExpected =
@@ -190,7 +191,7 @@ export function computeUPI(
       B *
       50;
     const quality = computeSignalQuality(observed, naiveExpected);
-    const deviation = observed / (naiveExpected * B + EPS);
+    const deviation = observed / (naiveExpected + EPS);
 
     signals.traffic = {
       observed,
@@ -203,11 +204,12 @@ export function computeUPI(
   }
 
   // Aircraft
+  // naiveExpected already includes B(t) component
   if (bundle.air) {
     const observed = bundle.air.aircraftCount;
     const naiveExpected = 15 * B + 5;
     const quality = computeSignalQuality(observed, naiveExpected);
-    const deviation = observed / (naiveExpected * B + EPS);
+    const deviation = observed / (naiveExpected + EPS);
 
     signals.air = {
       observed,

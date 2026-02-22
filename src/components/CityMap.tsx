@@ -212,6 +212,12 @@ export default function CityMap({ city }: CityMapProps) {
   const [pulse, setPulse] = useState<UPIResult | null>(null);
   const smoothedScoreRef = useRef<number | null>(null);
 
+  // Reset EMA when city changes (prevents bleeding between cities)
+  useEffect(() => {
+    smoothedScoreRef.current = null;
+    setPulse(null);
+  }, [city.slug]);
+
   // ── Filter state ──────────────────────────────────────────────
   const availableFilters = useMemo(() => getAvailableFilters(city), [city]);
   const DEFAULT_OFF = useMemo(() => new Set(["flights", "maritime", "quakes"]), []);

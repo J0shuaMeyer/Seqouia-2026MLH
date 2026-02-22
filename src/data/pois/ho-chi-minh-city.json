@@ -1,0 +1,258 @@
+[
+  {
+    "name": "Tan Son Nhat International Airport",
+    "lat": 10.8188,
+    "lon": 106.6520,
+    "category": "airport",
+    "hours": "24h",
+    "google_place_id": "ChIJcUElzOspdTERTgSHI5IQMp8"
+  },
+  {
+    "name": "Saigon Railway Station",
+    "lat": 10.7828,
+    "lon": 106.6788,
+    "category": "transit_hub",
+    "hours": "24h",
+    "google_place_id": "ChIJ8-cRJYsvdTERD4R_B9cKJQo"
+  },
+  {
+    "name": "Ben Thanh Bus Station",
+    "lat": 10.7726,
+    "lon": 106.6976,
+    "category": "transit_hub",
+    "hours": "04:00-22:00",
+    "google_place_id": "ChIJRVf_RY0vdTERBkqzZI2N1jQ"
+  },
+  {
+    "name": "Ben Thanh Market",
+    "lat": 10.7725,
+    "lon": 106.6980,
+    "category": "plaza",
+    "hours": "06:00-18:00",
+    "google_place_id": "ChIJrVPr450vdTERcvdLdgU0G5k"
+  },
+  {
+    "name": "Binh Tay Market",
+    "lat": 10.7476,
+    "lon": 106.6479,
+    "category": "plaza",
+    "hours": "06:00-19:00",
+    "google_place_id": "ChIJJ3bMCxgvdTERdR4K0RZnkSg"
+  },
+  {
+    "name": "An Dong Market",
+    "lat": 10.7550,
+    "lon": 106.6580,
+    "category": "plaza",
+    "hours": "06:00-19:00",
+    "google_place_id": "ChIJL_N4lBAvdTER6RULuR07fhM"
+  },
+  {
+    "name": "Independence Palace",
+    "lat": 10.7770,
+    "lon": 106.6955,
+    "category": "museum",
+    "hours": "07:30-16:30",
+    "google_place_id": "ChIJ-R_94o8vdTERYJgUiMnRUPY"
+  },
+  {
+    "name": "Notre-Dame Cathedral Basilica of Saigon",
+    "lat": 10.7798,
+    "lon": 106.6991,
+    "category": "museum",
+    "hours": "08:00-17:00",
+    "google_place_id": "ChIJRbkqJZEvdTERCwK_x7HHyOI"
+  },
+  {
+    "name": "Saigon Central Post Office",
+    "lat": 10.7799,
+    "lon": 106.7000,
+    "category": "museum",
+    "hours": "07:00-19:00",
+    "google_place_id": "ChIJ7d6I3JEvdTERhB2MZROv7ms"
+  },
+  {
+    "name": "War Remnants Museum",
+    "lat": 10.7794,
+    "lon": 106.6922,
+    "category": "museum",
+    "hours": "07:30-18:00",
+    "google_place_id": "ChIJf6kfVo8vdTERU4TsLOnUiRE"
+  },
+  {
+    "name": "HCMC Museum of Fine Arts",
+    "lat": 10.7700,
+    "lon": 106.6945,
+    "category": "museum",
+    "hours": "09:00-17:00",
+    "google_place_id": "ChIJl0R3-44vdTER7HLJo-rvPjw"
+  },
+  {
+    "name": "Vincom Center Dong Khoi",
+    "lat": 10.7785,
+    "lon": 106.7015,
+    "category": "mall",
+    "hours": "09:30-22:00",
+    "google_place_id": "ChIJ_-5PxJEvdTERhMqAJcx7MBI"
+  },
+  {
+    "name": "Saigon Centre",
+    "lat": 10.7730,
+    "lon": 106.7010,
+    "category": "mall",
+    "hours": "09:30-22:00",
+    "google_place_id": "ChIJRy5WR48vdTERVvXHZJgOAPs"
+  },
+  {
+    "name": "Landmark 81",
+    "lat": 10.7953,
+    "lon": 106.7220,
+    "category": "mall",
+    "hours": "09:30-22:00",
+    "google_place_id": "ChIJk1F0_20pdTERpMkz7Y7LYJI"
+  },
+  {
+    "name": "AEON Mall Binh Tan",
+    "lat": 10.7360,
+    "lon": 106.6104,
+    "category": "mall",
+    "hours": "08:00-22:00",
+    "google_place_id": "ChIJkbVp3RMrdTEROHxHJQp3K9Q"
+  },
+  {
+    "name": "Crescent Mall",
+    "lat": 10.7290,
+    "lon": 106.7190,
+    "category": "mall",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJCwzN6g4pdTERMoI6R1RaKXQ"
+  },
+  {
+    "name": "Nguyen Hue Walking Street",
+    "lat": 10.7740,
+    "lon": 106.7030,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJHauaBY8vdTERrjdZ2YSFDBE"
+  },
+  {
+    "name": "Bui Vien Walking Street",
+    "lat": 10.7680,
+    "lon": 106.6935,
+    "category": "bar",
+    "hours": "18:00-02:00",
+    "google_place_id": "ChIJD2NjDo4vdTER2TGZlm7r7JM"
+  },
+  {
+    "name": "Suoi Tien Theme Park",
+    "lat": 10.8730,
+    "lon": 106.8000,
+    "category": "theme_park",
+    "hours": "08:00-17:00",
+    "google_place_id": "ChIJf2CJ2h8qdTER-CnI0MqKGcI"
+  },
+  {
+    "name": "Dam Sen Cultural Park",
+    "lat": 10.7685,
+    "lon": 106.6347,
+    "category": "theme_park",
+    "hours": "08:00-21:00",
+    "google_place_id": "ChIJOZDlsU0vdTER1mmIR9L4v7E"
+  },
+  {
+    "name": "HCMC University of Technology",
+    "lat": 10.7730,
+    "lon": 106.6600,
+    "category": "university",
+    "hours": "06:00-22:00",
+    "google_place_id": "ChIJ3c-T0t8udTERY6S0lChV3W4"
+  },
+  {
+    "name": "Ton Duc Thang University",
+    "lat": 10.7320,
+    "lon": 106.7000,
+    "category": "university",
+    "hours": "06:00-22:00",
+    "google_place_id": "ChIJw0xMQ10pdTERLw-VYNtZS6M"
+  },
+  {
+    "name": "University of Economics HCMC",
+    "lat": 10.7870,
+    "lon": 106.6890,
+    "category": "university",
+    "hours": "06:00-22:00",
+    "google_place_id": "ChIJ3-iIk5IvdTERqNdOQ0f7AYE"
+  },
+  {
+    "name": "Cho Ray Hospital",
+    "lat": 10.7560,
+    "lon": 106.6620,
+    "category": "hospital",
+    "hours": "24h",
+    "google_place_id": "ChIJkVl7VBEvdTERvJiWmKMBlhU"
+  },
+  {
+    "name": "Saigon South International City",
+    "lat": 10.7270,
+    "lon": 106.7220,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJ2aLB3QkpdTERNjkBbS1ULHQ"
+  },
+  {
+    "name": "Thu Thiem New Urban Area",
+    "lat": 10.7860,
+    "lon": 106.7200,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJPVaHJnApdTERdjl3-JoHqzk"
+  },
+  {
+    "name": "Phu My Hung",
+    "lat": 10.7230,
+    "lon": 106.7200,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJFYcLzwgpdTERdC7WDVI-hqU"
+  },
+  {
+    "name": "Cat Lai Port",
+    "lat": 10.7640,
+    "lon": 106.7850,
+    "category": "transit_hub",
+    "hours": "24h",
+    "google_place_id": "ChIJ8YlSTT4pdTER-hQNa3B25r0"
+  },
+  {
+    "name": "Saigon Exhibition and Convention Center",
+    "lat": 10.7290,
+    "lon": 106.7240,
+    "category": "convention_center",
+    "hours": "varies",
+    "google_place_id": "ChIJT5RU4gkpdTERdS7yq_HQE6o"
+  },
+  {
+    "name": "Bitexco Financial Tower",
+    "lat": 10.7717,
+    "lon": 106.7045,
+    "category": "museum",
+    "hours": "09:30-21:30",
+    "google_place_id": "ChIJv_lN1o4vdTERfZmpqkmC_lA"
+  },
+  {
+    "name": "Jade Emperor Pagoda",
+    "lat": 10.7900,
+    "lon": 106.6930,
+    "category": "museum",
+    "hours": "07:00-18:00",
+    "google_place_id": "ChIJ-68h6ZAvdTERq1iFYEHOYtU"
+  },
+  {
+    "name": "Thao Cam Vien (Saigon Zoo)",
+    "lat": 10.7870,
+    "lon": 106.7050,
+    "category": "theme_park",
+    "hours": "07:00-18:00",
+    "google_place_id": "ChIJtUxLOJEvdTERRzwWRXrPDgQ"
+  }
+]

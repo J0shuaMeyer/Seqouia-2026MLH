@@ -1,0 +1,12 @@
+{
+  "blr-purple": {
+    "name": "Purple Line",
+    "color": "#800080",
+    "stopIds": ["blr-PL-01","blr-PL-02","blr-PL-03","blr-PL-04","blr-PL-05","blr-PL-06","blr-PL-07","blr-PL-08","blr-PL-09","blr-PL-10","blr-PL-11","blr-PL-12","blr-PL-13","blr-PL-14","blr-PL-15","blr-PL-16","blr-PL-17","blr-PL-18","blr-PL-19","blr-PL-20","blr-PL-21","blr-PL-22","blr-PL-23","blr-PL-24","blr-PL-25","blr-PL-26","blr-PL-27","blr-PL-28","blr-PL-29","blr-PL-30","blr-PL-31","blr-PL-32","blr-PL-33","blr-PL-34","blr-PL-35","blr-PL-36","blr-PL-37","blr-PL-38"]
+  },
+  "blr-green": {
+    "name": "Green Line",
+    "color": "#008000",
+    "stopIds": ["blr-GL-01","blr-GL-02","blr-GL-03","blr-GL-04","blr-GL-05","blr-GL-06","blr-GL-07","blr-GL-08","blr-GL-09","blr-GL-10","blr-GL-11","blr-GL-12","blr-GL-13","blr-GL-14","blr-GL-15","blr-GL-16","blr-GL-17","blr-GL-18","blr-GL-19","blr-GL-20","blr-GL-21","blr-GL-22","blr-GL-23","blr-GL-24","blr-GL-25","blr-GL-26","blr-GL-27","blr-GL-28","blr-GL-29","blr-GL-30","blr-GL-31","blr-GL-32","blr-GL-33","blr-GL-34"]
+  }
+}

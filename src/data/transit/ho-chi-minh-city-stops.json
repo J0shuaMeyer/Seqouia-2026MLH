@@ -1,0 +1,16 @@
+{
+  "hcm-L1-01": { "name": "Ben Thanh", "lat": 10.7725, "lon": 106.6981 },
+  "hcm-L1-02": { "name": "Opera House", "lat": 10.7769, "lon": 106.7031 },
+  "hcm-L1-03": { "name": "Ba Son", "lat": 10.7860, "lon": 106.7120 },
+  "hcm-L1-04": { "name": "Van Thanh", "lat": 10.7960, "lon": 106.7170 },
+  "hcm-L1-05": { "name": "Tan Cang", "lat": 10.8020, "lon": 106.7220 },
+  "hcm-L1-06": { "name": "Thao Dien", "lat": 10.8080, "lon": 106.7340 },
+  "hcm-L1-07": { "name": "An Phu", "lat": 10.8070, "lon": 106.7450 },
+  "hcm-L1-08": { "name": "Rach Chiec", "lat": 10.8100, "lon": 106.7580 },
+  "hcm-L1-09": { "name": "Phuoc Long", "lat": 10.8250, "lon": 106.7700 },
+  "hcm-L1-10": { "name": "Binh Thai", "lat": 10.8380, "lon": 106.7790 },
+  "hcm-L1-11": { "name": "Thu Duc", "lat": 10.8500, "lon": 106.7870 },
+  "hcm-L1-12": { "name": "High-Tech Park", "lat": 10.8580, "lon": 106.7960 },
+  "hcm-L1-13": { "name": "Suoi Tien National Park", "lat": 10.8680, "lon": 106.8040 },
+  "hcm-L1-14": { "name": "Suoi Tien Terminal", "lat": 10.8740, "lon": 106.8120 }
+}

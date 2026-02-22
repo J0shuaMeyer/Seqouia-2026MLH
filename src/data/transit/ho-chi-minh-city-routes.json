@@ -1,0 +1,7 @@
+{
+  "hcm-line1": {
+    "name": "Metro Line 1",
+    "color": "#E4002B",
+    "stopIds": ["hcm-L1-01","hcm-L1-02","hcm-L1-03","hcm-L1-04","hcm-L1-05","hcm-L1-06","hcm-L1-07","hcm-L1-08","hcm-L1-09","hcm-L1-10","hcm-L1-11","hcm-L1-12","hcm-L1-13","hcm-L1-14"]
+  }
+}

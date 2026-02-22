@@ -13,6 +13,7 @@
     "build-populartimes": "python3 scripts/build-populartimes.py"
   },
   "dependencies": {
+    "@google/genai": "^1.42.0",
     "@types/three": "^0.183.1",
     "gtfs-realtime-bindings": "^1.1.1",
     "maplibre-gl": "^5.18.0",
