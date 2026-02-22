@@ -1,0 +1,284 @@
+{
+  "Estadio Azteca": {
+    "google_place_id": "ChIJGQkBCFIAzoURlLaQUWnuYZc",
+    "category": "stadium",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Estadio Ol\u00edmpico Universitario": {
+    "google_place_id": "ChIJz9X9XP7_zYUR4gSAZe8hcrg",
+    "category": "stadium",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Estadio Ciudad de los Deportes": {
+    "google_place_id": "ChIJu_WbZ53_0YURJKUxXtIlvOk",
+    "category": "stadium",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Foro Sol": {
+    "google_place_id": "ChIJYczSHCT80YURcAFpPX1ZlNk",
+    "category": "stadium",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Arena Ciudad de M\u00e9xico": {
+    "google_place_id": "ChIJQf8SLon40YUR_LleMBmmhxs",
+    "category": "stadium",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Aeropuerto Internacional Benito Ju\u00e1rez": {
+    "google_place_id": "ChIJnyKTvXf80YURRNK6YfV-0AI",
+    "category": "airport",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Aeropuerto Internacional Felipe \u00c1ngeles": {
+    "google_place_id": "ChIJ7QZFoNON0YURhkXtT0Q4Bmw",
+    "category": "airport",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Centro Comercial Perisur": {
+    "google_place_id": "ChIJhQcnon__zYURa0HR17b18uA",
+    "category": "mall",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Centro Santa Fe": {
+    "google_place_id": "ChIJTcMYut4A0oURoMYpThqkxOc",
+    "category": "mall",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Antara Fashion Hall": {
+    "google_place_id": "ChIJs4nT1xoC0oURRpC7xl0_Pbg",
+    "category": "mall",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Plaza Universidad": {
+    "google_place_id": "ChIJKzRWMMr_0YURnh8KT8wypOY",
+    "category": "mall",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Palacio de Hierro Polanco": {
+    "google_place_id": "ChIJs7kMrxwC0oURFb2Gv449aKs",
+    "category": "mall",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Six Flags M\u00e9xico": {
+    "google_place_id": "ChIJGZTVlcn_zYURRZxrmu06Qto",
+    "category": "theme_park",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "La Feria de Chapultepec": {
+    "google_place_id": "ChIJxVRik1EB0oURq__BbVVX0s8",
+    "category": "theme_park",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Pujol": {
+    "google_place_id": "ChIJWZ2zdav40YURFvsU_rU3uaE",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Quintonil": {
+    "google_place_id": "ChIJbS8EZf8B0oURwwD8B0MpqK0",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Contramar": {
+    "google_place_id": "ChIJez8vvy__0YURP0rx5WhEig4",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "El Cardenal": {
+    "google_place_id": "ChIJh3D2US350YURVW0T-_DRdsA",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Caf\u00e9 de Tacuba": {
+    "google_place_id": "ChIJ___D_iz50YURnlo8sopE6ss",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Rosetta": {
+    "google_place_id": "ChIJdSGAWgP_0YURwNtY7rftf2E",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "El Huequito": {
+    "google_place_id": "ChIJczgiA9X-0YURqRON9mN1nMA",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Los Danzantes Coyoac\u00e1n": {
+    "google_place_id": "ChIJQTexydz_0YUR2QfqjGI6FS8",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Patrick Miller": {
+    "google_place_id": "ChIJE9bFsTH_0YURoB14d-BYpRQ",
+    "category": "bar",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Sal\u00f3n Tenampa": {
+    "google_place_id": "ChIJq_7ywy750YURugGS3uSUQUw",
+    "category": "bar",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Mama Rumba": {
+    "google_place_id": "ChIJa8zl1T7_0YURizg2MMDMqNc",
+    "category": "bar",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "La Botica": {
+    "google_place_id": "ChIJpUyFezv_0YURzJ9qC45456k",
+    "category": "bar",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Museo Nacional de Antropolog\u00eda": {
+    "google_place_id": "ChIJScjIILQB0oURJMVub-MaI4Q",
+    "category": "museum",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Palacio de Bellas Artes": {
+    "google_place_id": "ChIJTQGqdSv50YURz-imDdIQ2Bc",
+    "category": "museum",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Museo Frida Kahlo": {
+    "google_place_id": "ChIJOz-6AMT_0YURofTM9_ekAWI",
+    "category": "museum",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Museo Soumaya": {
+    "google_place_id": "ChIJCT06bhoC0oURszwDTCLicpM",
+    "category": "museum",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Museo Nacional de Arte": {
+    "google_place_id": "ChIJ0fhThCQA0oURALaHxBtFZ14",
+    "category": "museum",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Z\u00f3calo": {
+    "google_place_id": "ChIJ_6pkSM3-0YURDDaRslwM_0w",
+    "category": "plaza",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Bosque de Chapultepec": {
+    "google_place_id": "ChIJP1dJRVf_0YURr8MZosHl4kI",
+    "category": "plaza",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Jard\u00edn Centenario Coyoac\u00e1n": {
+    "google_place_id": "ChIJTYWIy9z_0YURddO8zJQYnqo",
+    "category": "plaza",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Alameda Central": {
+    "google_place_id": "ChIJS7R39Sr50YURQE6mi9UOKds",
+    "category": "plaza",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Universidad Nacional Aut\u00f3noma de M\u00e9xico": {
+    "google_place_id": "ChIJoVxf4P__0YUR2vJ4ww77744",
+    "category": "university",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Instituto Polit\u00e9cnico Nacional": {
+    "google_place_id": "ChIJG0zF2LX50YURyJqxYfUiQJU",
+    "category": "university",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Universidad Iberoamericana": {
+    "google_place_id": "ChIJg1P1ANsA0oURGK-stctM2DE",
+    "category": "university",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Metro Z\u00f3calo": {
+    "google_place_id": "ChIJIcTdNM3-0YURIs2C6LKvU-c",
+    "category": "transit_hub",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Metro Insurgentes": {
+    "google_place_id": "ChIJm5CI3Db_0YURiGZDwwvG9Eo",
+    "category": "transit_hub",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Metro Pantitl\u00e1n": {
+    "google_place_id": "ChIJLaPUyGv80YUR6v_J4Uh1TCY",
+    "category": "transit_hub",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Buenavista Station": {
+    "google_place_id": "ChIJjUKlSNr40YUReWGDHYkbqKY",
+    "category": "transit_hub",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Centro Banamex": {
+    "google_place_id": "ChIJ55yU5i8C0oURhS-pVwG7Ql0",
+    "category": "convention_center",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Expo Santa Fe": {
+    "google_place_id": "ChIJqzPAw7MB0oURSd1gtCvGNPg",
+    "category": "convention_center",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Instituto Nacional de Cardiolog\u00eda": {
+    "google_place_id": "ChIJ1xrCK1YAzoURx_iOc1nyszo",
+    "category": "hospital",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Hospital General de M\u00e9xico": {
+    "google_place_id": "ChIJC9tzMiH_0YURl867SZpBkGg",
+    "category": "hospital",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Hospital \u00c1ngeles Pedregal": {
+    "google_place_id": "ChIJ5wAAAHT_zYURQznNzPggigY",
+    "category": "hospital",
+    "populartimes": null,
+    "current_popularity": 0
+  }
+}

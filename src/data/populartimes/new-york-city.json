@@ -1,0 +1,284 @@
+{
+  "Barclays Center": {
+    "google_place_id": "ChIJo3lEaa5bwokRnuZS2oWTlLk",
+    "category": "stadium",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Madison Square Garden": {
+    "google_place_id": "ChIJhRwB-yFawokR5Phil-QQ3zM",
+    "category": "stadium",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Yankee Stadium": {
+    "google_place_id": "ChIJcWnnWiz0wokRCB6aVdnDQEk",
+    "category": "stadium",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Citi Field": {
+    "google_place_id": "ChIJldFHseBfwokRO3aZ8NSVW_U",
+    "category": "stadium",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "MetLife Stadium": {
+    "google_place_id": "ChIJvwJZrWH4wokRNBcFMQ0ohIE",
+    "category": "stadium",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "John F. Kennedy International Airport": {
+    "google_place_id": "ChIJR0lA1VBmwokR8BGfSBOyT-w",
+    "category": "airport",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "LaGuardia Airport": {
+    "google_place_id": "ChIJtU1Cg4lfwokRs2aWDmbEL3c",
+    "category": "airport",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Westfield World Trade Center": {
+    "google_place_id": "ChIJNT54mhlawokRM8ak2AYdABs",
+    "category": "mall",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Manhattan Mall": {
+    "google_place_id": "ChIJnbJwqbZZwokRfpUxp6ZT7ZA",
+    "category": "mall",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "The Shops at Columbus Circle": {
+    "google_place_id": "ChIJp3PsL_ZYwokRdBcE-3KTjrg",
+    "category": "mall",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Brookfield Place": {
+    "google_place_id": "ChIJy8jTDBtawokRB9wNyxemSw8",
+    "category": "mall",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Kings Plaza": {
+    "google_place_id": "ChIJ30o8q0NDwokRBrGdmsRwc_s",
+    "category": "mall",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Coney Island Luna Park": {
+    "google_place_id": "ChIJX-Ps_jREwokRiOsrB0JnZTM",
+    "category": "theme_park",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Central Park Zoo": {
+    "google_place_id": "ChIJaWjW_PFYwokRFD8a2YQu12U",
+    "category": "theme_park",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Peter Luger Steak House": {
+    "google_place_id": "ChIJR_bK295bwokR8gM6QgEdmkY",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Katz's Delicatessen": {
+    "google_place_id": "ChIJCar0f49ZwokR6ozLV-dHNTE",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Le Bernardin": {
+    "google_place_id": "ChIJV7QQ6kdZwokRax4615zpSGU",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Joe's Pizza": {
+    "google_place_id": "ChIJ8Q2WSpJZwokRQz-bYYgEskM",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Di Fara Pizza": {
+    "google_place_id": "ChIJM2mGRMhEwokRv1Fy6oFJ570",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Eleven Madison Park": {
+    "google_place_id": "ChIJEWbXz6ZZwokRLKmKrtPfVFY",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Carbone": {
+    "google_place_id": "ChIJmSvG_ZFZwokRTOFeiLXzkmA",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Balthazar": {
+    "google_place_id": "ChIJt7fMLIlZwokRCRtM9bNDg78",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "230 Fifth Rooftop Bar": {
+    "google_place_id": "ChIJ_1oyZaZZwokR1c-HIVJ3xzo",
+    "category": "bar",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "McSorley's Old Ale House": {
+    "google_place_id": "ChIJGdCSd5tZwokRfYvMyzO7qtE",
+    "category": "bar",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Marquee New York": {
+    "google_place_id": "ChIJBwnlGrdZwokRpf61pMm860c",
+    "category": "bar",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Brooklyn Mirage": {
+    "google_place_id": "ChIJzYeuaABfwokRRvyYujZW-30",
+    "category": "bar",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "The Metropolitan Museum of Art": {
+    "google_place_id": "ChIJb8Jg9pZYwokR-qHGtvSkLzs",
+    "category": "museum",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "American Museum of Natural History": {
+    "google_place_id": "ChIJCXoPsPRYwokRsV1MYnKBfaI",
+    "category": "museum",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Museum of Modern Art": {
+    "google_place_id": "ChIJKxDbe_lYwokRVf__s8CPn-o",
+    "category": "museum",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Solomon R. Guggenheim Museum": {
+    "google_place_id": "ChIJmZ5emqJYwokRuDz79o0coAQ",
+    "category": "museum",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Whitney Museum of American Art": {
+    "google_place_id": "ChIJN3MJ6pRYwokRiXg91flSP8Y",
+    "category": "museum",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Times Square": {
+    "google_place_id": "ChIJmQJIxlVYwokRLgeuocVOGVU",
+    "category": "plaza",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Union Square": {
+    "google_place_id": "ChIJi6oUnphZwokRpMog28mvAM0",
+    "category": "plaza",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Washington Square Park": {
+    "google_place_id": "ChIJjX494pBZwokRGH620d9eYfo",
+    "category": "plaza",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Central Park": {
+    "google_place_id": "ChIJ4zGFAZpYwokRGUGph3Mf37k",
+    "category": "plaza",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Columbia University": {
+    "google_place_id": "ChIJyQ3Tlj72wokRUCflR_kzeVc",
+    "category": "university",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "New York University": {
+    "google_place_id": "ChIJwZVT9ZpZwokRBfO1cTF0MNo",
+    "category": "university",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "The City College of New York": {
+    "google_place_id": "ChIJ9Zaof2X2wokRGlYJrMCphac",
+    "category": "university",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Grand Central Terminal": {
+    "google_place_id": "ChIJhRwB-yFawokRi0AhGH87UTc",
+    "category": "transit_hub",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Penn Station": {
+    "google_place_id": "ChIJy62yFa5ZwokRun79NAZCVXk",
+    "category": "transit_hub",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Fulton Center": {
+    "google_place_id": "ChIJnetYyxlawokRY_-b4ZXbI7Q",
+    "category": "transit_hub",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Atlantic Terminal": {
+    "google_place_id": "ChIJ5c2f-a1bwokR9Izugi-zBqc",
+    "category": "transit_hub",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Port Authority Bus Terminal": {
+    "google_place_id": "ChIJCU8NPFNYwokRbsOJFYQPeag",
+    "category": "transit_hub",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Javits Center": {
+    "google_place_id": "ChIJp5QzC2tZwokRptD3MCHkYYQ",
+    "category": "convention_center",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "NewYork-Presbyterian Hospital": {
+    "google_place_id": "ChIJEbXTe5z2wokR83YM0hRjJb8",
+    "category": "hospital",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Mount Sinai Hospital": {
+    "google_place_id": "ChIJk9ruyj32wokRP8Z7bR7Bl5c",
+    "category": "hospital",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Bellevue Hospital": {
+    "google_place_id": "ChIJqccvIQxZwokR4PfF_NqTomc",
+    "category": "hospital",
+    "populartimes": null,
+    "current_popularity": 0
+  }
+}

@@ -1,0 +1,278 @@
+{
+  "Estadio Alberto J. Armando (La Bombonera)": {
+    "google_place_id": "ChIJc1RekrY0o5URDbRYiHSypRw",
+    "category": "stadium",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Estadio Monumental Antonio Vespucio Liberti": {
+    "google_place_id": "ChIJ340B5jq0vJURijD6W6dgfz0",
+    "category": "stadium",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Estadio Jos\u00e9 Amalfitani": {
+    "google_place_id": "ChIJuYqwLzjIvJURjmqFcomnDOo",
+    "category": "stadium",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Luna Park": {
+    "google_place_id": "ChIJo_kZXzI1o5URmEpzuj-5NP0",
+    "category": "stadium",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Movistar Arena": {
+    "google_place_id": "ChIJkwq0b-u1vJURlli1Yhuxyh8",
+    "category": "stadium",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Aeropuerto Internacional Ministro Pistarini (Ezeiza)": {
+    "google_place_id": "ChIJV6Xe4vTQvJURO8xB1IFvm_E",
+    "category": "airport",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Aeroparque Jorge Newbery": {
+    "google_place_id": "ChIJtccx9ae1vJUR28qcL4mS2f0",
+    "category": "airport",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Galer\u00edas Pac\u00edfico": {
+    "google_place_id": "ChIJr_waC8vKvJURnJ45T8-lU40",
+    "category": "mall",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Alto Palermo Shopping": {
+    "google_place_id": "ChIJIRWq0oPKvJURoBsCDf5Bqcc",
+    "category": "mall",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Abasto Shopping": {
+    "google_place_id": "ChIJP9FLhYzKvJURoUraVMD1DPw",
+    "category": "mall",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Shopping DOT Baires": {
+    "google_place_id": "ChIJiXqyScC2vJURa7eDXB_4r7Q",
+    "category": "mall",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Patio Bullrich": {
+    "google_place_id": "ChIJVy1xubrKvJUR8mPb2Bsv36k",
+    "category": "mall",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Tierra Santa": {
+    "google_place_id": "ChIJn_Gyfg61vJURKTHVZHsw7Pg",
+    "category": "theme_park",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Don Julio": {
+    "google_place_id": "ChIJoYl36oa1vJURWWhqD9z3UV8",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "El Desnivel": {
+    "google_place_id": "ChIJ9emvzNQ0o5UROiVyLTusVNQ",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Caf\u00e9 Tortoni": {
+    "google_place_id": "ChIJ01wendHKvJURLcQXvCCCC1I",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "La Cabrera": {
+    "google_place_id": "ChIJvx_Xcom1vJURxZN2FRnkgaA",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "El Sanjuanino": {
+    "google_place_id": "ChIJeyXj7KTKvJUR5GeRB4kOU4k",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Tegui": {
+    "google_place_id": "ChIJWXyAagDLvJURhEObWUVbI2s",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "El Obrero": {
+    "google_place_id": "ChIJgdR2cMc0o5URUxHIhpHlTek",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Parilla Don Julio": {
+    "google_place_id": "ChIJoYl36oa1vJURWWhqD9z3UV8",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Crobar": {
+    "google_place_id": "ChIJ569dFc_KvJUR9zisfxaOeWg",
+    "category": "bar",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Niceto Club": {
+    "google_place_id": "ChIJ9VO96Yy1vJURI4ALY8b1Xqc",
+    "category": "bar",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Milion": {
+    "google_place_id": "ChIJT1fyLrnKvJURP1-qNQDw3Kg",
+    "category": "bar",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Florer\u00eda Atl\u00e1ntico": {
+    "google_place_id": "ChIJJY8xLrHKvJURGgoMqdg8pXE",
+    "category": "bar",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Museo Nacional de Bellas Artes": {
+    "google_place_id": "ChIJQ_bCmaHKvJURfb4aM7hD5Uk",
+    "category": "museum",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "MALBA": {
+    "google_place_id": "ChIJw2lP92S1vJUR0oZeeeJ7qO4",
+    "category": "museum",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Museo de Arte Moderno de Buenos Aires": {
+    "google_place_id": "ChIJhTzp3tI0o5URtSE1HNW4CdI",
+    "category": "museum",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Centro Cultural Kirchner": {
+    "google_place_id": "ChIJAYdZgzI1o5URUlEv3u3nFP8",
+    "category": "museum",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Museo Evita": {
+    "google_place_id": "ChIJmVJ0zJi1vJURj10BapSgx7w",
+    "category": "museum",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Plaza de Mayo": {
+    "google_place_id": "ChIJXx79V9vKvJURS2GosE58c8w",
+    "category": "plaza",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Parque 3 de Febrero (Bosques de Palermo)": {
+    "google_place_id": "ChIJ69QzDp-1vJURLtNEAC18TQs",
+    "category": "plaza",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Plaza San Mart\u00edn": {
+    "google_place_id": "ChIJYzGZlbXKvJURUJe-nyl12bU",
+    "category": "plaza",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Plaza Dorrego": {
+    "google_place_id": "ChIJifSktCzLvJURsTMaMFXLu3E",
+    "category": "plaza",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Universidad de Buenos Aires": {
+    "google_place_id": "ChIJE1bNX8vKvJURFbYSKI1Gw0I",
+    "category": "university",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Universidad Torcuato Di Tella": {
+    "google_place_id": "ChIJ32HX6zC0vJURx-acsagzPA4",
+    "category": "university",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Pontificia Universidad Cat\u00f3lica Argentina": {
+    "google_place_id": "ChIJ7cyrKCo1o5URSYt2BByzoAc",
+    "category": "university",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Estaci\u00f3n Retiro": {
+    "google_place_id": "ChIJUzg-m7TKvJURFFWLi1oLlFA",
+    "category": "transit_hub",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Estaci\u00f3n Constituci\u00f3n": {
+    "google_place_id": "ChIJO5OvTjDLvJURn--oIpRP89Q",
+    "category": "transit_hub",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Estaci\u00f3n Once": {
+    "google_place_id": "ChIJacCoa_LKvJURkiz-1eM4WB4",
+    "category": "transit_hub",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Terminal de \u00d3mnibus de Retiro": {
+    "google_place_id": "ChIJ0ZIXJqTLvJURpAuSSJCHmqs",
+    "category": "transit_hub",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "La Rural - Predio Ferial": {
+    "google_place_id": "ChIJUyVF1py1vJURmgU10QcTUms",
+    "category": "convention_center",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Centro Costa Salguero": {
+    "google_place_id": "ChIJNd28pGm1vJURKhwrHlShj1U",
+    "category": "convention_center",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Hospital Italiano de Buenos Aires": {
+    "google_place_id": "ChIJpSylZWbKvJURmbWVOvaBhKA",
+    "category": "hospital",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Hospital Brit\u00e1nico": {
+    "google_place_id": "ChIJxzIHXznLvJUR4uLX09Se8Co",
+    "category": "hospital",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Hospital de Cl\u00ednicas Jos\u00e9 de San Mart\u00edn": {
+    "google_place_id": "ChIJwwfedJTKvJURtfBmDu6LFm0",
+    "category": "hospital",
+    "populartimes": null,
+    "current_popularity": 0
+  }
+}

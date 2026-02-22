@@ -1,0 +1,278 @@
+{
+  "SoFi Stadium": {
+    "google_place_id": "ChIJT4_7y4a3woARcEGeJLecuV8",
+    "category": "stadium",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Dodger Stadium": {
+    "google_place_id": "ChIJdVYAVPnGwoAR3wmcg09VlJ4",
+    "category": "stadium",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Crypto.com Arena": {
+    "google_place_id": "ChIJkyrqXbjHwoAR1bJ76zx89B8",
+    "category": "stadium",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Rose Bowl Stadium": {
+    "google_place_id": "ChIJkRS5KKTDwoARL78qHMf9T0w",
+    "category": "stadium",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "BMO Stadium": {
+    "google_place_id": "ChIJWbtt4AjIwoAR3Iskktmqysg",
+    "category": "stadium",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Los Angeles International Airport": {
+    "google_place_id": "ChIJtU-yE9KwwoAR8a2LaVd7qHc",
+    "category": "airport",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Hollywood Burbank Airport": {
+    "google_place_id": "ChIJeUPPOU2UwoAR8QXY8RsY4W0",
+    "category": "airport",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "The Grove": {
+    "google_place_id": "ChIJwwPTwi-5woARbtuI_49vkMM",
+    "category": "mall",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Westfield Century City": {
+    "google_place_id": "ChIJhcGq9Iy7woARs8VXy7WsEZ0",
+    "category": "mall",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Beverly Center": {
+    "google_place_id": "ChIJbcLfRrO-woARrV-XVvnH-wU",
+    "category": "mall",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Santa Monica Place": {
+    "google_place_id": "ChIJFeoqltGkwoARaf5KXIf3S0E",
+    "category": "mall",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Del Amo Fashion Center": {
+    "google_place_id": "ChIJDwXFbSlL3YAR6ipesSM96e8",
+    "category": "mall",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Universal Studios Hollywood": {
+    "google_place_id": "ChIJzzgyJU--woARcZqceSdQ3dM",
+    "category": "theme_park",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Knott's Berry Farm": {
+    "google_place_id": "ChIJo3h_9V8p3YARVTAekE45jq4",
+    "category": "theme_park",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Bestia": {
+    "google_place_id": "ChIJSRvZ1yHGwoARcLrfvc-APl4",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Musso & Frank Grill": {
+    "google_place_id": "ChIJaZ3OWSO_woARSF1VduqxGgY",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Nobu Malibu": {
+    "google_place_id": "ChIJewC2XzIe6IARgQhofffh6fE",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "In-N-Out Burger (Westwood)": {
+    "google_place_id": "ChIJKZm9foS8woAR4oa_Lf37xIQ",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Republique": {
+    "google_place_id": "ChIJqaA5zt-4woARHGIEp3XlsZo",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Providence": {
+    "google_place_id": "ChIJaUBtetO-woARqyrV4ASPECg",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Guelaguetza": {
+    "google_place_id": "ChIJKSPWlH-4woARrKJ5thvMBeY",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Langer's Delicatessen": {
+    "google_place_id": "ChIJP1rAZZ_HwoARAcX96y-BrjY",
+    "category": "restaurant",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Skybar at Mondrian": {
+    "google_place_id": "ChIJNVvaZb6-woARW2sAISXPkw8",
+    "category": "bar",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Clifton's Republic": {
+    "google_place_id": "ChIJA6IDVLXHwoAR8gTOFqwApzg",
+    "category": "bar",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "No Vacancy": {
+    "google_place_id": "ChIJlU0Ogzy_woARU50hhruvVYs",
+    "category": "bar",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Sound Nightclub": {
+    "google_place_id": "ChIJbTu3nyS_woARVspWyfLKQcs",
+    "category": "bar",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "The Getty Center": {
+    "google_place_id": "ChIJbzYnQte8woARJaqqFVpKeNo",
+    "category": "museum",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Los Angeles County Museum of Art": {
+    "google_place_id": "ChIJsXqcyjy5woARNz6sOh0ZmwA",
+    "category": "museum",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "The Broad": {
+    "google_place_id": "ChIJXaYsEk3GwoARvx7RKBUE8Zg",
+    "category": "museum",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Natural History Museum of Los Angeles": {
+    "google_place_id": "ChIJXzARBf3HwoARJyT7uZSV-G4",
+    "category": "museum",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Griffith Observatory": {
+    "google_place_id": "ChIJywjU6WG_woAR3NrWwrEH_3M",
+    "category": "museum",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Hollywood Walk of Fame": {
+    "google_place_id": "ChIJXyC7WTu_woARPvVMCHBXd4U",
+    "category": "plaza",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Grand Park": {
+    "google_place_id": "ChIJ_STuCE7GwoAR3vCqfD2J9es",
+    "category": "plaza",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Santa Monica Pier": {
+    "google_place_id": "ChIJm6deTdekwoARTY_RzhoRms0",
+    "category": "plaza",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Venice Beach Boardwalk": {
+    "google_place_id": "ChIJsyUr_9y7woARG6pTv7ogvu0",
+    "category": "plaza",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "University of California, Los Angeles": {
+    "google_place_id": "ChIJZQ9c8IW8woARN0gTXFiTqSU",
+    "category": "university",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "University of Southern California": {
+    "google_place_id": "ChIJ7aVxnOTHwoARxKIntFtakKo",
+    "category": "university",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "California Institute of Technology": {
+    "google_place_id": "ChIJkXuZ6qfEwoARGt1hGtDnmTQ",
+    "category": "university",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Union Station": {
+    "google_place_id": "ChIJz7SQuzfHwoAREE6nSE8ZMmo",
+    "category": "transit_hub",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "7th Street / Metro Center": {
+    "google_place_id": "ChIJgxB_qrbHwoARbGUNq7YU72I",
+    "category": "transit_hub",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Hollywood/Highland Station": {
+    "google_place_id": "ChIJBbEGlCO_woARoaPVRzQMxDo",
+    "category": "transit_hub",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Los Angeles Convention Center": {
+    "google_place_id": "ChIJPe8BasfHwoARtSk04iDAKfY",
+    "category": "convention_center",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Anaheim Convention Center": {
+    "google_place_id": "ChIJPSkYXt7X3IARFClnE7qisj4",
+    "category": "convention_center",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Cedars-Sinai Medical Center": {
+    "google_place_id": "ChIJ98qZvfS_woARcT4B8X0uYFI",
+    "category": "hospital",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "UCLA Medical Center": {
+    "google_place_id": "ChIJZQ9c8IW8woARA7ZLKfVusSg",
+    "category": "hospital",
+    "populartimes": null,
+    "current_popularity": 0
+  },
+  "Keck Hospital of USC": {
+    "google_place_id": "ChIJ9bpj1N7FwoAR3rlpurQZapg",
+    "category": "hospital",
+    "populartimes": null,
+    "current_popularity": 0
+  }
+}

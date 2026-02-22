@@ -237,8 +237,8 @@ export default function GlobeView() {
     satGeo.setDrawRange(0, 0); // invisible until data loads
 
     const satMat = new THREE.PointsMaterial({
-      color: 0x66ddff,
-      size: 1.5,
+      color: 0x382fd0,
+      size: 1.7,
       sizeAttenuation: false,
       transparent: true,
       opacity: 0.7,

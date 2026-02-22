@@ -5,7 +5,7 @@
     "lon": -46.4744,
     "category": "stadium",
     "hours": "varies",
-    "google_place_id": ""
+    "google_place_id": "ChIJVbiPyd5mzpQR-OzSvP9hsPI"
   },
   {
     "name": "Estádio do Morumbi",
@@ -13,7 +13,7 @@
     "lon": -46.7222,
     "category": "stadium",
     "hours": "varies",
-    "google_place_id": ""
+    "google_place_id": "ChIJSeYfG8NWzpQRwhhm_E1PE30"
   },
   {
     "name": "Allianz Parque",
@@ -21,7 +21,7 @@
     "lon": -46.6783,
     "category": "stadium",
     "hours": "varies",
-    "google_place_id": ""
+    "google_place_id": "ChIJRV1xHf1XzpQRsVwZ1iFUToY"
   },
   {
     "name": "Estádio do Pacaembu",
@@ -29,7 +29,7 @@
     "lon": -46.6656,
     "category": "stadium",
     "hours": "varies",
-    "google_place_id": ""
+    "google_place_id": "ChIJKznO5SVYzpQRJfeCtBpjv6E"
   },
   {
     "name": "Autódromo de Interlagos",
@@ -37,7 +37,7 @@
     "lon": -46.6977,
     "category": "stadium",
     "hours": "varies",
-    "google_place_id": ""
+    "google_place_id": "ChIJr4SVPshPzpQRwKUs2gfc_C8"
   },
   {
     "name": "Aeroporto de Guarulhos",
@@ -53,15 +53,15 @@
     "lon": -46.6564,
     "category": "airport",
     "hours": "06:00-23:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJ8wDUuXpazpQRhXBN5pcG5zo"
   },
   {
     "name": "Shopping Iguatemi",
     "lat": -23.5674,
-    "lon": -46.6870,
+    "lon": -46.687,
     "category": "mall",
     "hours": "10:00-22:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJtb39eG1XzpQRrsiFJG_8XwA"
   },
   {
     "name": "Shopping Eldorado",
@@ -69,7 +69,7 @@
     "lon": -46.6952,
     "category": "mall",
     "hours": "10:00-22:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJ1xET2qJXzpQRGs4ONvDHxhU"
   },
   {
     "name": "Shopping Morumbi",
@@ -77,15 +77,15 @@
     "lon": -46.6993,
     "category": "mall",
     "hours": "10:00-22:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJq6omp8RQzpQRyCoIvgF3s6Y"
   },
   {
     "name": "Shopping Cidade Jardim",
-    "lat": -23.5860,
+    "lat": -23.586,
     "lon": -46.6926,
     "category": "mall",
     "hours": "10:00-22:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJp4CPZDBXzpQRODifwupynvg"
   },
   {
     "name": "Shopping Pátio Higienópolis",
@@ -93,7 +93,7 @@
     "lon": -46.6558,
     "category": "mall",
     "hours": "10:00-22:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJnTmhmztYzpQRn_wmS6AGrS4"
   },
   {
     "name": "Hopi Hari",
@@ -101,23 +101,23 @@
     "lon": -47.0025,
     "category": "theme_park",
     "hours": "10:00-18:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJ4z-u_aEyz5QR6kfTqwmZbD0"
   },
   {
     "name": "Playcenter Family",
-    "lat": -23.5570,
+    "lat": -23.557,
     "lon": -46.6589,
     "category": "theme_park",
     "hours": "10:00-18:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJqyHb425nzpQR8UFO-1fawRo"
   },
   {
     "name": "D.O.M.",
     "lat": -23.5622,
-    "lon": -46.6710,
+    "lon": -46.671,
     "category": "restaurant",
     "hours": "12:00-15:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJ_Qdn5dZZzpQRWJ5lDWdVmSY"
   },
   {
     "name": "A Casa do Porco",
@@ -125,15 +125,15 @@
     "lon": -46.6465,
     "category": "restaurant",
     "hours": "12:00-23:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJK76a5E5YzpQRCoY7nm1M3-k"
   },
   {
     "name": "Maní",
     "lat": -23.5681,
-    "lon": -46.6610,
+    "lon": -46.661,
     "category": "restaurant",
     "hours": "12:00-15:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJn2_PrFpXzpQR-FcAbYy3OmM"
   },
   {
     "name": "Mercado Municipal de São Paulo",
@@ -141,15 +141,15 @@
     "lon": -46.6294,
     "category": "restaurant",
     "hours": "06:00-18:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJBQICYYxfzpQR9P4GxnTkmgA"
   },
   {
     "name": "Figueira Rubaiyat",
     "lat": -23.5628,
-    "lon": -46.6710,
+    "lon": -46.671,
     "category": "restaurant",
     "hours": "12:00-00:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJ23tjlzNYzpQRtXWnJsu2Fcw"
   },
   {
     "name": "Pizzaria Bráz",
@@ -157,7 +157,7 @@
     "lon": -46.6572,
     "category": "restaurant",
     "hours": "18:00-01:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJa57LVdpZzpQRIPsCPn2eTlY"
   },
   {
     "name": "Padaria Santa Tereza",
@@ -165,7 +165,7 @@
     "lon": -46.6363,
     "category": "restaurant",
     "hours": "06:00-22:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJDXcY5Et7zpQR3PsmiWfwZF0"
   },
   {
     "name": "Mocotó",
@@ -173,7 +173,7 @@
     "lon": -46.5962,
     "category": "restaurant",
     "hours": "11:30-23:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJyUs_0fD1zpQRA0Ohb5WD9Ms"
   },
   {
     "name": "Bar Astor",
@@ -181,7 +181,7 @@
     "lon": -46.6687,
     "category": "bar",
     "hours": "18:00-02:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJz40_NOxZzpQRiAQhKO7_xuU"
   },
   {
     "name": "Skye Bar",
@@ -189,7 +189,7 @@
     "lon": -46.6564,
     "category": "bar",
     "hours": "18:00-01:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJpUToQOFZzpQR44DnWaMFgO4"
   },
   {
     "name": "D-Edge",
@@ -197,7 +197,7 @@
     "lon": -46.6666,
     "category": "bar",
     "hours": "23:00-08:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJZ_yXOAVYzpQRI3IRPmdtesc"
   },
   {
     "name": "Vila Madalena (Beco do Batman area)",
@@ -205,7 +205,7 @@
     "lon": -46.6924,
     "category": "bar",
     "hours": "18:00-04:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJuaW2WFhXzpQRIv9DYGOpscU"
   },
   {
     "name": "Museu de Arte de São Paulo",
@@ -213,7 +213,7 @@
     "lon": -46.6559,
     "category": "museum",
     "hours": "10:00-20:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJH3frsc5ZzpQRoU10aab2BOk"
   },
   {
     "name": "Pinacoteca do Estado",
@@ -221,7 +221,7 @@
     "lon": -46.6333,
     "category": "museum",
     "hours": "10:00-18:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJ52h-6FhYzpQRASMhc4Xaw9w"
   },
   {
     "name": "Museu do Ipiranga",
@@ -229,7 +229,7 @@
     "lon": -46.6125,
     "category": "museum",
     "hours": "10:00-17:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJI2BHUOZbzpQRsQU4bg45Myw"
   },
   {
     "name": "Instituto Tomie Ohtake",
@@ -237,7 +237,7 @@
     "lon": -46.6905,
     "category": "museum",
     "hours": "11:00-20:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJ_fwqdrRZzpQRqw5uxa4fjJU"
   },
   {
     "name": "Museu da Língua Portuguesa",
@@ -245,15 +245,15 @@
     "lon": -46.6343,
     "category": "museum",
     "hours": "09:00-17:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJr5iG4FhYzpQROA5gWJ_4xIY"
   },
   {
     "name": "Avenida Paulista",
     "lat": -23.5613,
-    "lon": -46.6560,
+    "lon": -46.656,
     "category": "plaza",
     "hours": "24h",
-    "google_place_id": ""
+    "google_place_id": "ChIJFaMK2shZzpQRanfJ8jGUn9U"
   },
   {
     "name": "Parque Ibirapuera",
@@ -261,15 +261,15 @@
     "lon": -46.6576,
     "category": "plaza",
     "hours": "05:00-00:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJ0RGdBvFZzpQRQeWcrwlhk8s"
   },
   {
     "name": "Praça da Sé",
     "lat": -23.5505,
-    "lon": -46.6340,
+    "lon": -46.634,
     "category": "plaza",
     "hours": "24h",
-    "google_place_id": ""
+    "google_place_id": "ChIJM0KuqqtZzpQRscVLca9vGNk"
   },
   {
     "name": "Praça da República",
@@ -277,15 +277,15 @@
     "lon": -46.6431,
     "category": "plaza",
     "hours": "24h",
-    "google_place_id": ""
+    "google_place_id": "ChIJW1UFzx9ZzpQRwfCFStDGJ1U"
   },
   {
     "name": "Universidade de São Paulo",
     "lat": -23.5587,
-    "lon": -46.7320,
+    "lon": -46.732,
     "category": "university",
     "hours": "07:00-22:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJEVnw4BFWzpQRVm7gx9L09AQ"
   },
   {
     "name": "Universidade Estadual de Campinas",
@@ -293,7 +293,7 @@
     "lon": -47.0647,
     "category": "university",
     "hours": "07:00-22:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJtU3SBbDGyJQRltcEzw5128Y"
   },
   {
     "name": "Pontifícia Universidade Católica de São Paulo",
@@ -301,7 +301,7 @@
     "lon": -46.6469,
     "category": "university",
     "hours": "07:00-22:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJHfQx4fVXzpQRXtXhlXXvH3I"
   },
   {
     "name": "Estação da Luz",
@@ -309,7 +309,7 @@
     "lon": -46.6343,
     "category": "transit_hub",
     "hours": "04:00-00:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJGylGOVlYzpQRSZWmk5VgHoM"
   },
   {
     "name": "Estação Sé",
@@ -317,7 +317,7 @@
     "lon": -46.6337,
     "category": "transit_hub",
     "hours": "04:40-00:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJiUYAW6pZzpQR2YtcUuwgxzc"
   },
   {
     "name": "Estação Paulista",
@@ -325,7 +325,7 @@
     "lon": -46.6626,
     "category": "transit_hub",
     "hours": "04:40-00:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJseZhoi1YzpQRO0jBy2su61w"
   },
   {
     "name": "Terminal Rodoviário do Tietê",
@@ -333,7 +333,7 @@
     "lon": -46.6245,
     "category": "transit_hub",
     "hours": "24h",
-    "google_place_id": ""
+    "google_place_id": "ChIJ5c9kko9YzpQRs2K58iLzfXI"
   },
   {
     "name": "Estação Pinheiros",
@@ -341,7 +341,7 @@
     "lon": -46.7022,
     "category": "transit_hub",
     "hours": "04:40-00:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJxax8yK5XzpQRIxNP02rVxXQ"
   },
   {
     "name": "São Paulo Expo",
@@ -349,7 +349,7 @@
     "lon": -46.6403,
     "category": "convention_center",
     "hours": "08:00-20:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJlcvDpN1azpQRZ5Fxj-VskTE"
   },
   {
     "name": "Hospital das Clínicas",
@@ -357,7 +357,7 @@
     "lon": -46.6693,
     "category": "hospital",
     "hours": "24h",
-    "google_place_id": ""
+    "google_place_id": "ChIJh6Q6DbBZzpQRI_hU40Nbcf4"
   },
   {
     "name": "Hospital Sírio-Libanês",
@@ -365,7 +365,7 @@
     "lon": -46.6523,
     "category": "hospital",
     "hours": "24h",
-    "google_place_id": ""
+    "google_place_id": "ChIJc6tqoctZzpQRMUfEP1yTB8U"
   },
   {
     "name": "Hospital Albert Einstein",
@@ -373,6 +373,6 @@
     "lon": -46.7144,
     "category": "hospital",
     "hours": "24h",
-    "google_place_id": ""
+    "google_place_id": "ChIJ1QaJE9xWzpQRPN2hgtp1L_o"
   }
 ]

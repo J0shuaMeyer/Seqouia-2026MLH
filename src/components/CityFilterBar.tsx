@@ -18,7 +18,8 @@ export const ALL_FILTERS: FilterDefinition[] = [
   { key: "transit",   icon: "", label: "TRANSIT",   layerIds: ["transit", "transit-network"],     color: "#a78bfa", available: (c) => !!c.transitType },
   { key: "flights",   icon: "", label: "FLIGHTS",   layerIds: ["aircraft"],                       color: "#22d3ee", available: () => true },
   { key: "maritime",  icon: "", label: "MARITIME",  layerIds: ["maritime"],                       color: "#0ea5e9", available: (c) => !!c.isCoastal },
-  { key: "places",    icon: "", label: "PLACES",    layerIds: ["pois", "pois-labels"],            color: "#d4d4d8", available: () => true },
+  { key: "quakes",    icon: "", label: "QUAKES",    layerIds: ["earthquakes", "earthquakes-glow", "earthquakes-labels"], color: "#ef4444", available: () => true },
+  { key: "places",    icon: "", label: "PLACES",    layerIds: ["pois", "pois-labels", "pois-aura"], color: "#d4d4d8", available: () => true },
   { key: "satellite", icon: "", label: "SATELLITE", layerIds: ["gibs-satellite"],                 color: "#818cf8", available: () => true },
 ];
 

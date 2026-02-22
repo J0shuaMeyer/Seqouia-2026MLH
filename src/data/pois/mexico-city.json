@@ -5,7 +5,7 @@
     "lon": -99.1505,
     "category": "stadium",
     "hours": "varies",
-    "google_place_id": ""
+    "google_place_id": "ChIJGQkBCFIAzoURlLaQUWnuYZc"
   },
   {
     "name": "Estadio Olímpico Universitario",
@@ -13,23 +13,23 @@
     "lon": -99.1896,
     "category": "stadium",
     "hours": "varies",
-    "google_place_id": ""
+    "google_place_id": "ChIJz9X9XP7_zYUR4gSAZe8hcrg"
   },
   {
     "name": "Estadio Ciudad de los Deportes",
     "lat": 19.3681,
-    "lon": -99.1720,
+    "lon": -99.172,
     "category": "stadium",
     "hours": "varies",
-    "google_place_id": ""
+    "google_place_id": "ChIJu_WbZ53_0YURJKUxXtIlvOk"
   },
   {
     "name": "Foro Sol",
     "lat": 19.3906,
-    "lon": -99.0930,
+    "lon": -99.093,
     "category": "stadium",
     "hours": "varies",
-    "google_place_id": ""
+    "google_place_id": "ChIJYczSHCT80YURcAFpPX1ZlNk"
   },
   {
     "name": "Arena Ciudad de México",
@@ -37,7 +37,7 @@
     "lon": -99.0903,
     "category": "stadium",
     "hours": "varies",
-    "google_place_id": ""
+    "google_place_id": "ChIJQf8SLon40YUR_LleMBmmhxs"
   },
   {
     "name": "Aeropuerto Internacional Benito Juárez",
@@ -45,7 +45,7 @@
     "lon": -99.0721,
     "category": "airport",
     "hours": "24h",
-    "google_place_id": ""
+    "google_place_id": "ChIJnyKTvXf80YURRNK6YfV-0AI"
   },
   {
     "name": "Aeropuerto Internacional Felipe Ángeles",
@@ -53,7 +53,7 @@
     "lon": -99.0095,
     "category": "airport",
     "hours": "24h",
-    "google_place_id": ""
+    "google_place_id": "ChIJ7QZFoNON0YURhkXtT0Q4Bmw"
   },
   {
     "name": "Centro Comercial Perisur",
@@ -61,7 +61,7 @@
     "lon": -99.1917,
     "category": "mall",
     "hours": "11:00-21:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJhQcnon__zYURa0HR17b18uA"
   },
   {
     "name": "Centro Santa Fe",
@@ -69,7 +69,7 @@
     "lon": -99.2765,
     "category": "mall",
     "hours": "11:00-21:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJTcMYut4A0oURoMYpThqkxOc"
   },
   {
     "name": "Antara Fashion Hall",
@@ -77,7 +77,7 @@
     "lon": -99.2078,
     "category": "mall",
     "hours": "11:00-21:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJs4nT1xoC0oURRpC7xl0_Pbg"
   },
   {
     "name": "Plaza Universidad",
@@ -85,7 +85,7 @@
     "lon": -99.1715,
     "category": "mall",
     "hours": "11:00-21:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJKzRWMMr_0YURnh8KT8wypOY"
   },
   {
     "name": "Palacio de Hierro Polanco",
@@ -93,7 +93,7 @@
     "lon": -99.1987,
     "category": "mall",
     "hours": "11:00-21:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJs7kMrxwC0oURFb2Gv449aKs"
   },
   {
     "name": "Six Flags México",
@@ -101,7 +101,7 @@
     "lon": -99.2091,
     "category": "theme_park",
     "hours": "10:00-18:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJGZTVlcn_zYURRZxrmu06Qto"
   },
   {
     "name": "La Feria de Chapultepec",
@@ -109,7 +109,7 @@
     "lon": -99.1959,
     "category": "theme_park",
     "hours": "10:00-18:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJxVRik1EB0oURq__BbVVX0s8"
   },
   {
     "name": "Pujol",
@@ -117,7 +117,7 @@
     "lon": -99.2044,
     "category": "restaurant",
     "hours": "13:00-23:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJWZ2zdav40YURFvsU_rU3uaE"
   },
   {
     "name": "Quintonil",
@@ -125,7 +125,7 @@
     "lon": -99.2037,
     "category": "restaurant",
     "hours": "13:00-17:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJbS8EZf8B0oURwwD8B0MpqK0"
   },
   {
     "name": "Contramar",
@@ -133,7 +133,7 @@
     "lon": -99.1699,
     "category": "restaurant",
     "hours": "09:00-18:30",
-    "google_place_id": ""
+    "google_place_id": "ChIJez8vvy__0YURP0rx5WhEig4"
   },
   {
     "name": "El Cardenal",
@@ -141,7 +141,7 @@
     "lon": -99.1386,
     "category": "restaurant",
     "hours": "08:00-18:30",
-    "google_place_id": ""
+    "google_place_id": "ChIJh3D2US350YURVW0T-_DRdsA"
   },
   {
     "name": "Café de Tacuba",
@@ -149,7 +149,7 @@
     "lon": -99.1354,
     "category": "restaurant",
     "hours": "08:00-23:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJ___D_iz50YURnlo8sopE6ss"
   },
   {
     "name": "Rosetta",
@@ -157,7 +157,7 @@
     "lon": -99.1647,
     "category": "restaurant",
     "hours": "13:00-23:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJdSGAWgP_0YURwNtY7rftf2E"
   },
   {
     "name": "El Huequito",
@@ -165,15 +165,15 @@
     "lon": -99.1404,
     "category": "restaurant",
     "hours": "09:00-23:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJczgiA9X-0YURqRON9mN1nMA"
   },
   {
     "name": "Los Danzantes Coyoacán",
-    "lat": 19.3490,
+    "lat": 19.349,
     "lon": -99.1624,
     "category": "restaurant",
     "hours": "13:00-23:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJQTexydz_0YUR2QfqjGI6FS8"
   },
   {
     "name": "Patrick Miller",
@@ -181,7 +181,7 @@
     "lon": -99.1656,
     "category": "bar",
     "hours": "21:00-04:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJE9bFsTH_0YURoB14d-BYpRQ"
   },
   {
     "name": "Salón Tenampa",
@@ -189,7 +189,7 @@
     "lon": -99.1389,
     "category": "bar",
     "hours": "13:00-02:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJq_7ywy750YURugGS3uSUQUw"
   },
   {
     "name": "Mama Rumba",
@@ -197,7 +197,7 @@
     "lon": -99.1666,
     "category": "bar",
     "hours": "21:00-03:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJa8zl1T7_0YURizg2MMDMqNc"
   },
   {
     "name": "La Botica",
@@ -205,15 +205,15 @@
     "lon": -99.1711,
     "category": "bar",
     "hours": "18:00-02:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJpUyFezv_0YURzJ9qC45456k"
   },
   {
     "name": "Museo Nacional de Antropología",
-    "lat": 19.4260,
+    "lat": 19.426,
     "lon": -99.1861,
     "category": "museum",
     "hours": "09:00-17:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJScjIILQB0oURJMVub-MaI4Q"
   },
   {
     "name": "Palacio de Bellas Artes",
@@ -221,7 +221,7 @@
     "lon": -99.1413,
     "category": "museum",
     "hours": "10:00-18:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJTQGqdSv50YURz-imDdIQ2Bc"
   },
   {
     "name": "Museo Frida Kahlo",
@@ -229,7 +229,7 @@
     "lon": -99.1627,
     "category": "museum",
     "hours": "10:00-17:30",
-    "google_place_id": ""
+    "google_place_id": "ChIJOz-6AMT_0YURofTM9_ekAWI"
   },
   {
     "name": "Museo Soumaya",
@@ -237,7 +237,7 @@
     "lon": -99.2058,
     "category": "museum",
     "hours": "10:30-18:30",
-    "google_place_id": ""
+    "google_place_id": "ChIJCT06bhoC0oURszwDTCLicpM"
   },
   {
     "name": "Museo Nacional de Arte",
@@ -245,7 +245,7 @@
     "lon": -99.1393,
     "category": "museum",
     "hours": "10:00-17:30",
-    "google_place_id": ""
+    "google_place_id": "ChIJ0fhThCQA0oURALaHxBtFZ14"
   },
   {
     "name": "Zócalo",
@@ -253,7 +253,7 @@
     "lon": -99.1332,
     "category": "plaza",
     "hours": "24h",
-    "google_place_id": ""
+    "google_place_id": "ChIJ_6pkSM3-0YURDDaRslwM_0w"
   },
   {
     "name": "Bosque de Chapultepec",
@@ -261,7 +261,7 @@
     "lon": -99.1892,
     "category": "plaza",
     "hours": "05:00-20:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJP1dJRVf_0YURr8MZosHl4kI"
   },
   {
     "name": "Jardín Centenario Coyoacán",
@@ -269,7 +269,7 @@
     "lon": -99.1621,
     "category": "plaza",
     "hours": "24h",
-    "google_place_id": ""
+    "google_place_id": "ChIJTYWIy9z_0YURddO8zJQYnqo"
   },
   {
     "name": "Alameda Central",
@@ -277,15 +277,15 @@
     "lon": -99.1445,
     "category": "plaza",
     "hours": "24h",
-    "google_place_id": ""
+    "google_place_id": "ChIJS7R39Sr50YURQE6mi9UOKds"
   },
   {
     "name": "Universidad Nacional Autónoma de México",
-    "lat": 19.3320,
-    "lon": -99.1870,
+    "lat": 19.332,
+    "lon": -99.187,
     "category": "university",
     "hours": "07:00-22:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJoVxf4P__0YUR2vJ4ww77744"
   },
   {
     "name": "Instituto Politécnico Nacional",
@@ -293,7 +293,7 @@
     "lon": -99.1467,
     "category": "university",
     "hours": "07:00-22:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJG0zF2LX50YURyJqxYfUiQJU"
   },
   {
     "name": "Universidad Iberoamericana",
@@ -301,7 +301,7 @@
     "lon": -99.2646,
     "category": "university",
     "hours": "07:00-22:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJg1P1ANsA0oURGK-stctM2DE"
   },
   {
     "name": "Metro Zócalo",
@@ -309,15 +309,15 @@
     "lon": -99.1335,
     "category": "transit_hub",
     "hours": "05:00-00:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJIcTdNM3-0YURIs2C6LKvU-c"
   },
   {
     "name": "Metro Insurgentes",
     "lat": 19.4215,
-    "lon": -99.1540,
+    "lon": -99.154,
     "category": "transit_hub",
     "hours": "05:00-00:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJm5CI3Db_0YURiGZDwwvG9Eo"
   },
   {
     "name": "Metro Pantitlán",
@@ -325,7 +325,7 @@
     "lon": -99.0729,
     "category": "transit_hub",
     "hours": "05:00-00:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJLaPUyGv80YUR6v_J4Uh1TCY"
   },
   {
     "name": "Buenavista Station",
@@ -333,39 +333,39 @@
     "lon": -99.1529,
     "category": "transit_hub",
     "hours": "05:00-00:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJjUKlSNr40YUReWGDHYkbqKY"
   },
   {
     "name": "Centro Banamex",
     "lat": 19.4861,
-    "lon": -99.2320,
+    "lon": -99.232,
     "category": "convention_center",
     "hours": "08:00-20:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJ55yU5i8C0oURhS-pVwG7Ql0"
   },
   {
     "name": "Expo Santa Fe",
     "lat": 19.3595,
-    "lon": -99.2810,
+    "lon": -99.281,
     "category": "convention_center",
     "hours": "08:00-20:00",
-    "google_place_id": ""
+    "google_place_id": "ChIJqzPAw7MB0oURSd1gtCvGNPg"
   },
   {
     "name": "Instituto Nacional de Cardiología",
-    "lat": 19.2930,
-    "lon": -99.1570,
+    "lat": 19.293,
+    "lon": -99.157,
     "category": "hospital",
     "hours": "24h",
-    "google_place_id": ""
+    "google_place_id": "ChIJ1xrCK1YAzoURx_iOc1nyszo"
   },
   {
     "name": "Hospital General de México",
     "lat": 19.4105,
-    "lon": -99.1520,
+    "lon": -99.152,
     "category": "hospital",
     "hours": "24h",
-    "google_place_id": ""
+    "google_place_id": "ChIJC9tzMiH_0YURl867SZpBkGg"
   },
   {
     "name": "Hospital Ángeles Pedregal",
@@ -373,6 +373,6 @@
     "lon": -99.2063,
     "category": "hospital",
     "hours": "24h",
-    "google_place_id": ""
+    "google_place_id": "ChIJ5wAAAHT_zYURQznNzPggigY"
   }
 ]

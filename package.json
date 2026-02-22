@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "build-gtfs": "node scripts/build-gtfs.mjs",
-    "build-pois": "node scripts/build-pois.mjs"
+    "build-pois": "node scripts/build-pois.mjs",
+    "build-place-ids": "node scripts/build-place-ids.mjs",
+    "build-populartimes": "python3 scripts/build-populartimes.py"
   },
   "dependencies": {
     "@types/three": "^0.183.1",

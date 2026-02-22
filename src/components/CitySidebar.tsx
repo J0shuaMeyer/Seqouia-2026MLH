@@ -17,9 +17,12 @@ interface CitySidebarProps {
   reportCount: number | null;
   aircraftCount: number | null;
   vesselCount: number | null;
+  earthquakeCount: number | null;
   bikeStationCount: number | null;
   transitStopCount: number | null;
   poiCount: number | null;
+  activePoiCount: number | null;
+  avgActivity: number | null;
   updating: boolean;
 }
 
@@ -46,9 +49,12 @@ export default function CitySidebar({
   reportCount,
   aircraftCount,
   vesselCount,
+  earthquakeCount,
   bikeStationCount,
   transitStopCount,
   poiCount,
+  activePoiCount,
+  avgActivity,
   updating,
 }: CitySidebarProps) {
   const density = Math.round(city.population / city.areaSqMi).toLocaleString();
@@ -95,6 +101,7 @@ export default function CitySidebar({
         </p>
         <DataRow label="Traffic Reports" value={reportCount !== null ? reportCount.toLocaleString() : "—"} />
         <DataRow label="Aircraft" value={aircraftCount !== null ? aircraftCount.toLocaleString() : "—"} />
+        <DataRow label="Earthquakes (24h)" value={earthquakeCount !== null ? earthquakeCount.toLocaleString() : "—"} />
         {city.isCoastal && (
           <DataRow label="Vessels" value={vesselCount !== null ? vesselCount.toLocaleString() : "—"} />
         )}
@@ -105,6 +112,8 @@ export default function CitySidebar({
           <DataRow label="Transit Stops" value={transitStopCount !== null ? transitStopCount.toLocaleString() : "—"} />
         )}
         <DataRow label="Points of Interest" value={poiCount !== null ? poiCount.toLocaleString() : "—"} />
+        <DataRow label="Active Places" value={activePoiCount !== null && poiCount !== null ? `${activePoiCount} / ${poiCount}` : "—"} />
+        <DataRow label="Avg Activity" value={avgActivity !== null ? `${avgActivity}%` : "—"} />
       </div>
 
       {/* City Profile */}

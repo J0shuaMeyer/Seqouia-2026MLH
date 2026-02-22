@@ -18,6 +18,8 @@ const TRANSIT_REFRESH_MS = 30_000;   // 30 seconds
 const WEATHER_REFRESH_MS = 300_000;  // 5 minutes
 const AIRCRAFT_REFRESH_MS = 30_000;  // 30 seconds
 const MARITIME_REFRESH_MS = 60_000;  // 60 seconds
+const EARTHQUAKE_REFRESH_MS = 60_000; // 60 seconds
+const POI_REFRESH_MS = 300_000;      // 5 minutes (matches server cache TTL)
 
 const EMPTY_FC: GeoJSON.FeatureCollection = {
   type: "FeatureCollection",
@@ -194,12 +196,15 @@ export default function CityMap({ city }: CityMapProps) {
   const [reportCount, setReportCount] = useState<number | null>(null);
   const [aircraftCount, setAircraftCount] = useState<number | null>(null);
   const [vesselCount, setVesselCount] = useState<number | null>(null);
+  const [earthquakeCount, setEarthquakeCount] = useState<number | null>(null);
   const [updating, setUpdating] = useState(false);
   const [weather, setWeather] = useState<WeatherInfo | null>(null);
   const [localTime, setLocalTime] = useState(() => getLocalTimeWithSeconds(city.timezone));
   const [bikeStationCount, setBikeStationCount] = useState<number | null>(null);
   const [transitStopCount, setTransitStopCount] = useState<number | null>(null);
   const [poiCount, setPoiCount] = useState<number | null>(null);
+  const [activePoiCount, setActivePoiCount] = useState<number | null>(null);
+  const [avgActivity, setAvgActivity] = useState<number | null>(null);
   const initialFetchDone = useRef(false);
 
   // ── Filter state ──────────────────────────────────────────────
@@ -357,23 +362,54 @@ export default function CityMap({ city }: CityMapProps) {
     }
   }, [city.slug, city.isCoastal]);
 
-  // ── POI data (one-time fetch) ─────────────────────────────────
+  // ── Earthquake data ──────────────────────────────────────────
+
+  const fetchEarthquakeData = useCallback(async () => {
+    try {
+      const res = await fetch(`/api/earthquakes/${city.slug}`);
+      if (!res.ok) return;
+      const geojson = await res.json();
+
+      setEarthquakeCount(geojson.features?.length ?? 0);
+
+      const m = mapRef.current;
+      if (!m) return;
+
+      const src = m.getSource("earthquakes") as maplibregl.GeoJSONSource | undefined;
+      if (src) src.setData(geojson);
+    } catch (err) {
+      console.error("[CityMap] earthquake fetch error:", err);
+    }
+  }, [city.slug]);
+
+  // ── POI + popularity data (5-minute refresh) ──────────────────
 
   const fetchPOIData = useCallback(async () => {
     try {
-      const res = await fetch(`/api/pois/${city.slug}`);
+      const res = await fetch(`/api/popularity/${city.slug}`);
       if (!res.ok) return;
       const geojson = await res.json();
 
       const m = mapRef.current;
       if (!m) return;
 
-      setPoiCount(geojson.features?.length ?? 0);
+      const features = geojson.features ?? [];
+      setPoiCount(features.length);
+
+      // Compute sidebar metrics
+      let openCount = 0;
+      let activitySum = 0;
+      for (const f of features) {
+        if (f.properties?.isOpen) openCount++;
+        activitySum += f.properties?.activity ?? 0;
+      }
+      setActivePoiCount(openCount);
+      setAvgActivity(features.length > 0 ? Math.round(activitySum / features.length) : 0);
 
       const src = m.getSource("pois") as maplibregl.GeoJSONSource | undefined;
       if (src) src.setData(geojson);
     } catch (err) {
-      console.error("[CityMap] pois fetch error:", err);
+      console.error("[CityMap] popularity fetch error:", err);
     }
   }, [city.slug]);
 
@@ -448,19 +484,66 @@ export default function CityMap({ city }: CityMapProps) {
     m.addSource("transit-network", { type: "geojson", data: EMPTY_FC });
     m.addSource("waze", { type: "geojson", data: EMPTY_FC });
     m.addSource("maritime", { type: "geojson", data: EMPTY_FC });
+    m.addSource("earthquakes", { type: "geojson", data: EMPTY_FC });
 
     // ── Layers (bottom → top) — uniform color palette ──
 
-    // POIs: warm white circles (minzoom 9)
+    // POIs aura glow: soft expanding ring behind busy venues (minzoom 9)
+    m.addLayer({
+      id: "pois-aura",
+      type: "circle",
+      source: "pois",
+      minzoom: 9,
+      filter: [">", ["coalesce", ["get", "activity"], 0], 20],
+      paint: {
+        "circle-radius": [
+          "interpolate", ["linear"], ["coalesce", ["get", "activity"], 0],
+          20, 4,
+          50, 10,
+          80, 14,
+          100, 18,
+        ],
+        "circle-color": [
+          "interpolate", ["linear"], ["coalesce", ["get", "activity"], 0],
+          20, "rgba(251, 191, 36, 0.08)",
+          60, "rgba(251, 191, 36, 0.15)",
+          80, "rgba(245, 158, 11, 0.20)",
+          100, "rgba(239, 68, 68, 0.25)",
+        ],
+        "circle-blur": 1,
+        "circle-opacity": 0.8,
+      },
+    });
+
+    // POIs: data-driven circles — size, color, opacity from activity (minzoom 9)
     m.addLayer({
       id: "pois",
       type: "circle",
       source: "pois",
       minzoom: 9,
       paint: {
-        "circle-radius": 2.5,
-        "circle-color": "#d4d4d8",
-        "circle-opacity": 0.6,
+        "circle-radius": [
+          "interpolate", ["linear"], ["coalesce", ["get", "activity"], 0],
+          0, 2,
+          25, 3,
+          50, 4.5,
+          75, 6,
+          100, 7,
+        ],
+        "circle-color": [
+          "interpolate", ["linear"], ["coalesce", ["get", "activity"], 0],
+          0, "#52525b",
+          20, "#71717a",
+          40, "#fbbf24",
+          70, "#f59e0b",
+          90, "#ef4444",
+        ],
+        "circle-opacity": [
+          "interpolate", ["linear"], ["coalesce", ["get", "activity"], 0],
+          0, 0.4,
+          50, 0.65,
+          100, 0.9,
+        ],
       },
     });
 
@@ -601,6 +684,64 @@ export default function CityMap({ city }: CityMapProps) {
       },
     });
 
+    // Earthquakes glow: soft red aura behind quakes
+    m.addLayer({
+      id: "earthquakes-glow",
+      type: "circle",
+      source: "earthquakes",
+      paint: {
+        "circle-radius": [
+          "interpolate", ["linear"], ["coalesce", ["get", "mag"], 2],
+          2, 6, 3, 8, 4, 11, 5, 16, 6, 22, 7, 28,
+        ],
+        "circle-color": "rgba(239, 68, 68, 0.3)",
+        "circle-blur": 1,
+        "circle-opacity": 0.3,
+      },
+    });
+
+    // Earthquakes: circles sized and colored by magnitude
+    m.addLayer({
+      id: "earthquakes",
+      type: "circle",
+      source: "earthquakes",
+      paint: {
+        "circle-radius": [
+          "interpolate", ["linear"], ["coalesce", ["get", "mag"], 2],
+          2, 3, 3, 4, 4, 5.5, 5, 8, 6, 11, 7, 14,
+        ],
+        "circle-color": [
+          "interpolate", ["linear"], ["coalesce", ["get", "mag"], 2],
+          2, "#fbbf24", 4, "#f97316", 6, "#ef4444",
+        ],
+        "circle-opacity": 0.85,
+        "circle-stroke-width": 1,
+        "circle-stroke-color": "#ffffff",
+        "circle-stroke-opacity": 0.2,
+      },
+    });
+
+    // Earthquake labels: magnitude + place (minzoom 8)
+    m.addLayer({
+      id: "earthquakes-labels",
+      type: "symbol",
+      source: "earthquakes",
+      minzoom: 8,
+      layout: {
+        "text-field": ["concat", ["to-string", ["get", "mag"]], " — ", ["get", "place"]],
+        "text-size": 10,
+        "text-offset": [0, 1.4],
+        "text-anchor": "top",
+        "text-max-width": 14,
+      },
+      paint: {
+        "text-color": "#ffffff",
+        "text-halo-color": "#000000",
+        "text-halo-width": 1.5,
+        "text-opacity": 0.7,
+      },
+    });
+
     // Aircraft: cyan airplane icons rotated by heading (always visible)
     m.addLayer({
       id: "aircraft",
@@ -634,6 +775,7 @@ export default function CityMap({ city }: CityMapProps) {
       fetchWeatherInfo(),
       fetchPOIData(),
       fetchAircraftData(),
+      fetchEarthquakeData(),
     ];
     if (city.bikeNetwork) fetches.push(fetchBikeData());
     if (city.transitType) fetches.push(fetchTransitData());
@@ -644,7 +786,7 @@ export default function CityMap({ city }: CityMapProps) {
         new CustomEvent("city-data-ready", { detail: { slug: city.slug } })
       );
     });
-  }, [mapLoaded, city.slug, city.bikeNetwork, city.transitType, city.isCoastal, fetchWazeData, fetchWeatherInfo, fetchPOIData, fetchBikeData, fetchTransitData, fetchAircraftData, fetchMaritimeData]);
+  }, [mapLoaded, city.slug, city.bikeNetwork, city.transitType, city.isCoastal, fetchWazeData, fetchWeatherInfo, fetchPOIData, fetchBikeData, fetchTransitData, fetchAircraftData, fetchMaritimeData, fetchEarthquakeData]);
 
   // ── Refresh intervals (no initial call — coordinated effect handles it) ──
 
@@ -684,6 +826,19 @@ export default function CityMap({ city }: CityMapProps) {
     return () => clearInterval(id);
   }, [mapLoaded, fetchMaritimeData, city.isCoastal]);
 
+  useEffect(() => {
+    if (!mapLoaded) return;
+    const id = setInterval(fetchEarthquakeData, EARTHQUAKE_REFRESH_MS);
+    return () => clearInterval(id);
+  }, [mapLoaded, fetchEarthquakeData]);
+
+  // POI popularity refresh (5 minutes)
+  useEffect(() => {
+    if (!mapLoaded) return;
+    const id = setInterval(fetchPOIData, POI_REFRESH_MS);
+    return () => clearInterval(id);
+  }, [mapLoaded, fetchPOIData]);
+
   // ── Live clock (updates every second) ──
   useEffect(() => {
     const id = setInterval(() => {
@@ -707,9 +862,12 @@ export default function CityMap({ city }: CityMapProps) {
         reportCount={reportCount}
         aircraftCount={aircraftCount}
         vesselCount={vesselCount}
+        earthquakeCount={earthquakeCount}
         bikeStationCount={bikeStationCount}
         transitStopCount={transitStopCount}
         poiCount={poiCount}
+        activePoiCount={activePoiCount}
+        avgActivity={avgActivity}
         updating={updating}
       />
 
