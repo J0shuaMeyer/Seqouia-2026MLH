@@ -1,0 +1,16 @@
+{
+  "lag-BL-01": { "name": "Marina", "lat": 6.4316, "lon": 3.4095 },
+  "lag-BL-02": { "name": "National Theatre", "lat": 6.4404, "lon": 3.3901 },
+  "lag-BL-03": { "name": "Orile Iganmu", "lat": 6.4575, "lon": 3.3569 },
+  "lag-BL-04": { "name": "Suru Alaba", "lat": 6.4620, "lon": 3.3215 },
+  "lag-BL-05": { "name": "Mile 2", "lat": 6.4588, "lon": 3.3079 },
+
+  "lag-RL-01": { "name": "Agbado", "lat": 6.6644, "lon": 3.3090 },
+  "lag-RL-02": { "name": "Iju", "lat": 6.6300, "lon": 3.3090 },
+  "lag-RL-03": { "name": "Agege", "lat": 6.6184, "lon": 3.3236 },
+  "lag-RL-04": { "name": "Ikeja", "lat": 6.5957, "lon": 3.3407 },
+  "lag-RL-05": { "name": "Oshodi", "lat": 6.5568, "lon": 3.3481 },
+  "lag-RL-06": { "name": "Mushin", "lat": 6.5346, "lon": 3.3532 },
+  "lag-RL-07": { "name": "Yaba", "lat": 6.5093, "lon": 3.3751 },
+  "lag-RL-08": { "name": "Oyingbo", "lat": 6.4825, "lon": 3.3863 }
+}

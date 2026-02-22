@@ -1,0 +1,12 @@
+{
+  "lag-blue": {
+    "name": "Blue Line",
+    "color": "#0057A7",
+    "stopIds": ["lag-BL-01","lag-BL-02","lag-BL-03","lag-BL-04","lag-BL-05"]
+  },
+  "lag-red": {
+    "name": "Red Line",
+    "color": "#E4002B",
+    "stopIds": ["lag-RL-01","lag-RL-02","lag-RL-03","lag-RL-04","lag-RL-05","lag-RL-06","lag-RL-07","lag-RL-08"]
+  }
+}

@@ -59,8 +59,9 @@ function toSlug(name: string): string {
 // population = metro-area population, areaSqMi = city/county area, walkScore = 0-100 walkability index
 const rawCities = [
   // bbox: [south, west, north, east] — covers metro/county area
-  { name: "Jakarta", country: "Indonesia", countryCode: "ID", lat: -6.2088, lng: 106.8456, timezone: "GMT+7", dataTier: 3,
+  { name: "Jakarta", country: "Indonesia", countryCode: "ID", lat: -6.2088, lng: 106.8456, timezone: "GMT+7", dataTier: 2,
     bbox: [-6.60, 106.40, -5.80, 107.20] as BBox, mapZoom: 10, isCoastal: true,
+    transitType: "gtfs-static" as const,
     tagline: "30 million moving as one.", population: 34_540_000, areaSqMi: 255, walkScore: 55, vehiclesPer1000: 340, avgCommuteMin: 66 },
   { name: "Dhaka", country: "Bangladesh", countryCode: "BD", lat: 23.7644, lng: 90.3889, timezone: "GMT+6", dataTier: 2,
     bbox: [23.50, 90.15, 24.10, 90.65] as BBox, mapZoom: 11,
@@ -161,8 +162,9 @@ const rawCities = [
     bikeNetwork: { type: "citybikes", networkId: "docomo-cycle-osaka" },
     transitType: "gtfs-static" as const,
     tagline: "Japan's kitchen, always cooking.", population: 19_283_000, areaSqMi: 86, walkScore: 80, vehiclesPer1000: 450, avgCommuteMin: 45 },
-  { name: "Lagos", country: "Nigeria", countryCode: "NG", lat: 6.5244, lng: 3.3792, timezone: "GMT+1", dataTier: 3,
+  { name: "Lagos", country: "Nigeria", countryCode: "NG", lat: 6.5244, lng: 3.3792, timezone: "GMT+1", dataTier: 2,
     bbox: [6.20, 2.90, 6.90, 3.80] as BBox, mapZoom: 10, isCoastal: true,
+    transitType: "gtfs-static" as const,
     tagline: "Africa's fastest-growing pulse.", population: 15_388_000, areaSqMi: 452, walkScore: 38, vehiclesPer1000: 45, avgCommuteMin: 58 },
   { name: "Los Angeles", country: "United States", countryCode: "US", lat: 34.0522, lng: -118.2437, timezone: "GMT-8", dataTier: 1,
     bbox: [33.50, -118.80, 34.50, -117.50] as BBox, mapZoom: 9, isCoastal: true,

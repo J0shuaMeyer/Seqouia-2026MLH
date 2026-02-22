@@ -1,0 +1,242 @@
+[
+  {
+    "name": "Murtala Muhammed International Airport",
+    "lat": 6.5774,
+    "lon": 3.3212,
+    "category": "airport",
+    "hours": "24h",
+    "google_place_id": "ChIJhRTXUBmROxARqJP5XNFdh6k"
+  },
+  {
+    "name": "Apapa Port",
+    "lat": 6.4408,
+    "lon": 3.3672,
+    "category": "transit_hub",
+    "hours": "24h",
+    "google_place_id": "ChIJe_0-rrqSOxARzJ1R5mPcUvI"
+  },
+  {
+    "name": "Tincan Island Port",
+    "lat": 6.4326,
+    "lon": 3.3393,
+    "category": "transit_hub",
+    "hours": "24h",
+    "google_place_id": "ChIJ55Sf1NCSOxARjajq9NqP8hA"
+  },
+  {
+    "name": "Oshodi Transport Interchange",
+    "lat": 6.5563,
+    "lon": 3.3479,
+    "category": "transit_hub",
+    "hours": "05:00-23:00",
+    "google_place_id": "ChIJuYn1GwWROxARbGcIKlqaklI"
+  },
+  {
+    "name": "Teslim Balogun Stadium",
+    "lat": 6.4490,
+    "lon": 3.3558,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": "ChIJD2G9mL2SOxARzv7GGfp2tC4"
+  },
+  {
+    "name": "National Stadium Surulere",
+    "lat": 6.4936,
+    "lon": 3.3596,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": "ChIJLSdUMb2SOxAR9qLtMpVp1Y4"
+  },
+  {
+    "name": "Mobolaji Johnson Arena",
+    "lat": 6.4387,
+    "lon": 3.4211,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": "ChIJuS4R-LqSOxARaF2SPhbqJ7g"
+  },
+  {
+    "name": "Ikeja City Mall",
+    "lat": 6.6013,
+    "lon": 3.3488,
+    "category": "mall",
+    "hours": "09:00-21:00",
+    "google_place_id": "ChIJ6dlSrQGROxARAy7e-aPJM1w"
+  },
+  {
+    "name": "The Palms Shopping Centre",
+    "lat": 6.4286,
+    "lon": 3.4522,
+    "category": "mall",
+    "hours": "09:00-21:00",
+    "google_place_id": "ChIJe0L8z9SSOxARKPMlZDABgls"
+  },
+  {
+    "name": "Circle Mall Lekki",
+    "lat": 6.4402,
+    "lon": 3.5325,
+    "category": "mall",
+    "hours": "09:00-21:00",
+    "google_place_id": "ChIJ5VuFVQaUOxAR8MZ8F7A6F2g"
+  },
+  {
+    "name": "Maryland Mall",
+    "lat": 6.5634,
+    "lon": 3.3668,
+    "category": "mall",
+    "hours": "09:00-21:00",
+    "google_place_id": "ChIJmZmhfS-ROxARUKKU-o0V4bI"
+  },
+  {
+    "name": "Novare Gateway Mall",
+    "lat": 6.4665,
+    "lon": 3.5437,
+    "category": "mall",
+    "hours": "09:00-21:00",
+    "google_place_id": "ChIJrSmqZZ6UOxARMwxqWEY1Z7o"
+  },
+  {
+    "name": "Balogun Market",
+    "lat": 6.4521,
+    "lon": 3.3943,
+    "category": "plaza",
+    "hours": "07:00-19:00",
+    "google_place_id": "ChIJzf0EbLuSOxAR6rvk0LQ4_5Y"
+  },
+  {
+    "name": "Computer Village Ikeja",
+    "lat": 6.5970,
+    "lon": 3.3526,
+    "category": "plaza",
+    "hours": "08:00-18:00",
+    "google_place_id": "ChIJC5jtRQKROxARmzK9UQSY-h4"
+  },
+  {
+    "name": "Alaba International Market",
+    "lat": 6.4644,
+    "lon": 3.2847,
+    "category": "plaza",
+    "hours": "07:00-18:00",
+    "google_place_id": "ChIJ9_DPNS-SOxAR7T7HpU0eCBs"
+  },
+  {
+    "name": "Lekki Market",
+    "lat": 6.4373,
+    "lon": 3.4642,
+    "category": "plaza",
+    "hours": "07:00-19:00",
+    "google_place_id": "ChIJH-6EHdqSOxAR-Zk1EFsQqJI"
+  },
+  {
+    "name": "National Theatre Lagos",
+    "lat": 6.4395,
+    "lon": 3.3912,
+    "category": "museum",
+    "hours": "09:00-17:00",
+    "google_place_id": "ChIJvf3WLbqSOxAR-J_f9K5T5_o"
+  },
+  {
+    "name": "Freedom Park",
+    "lat": 6.4502,
+    "lon": 3.3976,
+    "category": "plaza",
+    "hours": "08:00-22:00",
+    "google_place_id": "ChIJxVbmCbuSOxARWvHcqvvcJA8"
+  },
+  {
+    "name": "Nike Art Gallery",
+    "lat": 6.4307,
+    "lon": 3.4520,
+    "category": "museum",
+    "hours": "09:00-19:00",
+    "google_place_id": "ChIJP7x3odSSOxAR0RrI8L4EPEg"
+  },
+  {
+    "name": "Lekki Conservation Centre",
+    "lat": 6.4380,
+    "lon": 3.5372,
+    "category": "plaza",
+    "hours": "08:30-17:00",
+    "google_place_id": "ChIJjyRb7IiUOxARVm1lxnhh7YA"
+  },
+  {
+    "name": "Victoria Island",
+    "lat": 6.4281,
+    "lon": 3.4219,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJW_5dyM-SOxARpGR_dH7CfYI"
+  },
+  {
+    "name": "Ikoyi",
+    "lat": 6.4512,
+    "lon": 3.4340,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJ95rLi8OSOxARXBxK7L7XpQQ"
+  },
+  {
+    "name": "Marina Lagos",
+    "lat": 6.4480,
+    "lon": 3.3988,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJ1w7TLbuSOxARYZ3Ij2v2iI4"
+  },
+  {
+    "name": "University of Lagos (UNILAG)",
+    "lat": 6.5158,
+    "lon": 3.3897,
+    "category": "university",
+    "hours": "07:00-21:00",
+    "google_place_id": "ChIJ3fNHLjSROxARHUEMGsq-mKo"
+  },
+  {
+    "name": "Lagos State University (LASU)",
+    "lat": 6.4723,
+    "lon": 3.1996,
+    "category": "university",
+    "hours": "07:00-21:00",
+    "google_place_id": "ChIJLx66ANKQOxARQXEfU7HPGW4"
+  },
+  {
+    "name": "Pan-Atlantic University",
+    "lat": 6.4657,
+    "lon": 3.5527,
+    "category": "university",
+    "hours": "08:00-20:00",
+    "google_place_id": "ChIJCReU-JeUOxAR_F5lJxKjkP0"
+  },
+  {
+    "name": "Eko Atlantic City",
+    "lat": 6.4098,
+    "lon": 3.4101,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJ9wMmG9SSOxAR1b2IelYc7v8"
+  },
+  {
+    "name": "Elegushi Beach",
+    "lat": 6.4233,
+    "lon": 3.4756,
+    "category": "plaza",
+    "hours": "08:00-22:00",
+    "google_place_id": "ChIJl_PXFOCSOxARzq7JLRT9dro"
+  },
+  {
+    "name": "New Afrika Shrine",
+    "lat": 6.5289,
+    "lon": 3.3474,
+    "category": "museum",
+    "hours": "varies",
+    "google_place_id": "ChIJuQJJwRaROxARCMgIb8N_BvQ"
+  },
+  {
+    "name": "Jaekel House Museum",
+    "lat": 6.4522,
+    "lon": 3.3877,
+    "category": "museum",
+    "hours": "10:00-16:00",
+    "google_place_id": "ChIJL9SKX7uSOxARUwJhfYRpD4U"
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "jkt-mrt-ns": {
+    "name": "MRT North-South Line",
+    "color": "#0066B3",
+    "stopIds": ["jkt-MRT-01","jkt-MRT-02","jkt-MRT-03","jkt-MRT-04","jkt-MRT-05","jkt-MRT-06","jkt-MRT-07","jkt-MRT-08","jkt-MRT-09","jkt-MRT-10","jkt-MRT-11","jkt-MRT-12","jkt-MRT-13"]
+  },
+  "jkt-city-lrt": {
+    "name": "City LRT",
+    "color": "#E4002B",
+    "stopIds": ["jkt-LRT-01","jkt-LRT-02","jkt-LRT-03","jkt-LRT-04","jkt-LRT-05","jkt-LRT-06"]
+  },
+  "jkt-jb-cibubur": {
+    "name": "Jabodebek LRT Cibubur",
+    "color": "#00A651",
+    "stopIds": ["jkt-JB-01","jkt-JB-02","jkt-JB-03","jkt-JB-04","jkt-JB-05","jkt-JB-06","jkt-JB-07","jkt-JB-08","jkt-JB-09","jkt-JB-10","jkt-JB-11","jkt-JB-12"]
+  },
+  "jkt-jb-bekasi": {
+    "name": "Jabodebek LRT Bekasi",
+    "color": "#FF8C00",
+    "stopIds": ["jkt-JB-01","jkt-JB-02","jkt-JB-03","jkt-JB-04","jkt-JB-05","jkt-JB-06","jkt-JB-13","jkt-JB-14","jkt-JB-15","jkt-JB-16","jkt-JB-17"]
+  }
+}

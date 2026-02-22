@@ -1,0 +1,282 @@
+[
+  {
+    "name": "Soekarno-Hatta International Airport",
+    "lat": -6.1256,
+    "lon": 106.6559,
+    "category": "airport",
+    "hours": "24h",
+    "google_place_id": "ChIJnUvjRenzaS4RRrOK_dvSf7g"
+  },
+  {
+    "name": "Gambir Station",
+    "lat": -6.1766,
+    "lon": 106.8309,
+    "category": "transit_hub",
+    "hours": "24h",
+    "google_place_id": "ChIJSa0J_FX1aS4R-5kXbL9APXU"
+  },
+  {
+    "name": "Jakarta Kota Station",
+    "lat": -6.1375,
+    "lon": 106.8145,
+    "category": "transit_hub",
+    "hours": "04:00-23:00",
+    "google_place_id": "ChIJd_rJKkr1aS4RBnLJzz5Dcrs"
+  },
+  {
+    "name": "Manggarai Station",
+    "lat": -6.2098,
+    "lon": 106.8504,
+    "category": "transit_hub",
+    "hours": "24h",
+    "google_place_id": "ChIJnzV1Z2z1aS4RxCUKk0F3h2Q"
+  },
+  {
+    "name": "Tanjung Priok Port",
+    "lat": -6.1046,
+    "lon": 106.8810,
+    "category": "transit_hub",
+    "hours": "24h",
+    "google_place_id": "ChIJT82wnD71aS4R4cxz5KBRv_o"
+  },
+  {
+    "name": "Gelora Bung Karno (GBK)",
+    "lat": -6.2185,
+    "lon": 106.8022,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": "ChIJnc1MY3D1aS4RPNqvM2jTnnQ"
+  },
+  {
+    "name": "Jakarta International Stadium (JIS)",
+    "lat": -6.1152,
+    "lon": 106.8477,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": "ChIJ63VUg3H0aS4RWc6AX_0PBw0"
+  },
+  {
+    "name": "Grand Indonesia",
+    "lat": -6.1954,
+    "lon": 106.8201,
+    "category": "mall",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJOwWB6Wb1aS4R3VpxbJLjmxo"
+  },
+  {
+    "name": "Plaza Indonesia",
+    "lat": -6.1938,
+    "lon": 106.8229,
+    "category": "mall",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJ3QwiYGb1aS4Rzl-O6WH5FnM"
+  },
+  {
+    "name": "Central Park Mall",
+    "lat": -6.1768,
+    "lon": 106.7910,
+    "category": "mall",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJq8CZaET1aS4R3e8AIDP3YZM"
+  },
+  {
+    "name": "Pondok Indah Mall",
+    "lat": -6.2659,
+    "lon": 106.7837,
+    "category": "mall",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJoTngB3T1aS4RQJZ2F7DKHEM"
+  },
+  {
+    "name": "Mall Kelapa Gading",
+    "lat": -6.1578,
+    "lon": 106.9076,
+    "category": "mall",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJDykxL-L0aS4RDX-I-qrBGfg"
+  },
+  {
+    "name": "Senayan City",
+    "lat": -6.2272,
+    "lon": 106.7967,
+    "category": "mall",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJtTQkbXD1aS4RKL4d5zzHMuY"
+  },
+  {
+    "name": "Pacific Place Jakarta",
+    "lat": -6.2244,
+    "lon": 106.8096,
+    "category": "mall",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJT03v8Gv1aS4RFBMfFUkHJQI"
+  },
+  {
+    "name": "Tanah Abang Market",
+    "lat": -6.1862,
+    "lon": 106.8109,
+    "category": "plaza",
+    "hours": "06:00-17:00",
+    "google_place_id": "ChIJL-RIwVj1aS4RKUJdJkWZ2OE"
+  },
+  {
+    "name": "Pasar Senen",
+    "lat": -6.1742,
+    "lon": 106.8441,
+    "category": "plaza",
+    "hours": "06:00-18:00",
+    "google_place_id": "ChIJG6nTclf1aS4R-ItcT2cz-xk"
+  },
+  {
+    "name": "Glodok (Chinatown)",
+    "lat": -6.1490,
+    "lon": 106.8158,
+    "category": "plaza",
+    "hours": "08:00-18:00",
+    "google_place_id": "ChIJl9HJk0r1aS4R5vDVnUZlxe8"
+  },
+  {
+    "name": "Monas (National Monument)",
+    "lat": -6.1754,
+    "lon": 106.8272,
+    "category": "museum",
+    "hours": "08:00-16:00",
+    "google_place_id": "ChIJddrJmXP1aS4RAKecaWv7NQE"
+  },
+  {
+    "name": "Istiqlal Mosque",
+    "lat": -6.1700,
+    "lon": 106.8310,
+    "category": "museum",
+    "hours": "04:00-22:00",
+    "google_place_id": "ChIJRUoKIlf1aS4ROJXcScS2aPM"
+  },
+  {
+    "name": "Jakarta Cathedral",
+    "lat": -6.1694,
+    "lon": 106.8326,
+    "category": "museum",
+    "hours": "06:00-18:00",
+    "google_place_id": "ChIJKxvMU1f1aS4RWuFmgSzWiKQ"
+  },
+  {
+    "name": "Ancol Dreamland",
+    "lat": -6.1258,
+    "lon": 106.8318,
+    "category": "plaza",
+    "hours": "06:00-22:00",
+    "google_place_id": "ChIJYUrwQ0z1aS4RM_w0bkHIoYc"
+  },
+  {
+    "name": "Kota Tua (Old Town)",
+    "lat": -6.1352,
+    "lon": 106.8133,
+    "category": "museum",
+    "hours": "08:00-18:00",
+    "google_place_id": "ChIJ6-GMHEL1aS4RxLGz7NIn9XE"
+  },
+  {
+    "name": "SCBD (Sudirman CBD)",
+    "lat": -6.2244,
+    "lon": 106.8102,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJx43jl2z1aS4RVWN6N0x2VBY"
+  },
+  {
+    "name": "Thamrin Business District",
+    "lat": -6.1931,
+    "lon": 106.8224,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJGQK7GGb1aS4R_9JaKdYxbBQ"
+  },
+  {
+    "name": "Kuningan Business District",
+    "lat": -6.2288,
+    "lon": 106.8326,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJARbH3m31aS4Rpf6AeqP-87Y"
+  },
+  {
+    "name": "University of Indonesia (Depok)",
+    "lat": -6.3643,
+    "lon": 106.8316,
+    "category": "university",
+    "hours": "07:00-21:00",
+    "google_place_id": "ChIJ--acjqNNaS4RnMIETO1bfso"
+  },
+  {
+    "name": "University of Indonesia (Salemba)",
+    "lat": -6.1946,
+    "lon": 106.8508,
+    "category": "university",
+    "hours": "07:00-21:00",
+    "google_place_id": "ChIJzQeGElj1aS4REHu33GCQBB0"
+  },
+  {
+    "name": "Binus University",
+    "lat": -6.2019,
+    "lon": 106.7816,
+    "category": "university",
+    "hours": "07:00-21:00",
+    "google_place_id": "ChIJH25cAkT1aS4RkExqBaAzWe0"
+  },
+  {
+    "name": "Ragunan Zoo",
+    "lat": -6.3122,
+    "lon": 106.8201,
+    "category": "plaza",
+    "hours": "07:00-16:00",
+    "google_place_id": "ChIJoxtE_kj2aS4R5LIc_HEe6ig"
+  },
+  {
+    "name": "Taman Mini Indonesia Indah",
+    "lat": -6.3024,
+    "lon": 106.8952,
+    "category": "museum",
+    "hours": "07:00-22:00",
+    "google_place_id": "ChIJsSfQCwryaS4R8YYwVaWjEIQ"
+  },
+  {
+    "name": "Museum Nasional Indonesia",
+    "lat": -6.1764,
+    "lon": 106.8222,
+    "category": "museum",
+    "hours": "08:00-16:00",
+    "google_place_id": "ChIJcf29NlX1aS4RRn3OvU-D3Jo"
+  },
+  {
+    "name": "Sarinah Department Store",
+    "lat": -6.1878,
+    "lon": 106.8243,
+    "category": "mall",
+    "hours": "10:00-22:00",
+    "google_place_id": "ChIJR0E2cWb1aS4RuqH2xpccIYo"
+  },
+  {
+    "name": "Pasar Baru",
+    "lat": -6.1667,
+    "lon": 106.8382,
+    "category": "plaza",
+    "hours": "09:00-19:00",
+    "google_place_id": "ChIJB3u0M1f1aS4R3_6TjBzWu7Y"
+  },
+  {
+    "name": "PIK (Pantai Indah Kapuk)",
+    "lat": -6.1088,
+    "lon": 106.7424,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJd8TGfaH1aS4R4Ws9xpNYx10"
+  },
+  {
+    "name": "Kemang",
+    "lat": -6.2611,
+    "lon": 106.8143,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": "ChIJCWvJknH1aS4R9Qp9_rKwZ8g"
+  }
+]
