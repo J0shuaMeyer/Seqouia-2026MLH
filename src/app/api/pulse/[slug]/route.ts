@@ -3,7 +3,7 @@ import { getCityBySlug } from "@/data/cities";
 import { getLocalHour, parseTimezoneOffset } from "@/lib/activity";
 import { fetchCityWazeData } from "@/lib/waze";
 import { fetchWeatherData } from "@/lib/weather";
-import { fetchAircraftData } from "@/lib/opensky";
+import { fetchAircraftData } from "@/lib/airplanes-live";
 import { fetchMaritimeData } from "@/lib/maritime";
 import { fetchBikeShareData } from "@/lib/bikeshare";
 import { computeAvgPOIActivity } from "@/lib/poi-activity";

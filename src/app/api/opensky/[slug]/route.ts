@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getCityBySlug } from "@/data/cities";
-import { fetchAircraftData } from "@/lib/opensky";
+import { fetchAircraftData } from "@/lib/airplanes-live";
 
 export async function GET(
   _req: Request,
@@ -19,6 +19,6 @@ export async function GET(
   const geojson = await fetchAircraftData(city.bbox, city.slug);
 
   return NextResponse.json(geojson, {
-    headers: { "Cache-Control": "public, max-age=30" },
+    headers: { "Cache-Control": "public, max-age=15" },
   });
 }

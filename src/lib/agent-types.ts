@@ -56,6 +56,35 @@ export interface AgentState {
   stayDuration: number;
 }
 
+/* ── Short-Term Memory ─────────────────────────────────────── */
+
+/** Single remembered action — stored server-side */
+export interface AgentMemoryEntry {
+  time: string;
+  activity: AgentActivity;
+  locationName: string;
+  lat: number;
+  lng: number;
+  durationMin: number;
+}
+
+export interface AgentMemory {
+  agentId: string;
+  actions: AgentMemoryEntry[];
+}
+
+/** LLM decision result for a single agent */
+export interface LLMDecision {
+  agentId: string;
+  activity: AgentActivity;
+  destinationLat: number;
+  destinationLng: number;
+  destinationName: string;
+  transportMode: TransportMode;
+  stayMinutes: number;
+  reasoning: string;
+}
+
 /* ── Social Network Graph ──────────────────────────────────── */
 
 export type RelationshipType = "family" | "coworker" | "friend" | "acquaintance";
@@ -127,7 +156,7 @@ export type WorkerInMessage =
       bbox: [number, number, number, number]; startHour: number;
       socialEdges: SocialEdge[] }
   | { type: "updateEnvironment"; environment: CityEnvironment }
-  | { type: "setSpeed"; factor: number }
+  | { type: "applyDecisions"; decisions: LLMDecision[] }
   | { type: "pause" }
   | { type: "resume" }
   | { type: "reset"; startHour: number };

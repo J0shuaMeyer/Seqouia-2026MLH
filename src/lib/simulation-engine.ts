@@ -16,7 +16,7 @@ import { edgePeer } from "./social-graph";
 
 /* ── Constants ──────────────────────────────────────────────────── */
 
-/** Degrees per tick per transport mode (at 144× speed) */
+/** Degrees per tick per transport mode (calibrated at 144× speed; scaled by speedFactor/144 at runtime) */
 const SPEED_TABLE: Record<TransportMode, number> = {
   walking: 0.000006,
   cycling: 0.000018,
@@ -25,7 +25,7 @@ const SPEED_TABLE: Record<TransportMode, number> = {
   stationary: 0,
 };
 
-export const DECISION_INTERVAL = 60;   // ticks between agent re-evaluation
+export const DECISION_INTERVAL = 6000;  // ticks = 10 real minutes at 10Hz (decisions come from server)
 export const RENDER_INTERVAL = 5;      // ticks between GeoJSON updates
 export const GRID_SIZE = 10;           // spatial grid cells per axis
 const INTERACTION_RADIUS = 1;          // check ±1 grid cells (3×3 neighborhood)
@@ -77,14 +77,16 @@ export function initAgents(personas: AgentPersona[]): AgentState[] {
 
 /* ── Movement Physics ───────────────────────────────────────────── */
 
-export function moveAgent(agent: AgentState): void {
+export function moveAgent(agent: AgentState, speedScale: number): void {
   if (!agent.destination || agent.arrivedAtDest) return;
 
   const dx = agent.destination.lng - agent.lng;
   const dy = agent.destination.lat - agent.lat;
   const dist = Math.sqrt(dx * dx + dy * dy);
 
-  if (dist < agent.speed * 2) {
+  const scaledSpeed = agent.speed * speedScale;
+
+  if (dist < scaledSpeed * 2) {
     agent.lat = agent.destination.lat;
     agent.lng = agent.destination.lng;
     agent.arrivedAtDest = true;
@@ -95,16 +97,17 @@ export function moveAgent(agent: AgentState): void {
 
   agent.heading = Math.atan2(dx, dy) * (180 / Math.PI);
   if (agent.heading < 0) agent.heading += 360;
-  agent.lat += (dy / dist) * agent.speed;
-  agent.lng += (dx / dist) * agent.speed;
+  agent.lat += (dy / dist) * scaledSpeed;
+  agent.lng += (dx / dist) * scaledSpeed;
 }
 
-export function simulateTick(agents: AgentState[]): void {
+export function simulateTick(agents: AgentState[], speedFactor: number = 144): void {
+  const speedScale = speedFactor / 144;
   for (const agent of agents) {
     if (agent.arrivedAtDest) {
       agent.ticksAtDest++;
     } else {
-      moveAgent(agent);
+      moveAgent(agent, speedScale);
     }
   }
 }
@@ -204,9 +207,19 @@ export function makeDecisions(
     agent.destination = decision.destination;
     agent.transportMode = decision.mode;
     agent.speed = SPEED_TABLE[decision.mode];
-    agent.arrivedAtDest = decision.destination === null;
     agent.ticksAtDest = 0;
     agent.stayDuration = decision.stayDuration;
+
+    // Snap inactive agents to home so map position matches "at home" status
+    if (decision.activity === "sleeping" || decision.activity === "home_active") {
+      if (decision.destination) {
+        agent.lat = decision.destination.lat;
+        agent.lng = decision.destination.lng;
+      }
+      agent.arrivedAtDest = true;
+    } else {
+      agent.arrivedAtDest = decision.destination === null;
+    }
   }
 }
 

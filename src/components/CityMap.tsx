@@ -19,7 +19,7 @@ const WAZE_REFRESH_MS = 120_000;    // 2 minutes
 const BIKESHARE_REFRESH_MS = 60_000; // 1 minute
 const TRANSIT_REFRESH_MS = 30_000;   // 30 seconds
 const WEATHER_REFRESH_MS = 300_000;  // 5 minutes
-const AIRCRAFT_REFRESH_MS = 120_000;  // 2 minutes (matches OpenSky server cache)
+const AIRCRAFT_REFRESH_MS = 30_000;   // 30 seconds (Airplanes.live allows faster refresh)
 const MARITIME_REFRESH_MS = 60_000;  // 60 seconds
 const EARTHQUAKE_REFRESH_MS = 60_000; // 60 seconds
 const POI_REFRESH_MS = 300_000;      // 5 minutes (matches server cache TTL)
@@ -227,9 +227,9 @@ export default function CityMap({ city }: CityMapProps) {
     Object.fromEntries(availableFilters.map((f) => [f.key, !DEFAULT_OFF.has(f.key)]))
   );
 
-  // ── Agent simulation ──────────────────────────────────────────
-  const agentsEnabled = filters.agents ?? false;
-  const simulation = useSimulation(city, agentsEnabled);
+  // ── Agent simulation (always active — real-time LLM agents) ──
+  const simulation = useSimulation(city, true);
+  const [selectedAgentId, setSelectedAgentId] = useState<string | null>(null);
 
   const toggleFilter = useCallback(
     (key: string) => {
@@ -809,7 +809,7 @@ export default function CityMap({ city }: CityMapProps) {
       },
     });
 
-    // ── Agent simulation: soft glow behind active agents ──
+    // ── Agent simulation: soft glow behind agents ──
     m.addLayer({
       id: "agents-glow",
       type: "circle",
@@ -820,45 +820,87 @@ export default function CityMap({ city }: CityMapProps) {
           9, 8,
           13, 14,
         ],
-        "circle-color": "#fffbeb",
+        "circle-color": [
+          "match", ["get", "activity"],
+          "sleeping", "#94a3b8",
+          "#fffbeb",
+        ],
         "circle-opacity": [
           "match", ["get", "activity"],
-          "sleeping",    0.0,
-          "home_active", 0.02,
+          "sleeping",    0.02,
+          "home_active", 0.03,
           0.08,
         ],
         "circle-blur": 1,
       },
     });
 
-    // ── Agent simulation layer: bright white/cream dots ──
+    // ── Agent simulation layer: dots (dimmed for dormant, bright for active) ──
     m.addLayer({
       id: "agents",
       type: "circle",
       source: "agents",
       paint: {
         "circle-radius": [
-          "interpolate", ["linear"], ["zoom"],
-          9, 2.5,
-          12, 4.5,
-          14, 6,
+          "match", ["get", "activity"],
+          "sleeping", ["interpolate", ["linear"], ["zoom"], 9, 1.5, 12, 2.5, 14, 3.5],
+          "home_active", ["interpolate", ["linear"], ["zoom"], 9, 2, 12, 3.5, 14, 5],
+          ["interpolate", ["linear"], ["zoom"], 9, 2.5, 12, 4.5, 14, 6],
         ],
-        "circle-color": "#fef9ef",
+        "circle-color": [
+          "match", ["get", "activity"],
+          "sleeping", "#94a3b8",
+          "home_active", "#cbd5e1",
+          "#fef9ef",
+        ],
         "circle-opacity": [
           "match", ["get", "activity"],
-          "sleeping",    0.0,
-          "home_active", 0.12,
+          "sleeping",    0.15,
+          "home_active", 0.3,
           0.92,
         ],
-        "circle-blur": 0.15,
+        "circle-blur": [
+          "match", ["get", "activity"],
+          "sleeping", 0.4,
+          0.15,
+        ],
         "circle-stroke-width": [
           "interpolate", ["linear"], ["zoom"],
           9, 0,
           12, 0.8,
         ],
-        "circle-stroke-color": "rgba(255, 251, 235, 0.3)",
+        "circle-stroke-color": [
+          "match", ["get", "activity"],
+          "sleeping", "rgba(148, 163, 184, 0.1)",
+          "rgba(255, 251, 235, 0.3)",
+        ],
       },
     });
+
+    // ── Agent selection highlight ring ──
+    m.addLayer({
+      id: "agents-selected",
+      type: "circle",
+      source: "agents",
+      filter: ["==", ["get", "selected"], "yes"],
+      paint: {
+        "circle-radius": ["interpolate", ["linear"], ["zoom"], 9, 6, 12, 10, 14, 14],
+        "circle-color": "transparent",
+        "circle-stroke-width": 2,
+        "circle-stroke-color": "#fbbf24",
+        "circle-opacity": 1,
+      },
+    });
+
+    // ── Agent click handler: select agent on map ──
+    m.on("click", "agents", (e) => {
+      if (e.features && e.features.length > 0) {
+        const id = e.features[0].properties?.id;
+        if (id) setSelectedAgentId((prev) => (prev === id ? null : id));
+      }
+    });
+    m.on("mouseenter", "agents", () => { m.getCanvas().style.cursor = "pointer"; });
+    m.on("mouseleave", "agents", () => { m.getCanvas().style.cursor = ""; });
 
     // ── Apply initial visibility for default-OFF layers ──
     for (const def of availableFilters) {
@@ -965,7 +1007,6 @@ export default function CityMap({ city }: CityMapProps) {
     src.setData({
       type: "FeatureCollection",
       features: simulation.tickResult.agents
-        .filter((a) => a.activity !== "sleeping")
         .map((a) => ({
           type: "Feature" as const,
           geometry: { type: "Point" as const, coordinates: [a.lng, a.lat] },
@@ -974,10 +1015,11 @@ export default function CityMap({ city }: CityMapProps) {
             activity: a.activity,
             transportMode: a.transportMode,
             heading: a.heading,
+            selected: a.id === selectedAgentId ? "yes" : "no",
           },
         })),
     });
-  }, [mapLoaded, simulation.tickResult]);
+  }, [mapLoaded, simulation.tickResult, selectedAgentId]);
 
   // ── Live clock (updates every second) ──
   useEffect(() => {
@@ -1012,15 +1054,18 @@ export default function CityMap({ city }: CityMapProps) {
         updating={updating}
       />
 
-      {agentsEnabled && simulation.tickResult && (
-        <AgentSidebar city={city} simulation={simulation} />
-      )}
+      <AgentSidebar
+        city={city}
+        simulation={simulation}
+        selectedAgentId={selectedAgentId}
+        onDeselectAgent={() => setSelectedAgentId(null)}
+      />
 
       <CityFilterBar
         filters={filters}
         availableFilters={availableFilters}
         onToggle={toggleFilter}
-        agentsPanelOpen={agentsEnabled && !!simulation.tickResult}
+        agentsPanelOpen={true}
       />
     </>
   );
