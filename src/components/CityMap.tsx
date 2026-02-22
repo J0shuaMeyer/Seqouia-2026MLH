@@ -490,9 +490,11 @@ export default function CityMap({ city, onMapReady }: CityMapProps) {
     // Expose map for debugging
     (window as unknown as Record<string, unknown>).__map = mapRef.current;
 
+    // Dismiss loading screen immediately — map renders tiles progressively
+    onMapReady?.();
+
     mapRef.current.on("load", () => {
       setMapLoaded(true);
-      onMapReady?.();
     });
 
     return () => {

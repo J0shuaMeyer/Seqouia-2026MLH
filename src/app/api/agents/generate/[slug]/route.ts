@@ -81,6 +81,10 @@ Generate exactly ${agentCount} personas as a JSON array. Ensure diversity in age
 /** Max personas per batch — keeps output well within Haiku's 8192 token limit */
 const BATCH_SIZE = 20;
 
+/** In-memory cache — survives across requests on the same server instance */
+const personaCache = new Map<string, { data: AgentPersona[]; ts: number }>();
+const CACHE_TTL_MS = 60 * 60 * 1000; // 1 hour
+
 export async function GET(
   _req: Request,
   { params }: { params: Promise<{ slug: string }> },
@@ -92,56 +96,64 @@ export async function GET(
     return NextResponse.json({ error: "City not found" }, { status: 404 });
   }
 
+  // Return cached personas if available
+  const cached = personaCache.get(slug);
+  if (cached && Date.now() - cached.ts < CACHE_TTL_MS) {
+    return NextResponse.json(cached.data, {
+      headers: { "Cache-Control": "public, max-age=3600" },
+    });
+  }
+
   const totalAgents = Math.max(10, Math.min(150, Math.round(city.population / 250_000)));
 
   try {
     // Split into batches to stay within output token limits
     const batches: number[] = [];
     let remaining = totalAgents;
-    let batchIdx = 0;
     while (remaining > 0) {
       const batchSize = Math.min(BATCH_SIZE, remaining);
       batches.push(batchSize);
       remaining -= batchSize;
-      batchIdx++;
     }
 
-    const allRaw: Array<Record<string, unknown>> = [];
+    // Run all batches in parallel for faster generation
+    const batchResults = await Promise.all(
+      batches.map(async (batchSize, i) => {
+        const message = await anthropic.messages.create({
+          model: "claude-haiku-4-5-20251001",
+          max_tokens: 8192,
+          system: SYSTEM_INSTRUCTION,
+          messages: [
+            { role: "user", content: buildPrompt(city, batchSize, i) },
+          ],
+        });
 
-    for (let i = 0; i < batches.length; i++) {
-      const message = await anthropic.messages.create({
-        model: "claude-haiku-4-5-20251001",
-        max_tokens: 8192,
-        system: SYSTEM_INSTRUCTION,
-        messages: [
-          { role: "user", content: buildPrompt(city, batches[i], i) },
-        ],
-      });
+        const textBlock = message.content.find((b) => b.type === "text");
+        let rawText = textBlock?.text ?? "[]";
 
-      const textBlock = message.content.find((b) => b.type === "text");
-      let rawText = textBlock?.text ?? "[]";
+        // Strip markdown code fences if present
+        rawText = rawText.replace(/^```(?:json)?\s*\n?/i, "").replace(/\n?```\s*$/i, "").trim();
 
-      // Strip markdown code fences if present
-      rawText = rawText.replace(/^```(?:json)?\s*\n?/i, "").replace(/\n?```\s*$/i, "").trim();
-
-      // Handle truncated JSON — if stop_reason is max_tokens, try to salvage
-      if (message.stop_reason === "end_turn") {
-        const parsed = JSON.parse(rawText) as Array<Record<string, unknown>>;
-        allRaw.push(...parsed);
-      } else {
-        // Truncated — try to find last complete object
-        const lastBracket = rawText.lastIndexOf("}");
-        if (lastBracket > 0) {
-          const salvaged = rawText.slice(0, lastBracket + 1) + "]";
-          try {
-            const parsed = JSON.parse(salvaged) as Array<Record<string, unknown>>;
-            allRaw.push(...parsed);
-          } catch {
-            console.warn(`[generate] Batch ${i} truncated and unsalvageable, skipping`);
+        // Handle truncated JSON — if stop_reason is max_tokens, try to salvage
+        if (message.stop_reason === "end_turn") {
+          return JSON.parse(rawText) as Array<Record<string, unknown>>;
+        } else {
+          const lastBracket = rawText.lastIndexOf("}");
+          if (lastBracket > 0) {
+            const salvaged = rawText.slice(0, lastBracket + 1) + "]";
+            try {
+              return JSON.parse(salvaged) as Array<Record<string, unknown>>;
+            } catch {
+              console.warn(`[generate] Batch ${i} truncated and unsalvageable, skipping`);
+              return [];
+            }
           }
+          return [];
         }
-      }
-    }
+      }),
+    );
+
+    const allRaw = batchResults.flat();
 
     if (allRaw.length === 0) {
       return NextResponse.json(
@@ -175,6 +187,9 @@ export async function GET(
       commuteFlexibility: clamp(Number(r.commuteFlexibility) || 0.3),
       activityCurve: normalizeActivityCurve(r.activityCurve as number[] | undefined),
     }));
+
+    // Cache for instant repeat loads
+    personaCache.set(slug, { data: personas, ts: Date.now() });
 
     return NextResponse.json(personas, {
       headers: { "Cache-Control": "public, max-age=3600" },
