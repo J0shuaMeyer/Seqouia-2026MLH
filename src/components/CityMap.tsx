@@ -222,7 +222,7 @@ export default function CityMap({ city }: CityMapProps) {
 
   // ── Filter state ──────────────────────────────────────────────
   const availableFilters = useMemo(() => getAvailableFilters(city), [city]);
-  const DEFAULT_OFF = useMemo(() => new Set(["flights", "maritime", "agents"]), []);
+  const DEFAULT_OFF = useMemo(() => new Set(["flights", "maritime"]), []);
   const [filters, setFilters] = useState<Record<string, boolean>>(() =>
     Object.fromEntries(availableFilters.map((f) => [f.key, !DEFAULT_OFF.has(f.key)]))
   );
@@ -230,6 +230,16 @@ export default function CityMap({ city }: CityMapProps) {
   // ── Agent simulation (always active — real-time LLM agents) ──
   const simulation = useSimulation(city, true);
   const [selectedAgentId, setSelectedAgentId] = useState<string | null>(null);
+
+  // Listen for agent selection from the sidebar agent list
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const id = (e as CustomEvent<string>).detail;
+      if (id) setSelectedAgentId(id);
+    };
+    window.addEventListener("agent-sidebar-select", handler);
+    return () => window.removeEventListener("agent-sidebar-select", handler);
+  }, []);
 
   const toggleFilter = useCallback(
     (key: string) => {
@@ -475,6 +485,9 @@ export default function CityMap({ city }: CityMapProps) {
       new maplibregl.NavigationControl({ showCompass: true }),
       "bottom-right"
     );
+
+    // Expose map for debugging
+    (window as unknown as Record<string, unknown>).__map = mapRef.current;
 
     mapRef.current.on("load", () => setMapLoaded(true));
 
@@ -809,7 +822,9 @@ export default function CityMap({ city }: CityMapProps) {
       },
     });
 
-    // ── Agent simulation: soft glow behind agents ──
+    // ── Agent simulation layer: crisp solid dots, color-coded by activity ──
+    // NOTE: MapLibre only allows ONE zoom-based interpolate per expression.
+    // So we put interpolate on the outside and match (data-driven) at each zoom stop.
     m.addLayer({
       id: "agents-glow",
       type: "circle",
@@ -817,63 +832,84 @@ export default function CityMap({ city }: CityMapProps) {
       paint: {
         "circle-radius": [
           "interpolate", ["linear"], ["zoom"],
-          9, 8,
-          13, 14,
+          9,  ["match", ["get", "activity"], "sleeping", 0, "home_active", 0, 6],
+          13, ["match", ["get", "activity"], "sleeping", 0, "home_active", 0, 10],
         ],
         "circle-color": [
           "match", ["get", "activity"],
-          "sleeping", "#94a3b8",
-          "#fffbeb",
+          "sleeping",    "#94a3b8",
+          "commuting",   "#f59e0b",
+          "working",     "#60a5fa",
+          "socializing", "#c084fc",
+          "dining",      "#c084fc",
+          "leisure",     "#34d399",
+          "errands",     "#34d399",
+          "exercising",  "#34d399",
+          "#e2e8f0",
         ],
-        "circle-opacity": [
-          "match", ["get", "activity"],
-          "sleeping",    0.02,
-          "home_active", 0.03,
-          0.08,
-        ],
+        "circle-opacity": 0.06,
         "circle-blur": 1,
       },
     });
 
-    // ── Agent simulation layer: dots (dimmed for dormant, bright for active) ──
     m.addLayer({
       id: "agents",
       type: "circle",
       source: "agents",
       paint: {
         "circle-radius": [
-          "match", ["get", "activity"],
-          "sleeping", ["interpolate", ["linear"], ["zoom"], 9, 1.5, 12, 2.5, 14, 3.5],
-          "home_active", ["interpolate", ["linear"], ["zoom"], 9, 2, 12, 3.5, 14, 5],
-          ["interpolate", ["linear"], ["zoom"], 9, 2.5, 12, 4.5, 14, 6],
+          "interpolate", ["linear"], ["zoom"],
+          9,  ["match", ["get", "activity"], "sleeping", 2.5, "home_active", 3, 4],
+          12, ["match", ["get", "activity"], "sleeping", 4,   "home_active", 5, 6],
+          14, ["match", ["get", "activity"], "sleeping", 5,   "home_active", 6, 8],
         ],
         "circle-color": [
           "match", ["get", "activity"],
-          "sleeping", "#94a3b8",
-          "home_active", "#cbd5e1",
-          "#fef9ef",
+          "sleeping",    "#64748b",
+          "home_active", "#94a3b8",
+          "commuting",   "#f59e0b",
+          "working",     "#60a5fa",
+          "socializing", "#c084fc",
+          "dining",      "#a78bfa",
+          "leisure",     "#34d399",
+          "errands",     "#2dd4bf",
+          "exercising",  "#4ade80",
+          "#e2e8f0",
         ],
         "circle-opacity": [
           "match", ["get", "activity"],
-          "sleeping",    0.15,
-          "home_active", 0.3,
-          0.92,
+          "sleeping",    0.5,
+          "home_active", 0.6,
+          0.95,
         ],
-        "circle-blur": [
-          "match", ["get", "activity"],
-          "sleeping", 0.4,
-          0.15,
-        ],
+        "circle-blur": 0,
         "circle-stroke-width": [
           "interpolate", ["linear"], ["zoom"],
-          9, 0,
-          12, 0.8,
+          9, 0.5,
+          11, 1,
+          14, 1.5,
         ],
         "circle-stroke-color": [
           "match", ["get", "activity"],
-          "sleeping", "rgba(148, 163, 184, 0.1)",
-          "rgba(255, 251, 235, 0.3)",
+          "sleeping",    "rgba(100, 116, 139, 0.4)",
+          "home_active", "rgba(148, 163, 184, 0.5)",
+          "rgba(255, 255, 255, 0.3)",
         ],
+      },
+    });
+
+    // ── Near-invisible hit area for easier clicking ──
+    m.addLayer({
+      id: "agents-hit",
+      type: "circle",
+      source: "agents",
+      paint: {
+        "circle-radius": [
+          "interpolate", ["linear"], ["zoom"],
+          9, 10, 12, 14, 14, 18,
+        ],
+        "circle-color": "rgba(0,0,0,0.01)",
+        "circle-opacity": 0.01,
       },
     });
 
@@ -884,23 +920,23 @@ export default function CityMap({ city }: CityMapProps) {
       source: "agents",
       filter: ["==", ["get", "selected"], "yes"],
       paint: {
-        "circle-radius": ["interpolate", ["linear"], ["zoom"], 9, 6, 12, 10, 14, 14],
+        "circle-radius": ["interpolate", ["linear"], ["zoom"], 9, 8, 12, 12, 14, 16],
         "circle-color": "transparent",
-        "circle-stroke-width": 2,
+        "circle-stroke-width": 2.5,
         "circle-stroke-color": "#fbbf24",
         "circle-opacity": 1,
       },
     });
 
     // ── Agent click handler: select agent on map ──
-    m.on("click", "agents", (e) => {
+    m.on("click", "agents-hit", (e) => {
       if (e.features && e.features.length > 0) {
         const id = e.features[0].properties?.id;
         if (id) setSelectedAgentId((prev) => (prev === id ? null : id));
       }
     });
-    m.on("mouseenter", "agents", () => { m.getCanvas().style.cursor = "pointer"; });
-    m.on("mouseleave", "agents", () => { m.getCanvas().style.cursor = ""; });
+    m.on("mouseenter", "agents-hit", () => { m.getCanvas().style.cursor = "pointer"; });
+    m.on("mouseleave", "agents-hit", () => { m.getCanvas().style.cursor = ""; });
 
     // ── Apply initial visibility for default-OFF layers ──
     for (const def of availableFilters) {

@@ -1,5 +1,5 @@
 import type { City } from "@/data/cities";
-import type { CityEnvironment } from "./agent-types";
+import type { CityEnvironment, EarthquakeInfo } from "./agent-types";
 
 /**
  * WMO weather code predicates.
@@ -90,6 +90,52 @@ function simplifyBikeStations(
 }
 
 /**
+ * Haversine distance between two lat/lng points in kilometers.
+ */
+function haversineKm(lat1: number, lng1: number, lat2: number, lng2: number): number {
+  const R = 6371;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLng = (lng2 - lng1) * Math.PI / 180;
+  const a = Math.sin(dLat / 2) ** 2
+    + Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180)
+    * Math.sin(dLng / 2) ** 2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+/**
+ * Map USGS GeoJSON features to EarthquakeInfo[].
+ */
+function parseEarthquakes(
+  geojson: { features?: Array<{
+    properties?: { mag?: number; place?: string; time?: number };
+    geometry?: { coordinates?: number[] };
+  }> },
+  cityLat: number,
+  cityLng: number,
+): EarthquakeInfo[] {
+  const features = geojson?.features ?? [];
+  const oneHourAgo = Date.now() - 60 * 60 * 1000;
+
+  return features
+    .filter((f) => (f.properties?.mag ?? 0) >= 2.0 && (f.properties?.time ?? 0) > oneHourAgo)
+    .map((f) => {
+      const coords = f.geometry?.coordinates ?? [0, 0];
+      const lat = coords[1];
+      const lng = coords[0];
+      return {
+        magnitude: f.properties?.mag ?? 0,
+        place: f.properties?.place ?? "Unknown",
+        lat,
+        lng,
+        time: f.properties?.time ?? 0,
+        distanceKm: haversineKm(cityLat, cityLng, lat, lng),
+      };
+    })
+    .sort((a, b) => b.magnitude - a.magnitude)
+    .slice(0, 5);
+}
+
+/**
  * Build a CityEnvironment from existing API routes.
  * Runs on the main thread (browser), fetches in parallel.
  */
@@ -97,7 +143,7 @@ export async function buildCityEnvironment(
   city: City,
   simHour?: number,
 ): Promise<CityEnvironment> {
-  const [wazeRes, weatherRes, poisRes, bikeRes, pulseRes] = await Promise.allSettled([
+  const [wazeRes, weatherRes, poisRes, bikeRes, pulseRes, quakeRes] = await Promise.allSettled([
     fetch(`/api/waze/${city.slug}`).then((r) => r.json()),
     fetch(`/api/weather/${city.slug}`).then((r) => r.json()),
     fetch(`/api/popularity/${city.slug}`).then((r) => r.json()),
@@ -105,6 +151,7 @@ export async function buildCityEnvironment(
       ? fetch(`/api/bikeshare/${city.slug}`).then((r) => r.json())
       : Promise.reject("none"),
     fetch(`/api/pulse/${city.slug}`).then((r) => r.json()),
+    fetch(`/api/earthquakes/${city.slug}`).then((r) => r.json()),
   ]);
 
   // Defaults
@@ -162,6 +209,12 @@ export async function buildCityEnvironment(
     upiScore = pulseRes.value?.score ?? 50;
   }
 
+  // Earthquakes
+  let earthquakes: EarthquakeInfo[] = [];
+  if (quakeRes.status === "fulfilled") {
+    earthquakes = parseEarthquakes(quakeRes.value, city.lat, city.lng);
+  }
+
   const hour = simHour ?? new Date().getHours();
   const rushHour = (hour >= 7 && hour <= 9) || (hour >= 17 && hour <= 19);
 
@@ -180,5 +233,7 @@ export async function buildCityEnvironment(
     pois,
     bikeStations,
     upiScore,
+    earthquakes,
+    environmentChanges: [],
   };
 }

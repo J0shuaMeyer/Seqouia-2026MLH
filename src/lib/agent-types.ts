@@ -68,9 +68,18 @@ export interface AgentMemoryEntry {
   durationMin: number;
 }
 
+export interface SocialMemoryEntry {
+  time: string;
+  participants: string[];
+  topics: string[];
+  summary: string;
+  locationName: string;
+}
+
 export interface AgentMemory {
   agentId: string;
   actions: AgentMemoryEntry[];
+  socialEvents: SocialMemoryEntry[];
 }
 
 /** LLM decision result for a single agent */
@@ -106,12 +115,43 @@ export interface SocialGraph {
 export interface EmergentPattern {
   type: "cluster" | "mode_shift" | "rush_hour" | "ghost_town"
       | "weather_exodus" | "nightlife_surge" | "congestion_avoidance"
-      | "social_clustering" | "information_cascade";
+      | "social_clustering" | "information_cascade"
+      | "earthquake_response" | "weather_transition" | "traffic_surge";
   description: string;
   location: { lat: number; lng: number } | null;
   agentCount: number;
   confidence: number;
   simHour: number;
+  agentIds?: string[];
+}
+
+/* ── Environment Types ────────────────────────────────────── */
+
+export interface EarthquakeInfo {
+  magnitude: number;
+  place: string;
+  lat: number;
+  lng: number;
+  time: number;
+  distanceKm: number;
+}
+
+export type EnvironmentUrgency = "critical" | "high" | "moderate" | "low";
+
+export type EnvironmentChangeType =
+  | "rain_started" | "rain_stopped"
+  | "snow_started" | "snow_stopped"
+  | "temperature_spike" | "temperature_drop"
+  | "earthquake"
+  | "traffic_spike" | "traffic_cleared"
+  | "aqi_hazardous" | "aqi_recovered";
+
+export interface EnvironmentChange {
+  type: EnvironmentChangeType;
+  urgency: EnvironmentUrgency;
+  description: string;
+  affectedArea: { lat: number; lng: number; radiusKm: number } | null;
+  timestamp: number;
 }
 
 /** Environment data structured for the simulation worker */
@@ -130,6 +170,8 @@ export interface CityEnvironment {
   pois: { lat: number; lng: number; category: string; activity: number }[];
   bikeStations: { lat: number; lng: number; available: number }[];
   upiScore: number;
+  earthquakes: EarthquakeInfo[];
+  environmentChanges: EnvironmentChange[];
 }
 
 /** Full simulation state transferred from Worker to Main */
@@ -149,6 +191,26 @@ export interface SimTickResult {
   };
 }
 
+/* ── Agent Communication ───────────────────────────────────── */
+
+export interface ConversationLine {
+  agentId: string;
+  agentName: string;
+  text: string;
+}
+
+export interface AgentConversation {
+  id: string;
+  timestamp: number;
+  simHour: number;
+  locationName: string;
+  location: { lat: number; lng: number };
+  participantIds: string[];
+  participantNames: string[];
+  lines: ConversationLine[];
+  topics: string[];
+}
+
 /* ── Worker message protocol ────────────────────────────────── */
 
 export type WorkerInMessage =
@@ -164,5 +226,6 @@ export type WorkerInMessage =
 export type WorkerOutMessage =
   | { type: "tick"; result: SimTickResult }
   | { type: "pattern"; patterns: EmergentPattern[] }
+  | { type: "socialCluster"; agentIds: string[]; location: { lat: number; lng: number }; simHour: number }
   | { type: "ready" }
   | { type: "error"; message: string };

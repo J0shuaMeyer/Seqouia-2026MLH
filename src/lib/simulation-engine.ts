@@ -665,6 +665,7 @@ export function detectPatterns(
           agentCount: group.length,
           confidence: Math.min(1, connectedPairs / group.length),
           simHour,
+          agentIds: group.map((a) => a.id),
         });
       }
     }

@@ -6,19 +6,15 @@ Post-hackathon enhancements for the LLM-orchestrated urban simulation layer.
 
 ## 1. Agent Memory & Reflection
 Add a Smallville-style memory stream where agents store observations and reflect on them to inform future decisions. Currently agents are memoryless — each decision is independent of history.
-**Reference:** Park et al., "Generative Agents" (arXiv: 2304.03442)
 
 ## 2. Social Network Graphs
 Model agent relationships (family, coworkers, friends) and route information/influence through these connections rather than only through spatial proximity. Enables modeling of carpooling, social planning, and information cascades.
-**Reference:** S3: Social Network Simulation (arXiv: 2307.14984)
 
 ## 3. Per-Tick LLM Reasoning
 Upgrade key decision points from rule-based probabilities to sparse LLM calls for richer behavioral realism. Use the OpenCity group-and-distill approach to batch similar agents and reduce API calls by 600×.
-**Reference:** OpenCity (arXiv: 2410.21286)
 
 ## 4. Validation Framework
 Automated comparison of simulated agent distribution vs real-world data (Waze traffic density, transit ridership, bikeshare utilization). The critical review paper identifies this as the core weakness of generative ABMs.
-**Reference:** Larooij & Tornberg (arXiv: 2504.03274)
 
 ## 5. Economic Model
 Add spending behavior, income levels, and price sensitivity. Agents could choose dining venues based on budget, prefer free parks when low on funds, or alter commute modes based on gas prices.
@@ -43,4 +39,3 @@ Use the MIT archetype approach (AAMAS 2025) to scale from 150 representative age
 
 ## 12. Cultural Calibration
 City-specific behavioral norms beyond infrastructure — prayer times in Istanbul/Cairo, siesta patterns in Buenos Aires/Mexico City, night market culture in Bangkok, golden week effects in Tokyo/Seoul.
-**Reference:** AgentSociety (arXiv: 2502.08691)

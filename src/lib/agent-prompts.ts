@@ -8,7 +8,7 @@ import type {
   LLMDecision,
   AgentMemory,
 } from "./agent-types";
-import { formatMemoryForPrompt, getAgentMemory } from "./agent-memory";
+import { formatMemoryForPrompt, formatSocialMemoryForPrompt, getAgentMemory } from "./agent-memory";
 import type { AgentGroup } from "./agent-grouping";
 
 const VALID_ACTIVITIES: Set<string> = new Set([
@@ -26,6 +26,7 @@ RULES:
 - People should not repeat the same activity they just did unless it makes sense (e.g., staying at work)
 - Use real reasoning: weather, social connections, fatigue, hunger, time pressure
 - Sleeping people stay home. Working people stay at work during work hours.
+- Do NOT use any emojis in any field, especially reasoning. Use plain text only.
 - Return ONLY a valid JSON array. No markdown, no explanation.
 
 Each decision object must have exactly these fields:
@@ -85,21 +86,59 @@ export function buildGroupPrompt(
   socialEdges: SocialEdge[],
   simHour: number,
   cityName: string,
+  urgentContext?: string,
 ): string {
   const time = formatTime(simHour);
   const weather = formatWeather(env);
   const agentMap = new Map(agents.map((a) => [a.id, a]));
 
-  let prompt = `CITY: ${cityName}
+  let prompt = "";
+
+  if (urgentContext) {
+    prompt += `URGENT SITUATION: ${urgentContext}\nAgents should react to this change immediately.\n\n`;
+  }
+
+  prompt += `CITY: ${cityName}
 TIME: ${time}
 WEATHER: ${weather}
-TRAFFIC: ${env.avgJamLevel > 2 ? "Heavy congestion" : env.avgJamLevel > 1 ? "Moderate traffic" : "Light traffic"}
-TRANSIT AVAILABLE: ${env.hasTransit ? "Yes" : "No"}
-BIKESHARE AVAILABLE: ${env.hasBikeshare ? "Yes" : "No"}
+TRAFFIC: ${env.avgJamLevel > 2 ? "Heavy congestion" : env.avgJamLevel > 1 ? "Moderate traffic" : "Light traffic"}`;
 
-GROUP: ${group.description}
+  // Traffic hotspots (top 3)
+  const topHotspots = env.trafficHotspots
+    .filter((h) => h.level >= 4)
+    .slice(0, 3);
+  if (topHotspots.length > 0) {
+    prompt += `\nTRAFFIC HOTSPOTS: ${topHotspots.map((h) => `level ${h.level} at (${h.lat.toFixed(2)}, ${h.lng.toFixed(2)})`).join(", ")}`;
+  }
 
-AGENTS NEEDING DECISIONS:\n`;
+  prompt += `\nAIR QUALITY: AQI ${env.aqi}${env.aqi > 150 ? " (HAZARDOUS)" : env.aqi > 100 ? " (UNHEALTHY)" : ""}`;
+  prompt += `\nRUSH HOUR: ${env.isRushHour ? "Yes" : "No"}`;
+  prompt += `\nCITY PULSE: ${env.upiScore}/100`;
+  if (env.alertCount > 0) {
+    prompt += `\nALERTS: ${env.alertCount} active traffic alerts`;
+  }
+  prompt += `\nTRANSIT AVAILABLE: ${env.hasTransit ? "Yes" : "No"}`;
+  prompt += `\nBIKESHARE AVAILABLE: ${env.hasBikeshare ? "Yes" : "No"}`;
+
+  // Earthquakes (last hour)
+  if (env.earthquakes.length > 0) {
+    const quakeStr = env.earthquakes
+      .slice(0, 3)
+      .map((q) => `M${q.magnitude.toFixed(1)} near ${q.place} (${Math.round(q.distanceKm)}km away)`)
+      .join("; ");
+    prompt += `\nEARTHQUAKES: ${quakeStr}`;
+  }
+
+  // Recent environment changes
+  if (env.environmentChanges.length > 0) {
+    const changesStr = env.environmentChanges
+      .slice(0, 5)
+      .map((c) => c.description)
+      .join("; ");
+    prompt += `\nRECENT CHANGES: ${changesStr}`;
+  }
+
+  prompt += `\n\nGROUP: ${group.description}\n\nAGENTS NEEDING DECISIONS:\n`;
 
   for (const agentId of group.agentIds) {
     const persona = personas.get(agentId);
@@ -109,6 +148,8 @@ AGENTS NEEDING DECISIONS:\n`;
     const mem = getAgentMemory(memoryStore, agentId);
     const friends = findNearbyActiveFriends(agentId, agents, socialEdges);
 
+    const socialMem = formatSocialMemoryForPrompt(mem);
+
     prompt += `
 - ${persona.name} (ID: ${agentId})
   Age: ${persona.age}, Occupation: ${persona.occupation.replace(/_/g, " ")}
@@ -117,6 +158,7 @@ AGENTS NEEDING DECISIONS:\n`;
   Currently at: (${state.lat.toFixed(4)}, ${state.lng.toFixed(4)}), doing: ${state.activity}
   Recent history: ${formatMemoryForPrompt(mem)}
   ${friends.length > 0 ? `Active friends nearby: ${friends.join(", ")}` : "No friends currently active nearby"}
+  ${socialMem ? `Recent conversations: ${socialMem}` : ""}
 `;
   }
 

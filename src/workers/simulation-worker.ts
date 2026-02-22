@@ -172,6 +172,18 @@ function loop(): void {
         post({ type: "pattern", patterns });
       }
       prevPatternTypes = new Set(patterns.map((p) => p.type));
+
+      // Emit socialCluster messages for social_clustering patterns with agent IDs
+      for (const p of patterns) {
+        if (p.type === "social_clustering" && p.agentIds && p.agentIds.length >= 3 && p.location) {
+          post({
+            type: "socialCluster",
+            agentIds: p.agentIds,
+            location: p.location,
+            simHour,
+          });
+        }
+      }
     } else {
       prevPatternTypes.clear();
     }

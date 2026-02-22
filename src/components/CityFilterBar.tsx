@@ -19,7 +19,7 @@ export const ALL_FILTERS: FilterDefinition[] = [
   { key: "flights",   icon: "", label: "FLIGHTS",   layerIds: ["aircraft"],                       color: "#22d3ee", available: () => true },
   { key: "maritime",  icon: "", label: "MARITIME",  layerIds: ["maritime"],                       color: "#2dd4bf", available: (c) => !!c.isCoastal },
   { key: "places",    icon: "", label: "POI'S",    layerIds: ["pois", "pois-labels", "pois-aura"], color: "#f472b6", available: () => true },
-  { key: "agents",    icon: "", label: "AGENTS",   layerIds: ["agents", "agents-glow"],              color: "#fef9ef", available: () => true },
+  { key: "agents",    icon: "", label: "AGENTS",   layerIds: ["agents", "agents-glow", "agents-hit", "agents-selected"], color: "#fef9ef", available: () => true },
 ];
 
 export function getAvailableFilters(city: City): FilterDefinition[] {

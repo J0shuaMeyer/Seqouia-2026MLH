@@ -10,7 +10,7 @@ import type {
 } from "@/lib/agent-types";
 import { buildAgentGroups } from "@/lib/agent-grouping";
 import { buildGroupPrompt, parseDecisions, DECISION_SYSTEM_PROMPT } from "@/lib/agent-prompts";
-import { getMemoryStore, recordAction } from "@/lib/agent-memory";
+import { getMemoryStore, recordAction, recordSocialEvent } from "@/lib/agent-memory";
 
 const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY! });
 
@@ -20,6 +20,7 @@ interface DecideRequest {
   environment: CityEnvironment;
   socialEdges: SocialEdge[];
   simHour: number;
+  urgentContext?: string;
 }
 
 export async function POST(
@@ -32,14 +33,41 @@ export async function POST(
     return NextResponse.json({ error: "City not found" }, { status: 404 });
   }
 
-  let body: DecideRequest;
+  let body: DecideRequest & { socialMemory?: {
+    participantIds: string[];
+    participantNames: string[];
+    topics: string[];
+    locationName: string;
+    simHour: number;
+  } };
   try {
     body = await request.json();
   } catch {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
-  const { agents, personas, environment, socialEdges, simHour } = body;
+  // Handle social memory recording (lightweight path)
+  if (request.headers.get("X-Social-Memory") === "true" && body.socialMemory) {
+    const memoryStore = getMemoryStore(slug);
+    const sm = body.socialMemory;
+    const timeStr = formatSimHour(sm.simHour);
+    const topicStr = sm.topics.join(", ") || "general chat";
+    for (const agentId of sm.participantIds) {
+      const otherNames = sm.participantNames.filter(
+        (_, i) => sm.participantIds[i] !== agentId,
+      );
+      recordSocialEvent(memoryStore, agentId, {
+        time: timeStr,
+        participants: otherNames,
+        topics: sm.topics,
+        summary: `Talked with ${otherNames.join(" and ")} about ${topicStr}`,
+        locationName: sm.locationName,
+      });
+    }
+    return NextResponse.json({ ok: true });
+  }
+
+  const { agents, personas, environment, socialEdges, simHour, urgentContext } = body;
 
   if (!agents?.length || !personas?.length) {
     return NextResponse.json({ error: "Missing agents or personas" }, { status: 400 });
@@ -73,6 +101,7 @@ export async function POST(
       socialEdges,
       simHour,
       city.name,
+      urgentContext,
     );
 
     groupPrompts.push({ prompt, agentIds: needsDecision });
@@ -90,7 +119,7 @@ export async function POST(
       try {
         const response = await anthropic.messages.create({
           model: "claude-haiku-4-5-20251001",
-          max_tokens: 1024,
+          max_tokens: urgentContext ? 512 : 1024,
           system: DECISION_SYSTEM_PROMPT,
           messages: [{ role: "user", content: prompt }],
         });
