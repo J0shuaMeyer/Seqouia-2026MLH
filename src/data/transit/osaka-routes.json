@@ -1,0 +1,85 @@
+{
+  "os-midosuji": {
+    "name": "Midosuji Line",
+    "color": "#E5171F",
+    "stopIds": [
+      "os-M-01", "os-M-02", "os-M-03", "os-M-04", "os-M-05",
+      "os-M-06", "os-M-07", "os-M-08", "os-M-09", "os-M-10",
+      "os-M-11", "os-M-12", "os-M-13", "os-M-14", "os-M-15",
+      "os-M-16", "os-M-17", "os-M-18", "os-M-19", "os-M-20"
+    ]
+  },
+  "os-tanimachi": {
+    "name": "Tanimachi Line",
+    "color": "#522886",
+    "stopIds": [
+      "os-T-01", "os-T-02", "os-T-03", "os-T-04", "os-T-05",
+      "os-T-06", "os-T-07", "os-T-08", "os-T-09", "os-T-10",
+      "os-T-11", "os-T-12", "os-T-13", "os-T-14", "os-T-15",
+      "os-T-16", "os-T-17", "os-T-18", "os-T-19", "os-T-20",
+      "os-T-21", "os-T-22", "os-T-23", "os-T-24", "os-T-25",
+      "os-T-26"
+    ]
+  },
+  "os-yotsubashi": {
+    "name": "Yotsubashi Line",
+    "color": "#0078BA",
+    "stopIds": [
+      "os-Y-01", "os-Y-02", "os-Y-03", "os-Y-04", "os-Y-05",
+      "os-Y-06", "os-Y-07", "os-Y-08", "os-Y-09", "os-Y-10",
+      "os-Y-11"
+    ]
+  },
+  "os-chuo": {
+    "name": "Chuo Line",
+    "color": "#009944",
+    "stopIds": [
+      "os-C-01", "os-C-02", "os-C-03", "os-C-04", "os-C-05",
+      "os-C-06", "os-C-07", "os-C-08", "os-C-09", "os-C-10",
+      "os-C-11", "os-C-12", "os-C-13", "os-C-14"
+    ]
+  },
+  "os-sennichimae": {
+    "name": "Sennichimae Line",
+    "color": "#E44D93",
+    "stopIds": [
+      "os-S-01", "os-S-02", "os-S-03", "os-S-04", "os-S-05",
+      "os-S-06", "os-S-07", "os-S-08", "os-S-09", "os-S-10",
+      "os-S-11", "os-S-12", "os-S-13", "os-S-14"
+    ]
+  },
+  "os-sakaisuji": {
+    "name": "Sakaisuji Line",
+    "color": "#814721",
+    "stopIds": [
+      "os-K-01", "os-K-02", "os-K-03", "os-K-04", "os-K-05",
+      "os-K-06", "os-K-07", "os-K-08", "os-K-09", "os-K-10"
+    ]
+  },
+  "os-nagahori": {
+    "name": "Nagahori Tsurumi-ryokuchi Line",
+    "color": "#A9CC51",
+    "stopIds": [
+      "os-N-01", "os-N-02", "os-N-03", "os-N-04", "os-N-05",
+      "os-N-06", "os-N-07", "os-N-08", "os-N-09", "os-N-10",
+      "os-N-11", "os-N-12", "os-N-13"
+    ]
+  },
+  "os-imazatosuji": {
+    "name": "Imazatosuji Line",
+    "color": "#F2A200",
+    "stopIds": [
+      "os-I-01", "os-I-02", "os-I-03", "os-I-04", "os-I-05",
+      "os-I-06", "os-I-07", "os-I-08", "os-I-09", "os-I-10",
+      "os-I-11"
+    ]
+  },
+  "os-newtram": {
+    "name": "New Tram",
+    "color": "#2BAFC3",
+    "stopIds": [
+      "os-P-01", "os-P-02", "os-P-03", "os-P-04", "os-P-05",
+      "os-P-06", "os-P-07", "os-P-08", "os-P-09", "os-P-10"
+    ]
+  }
+}

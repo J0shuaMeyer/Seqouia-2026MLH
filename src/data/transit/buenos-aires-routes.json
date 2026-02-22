@@ -1,0 +1,125 @@
+{
+  "ba-linea-A": {
+    "name": "Línea A",
+    "color": "#18cccc",
+    "stopIds": [
+      "ba-A-01",
+      "ba-A-02",
+      "ba-A-03",
+      "ba-A-04",
+      "ba-A-05",
+      "ba-A-06",
+      "ba-A-07",
+      "ba-A-08",
+      "ba-A-09",
+      "ba-A-10",
+      "ba-A-11",
+      "ba-A-12",
+      "ba-A-13",
+      "ba-A-14",
+      "ba-A-15",
+      "ba-A-16",
+      "ba-A-17",
+      "ba-A-18"
+    ]
+  },
+  "ba-linea-B": {
+    "name": "Línea B",
+    "color": "#eb0909",
+    "stopIds": [
+      "ba-B-01",
+      "ba-B-02",
+      "ba-B-03",
+      "ba-B-04",
+      "ba-B-05",
+      "ba-B-06",
+      "ba-B-07",
+      "ba-B-08",
+      "ba-B-09",
+      "ba-B-10",
+      "ba-B-11",
+      "ba-B-12",
+      "ba-B-13",
+      "ba-B-14",
+      "ba-B-15",
+      "ba-B-16",
+      "ba-B-17"
+    ]
+  },
+  "ba-linea-C": {
+    "name": "Línea C",
+    "color": "#233aa8",
+    "stopIds": [
+      "ba-C-01",
+      "ba-C-02",
+      "ba-C-03",
+      "ba-C-04",
+      "ba-C-05",
+      "ba-C-06",
+      "ba-C-07",
+      "ba-C-08",
+      "ba-C-09"
+    ]
+  },
+  "ba-linea-D": {
+    "name": "Línea D",
+    "color": "#178a4e",
+    "stopIds": [
+      "ba-D-01",
+      "ba-D-02",
+      "ba-D-03",
+      "ba-D-04",
+      "ba-D-05",
+      "ba-D-06",
+      "ba-D-07",
+      "ba-D-08",
+      "ba-D-09",
+      "ba-D-10",
+      "ba-D-11",
+      "ba-D-12",
+      "ba-D-13",
+      "ba-D-14",
+      "ba-D-15",
+      "ba-D-16"
+    ]
+  },
+  "ba-linea-E": {
+    "name": "Línea E",
+    "color": "#6d2d8e",
+    "stopIds": [
+      "ba-E-01",
+      "ba-E-02",
+      "ba-E-03",
+      "ba-E-04",
+      "ba-E-05",
+      "ba-E-06",
+      "ba-E-07",
+      "ba-E-08",
+      "ba-E-09",
+      "ba-E-10",
+      "ba-E-11",
+      "ba-E-12",
+      "ba-E-13",
+      "ba-E-14",
+      "ba-E-15"
+    ]
+  },
+  "ba-linea-H": {
+    "name": "Línea H",
+    "color": "#ffdd00",
+    "stopIds": [
+      "ba-H-01",
+      "ba-H-02",
+      "ba-H-03",
+      "ba-H-04",
+      "ba-H-05",
+      "ba-H-06",
+      "ba-H-07",
+      "ba-H-08",
+      "ba-H-09",
+      "ba-H-10",
+      "ba-H-11",
+      "ba-H-12"
+    ]
+  }
+}

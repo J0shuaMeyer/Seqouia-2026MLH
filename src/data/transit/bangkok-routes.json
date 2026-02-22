@@ -1,0 +1,56 @@
+{
+  "bk-sukhumvit": {
+    "name": "BTS Sukhumvit Line",
+    "color": "#00A651",
+    "stopIds": [
+      "bk-S-01", "bk-S-02", "bk-S-03", "bk-S-04", "bk-S-05",
+      "bk-S-06", "bk-S-07", "bk-S-08", "bk-S-09", "bk-S-10",
+      "bk-S-11", "bk-S-12", "bk-S-13", "bk-S-14", "bk-S-15",
+      "bk-S-16", "bk-S-17", "bk-S-18", "bk-S-19", "bk-S-20",
+      "bk-S-21", "bk-S-22", "bk-S-23", "bk-S-24", "bk-S-25",
+      "bk-S-26", "bk-S-27", "bk-S-28", "bk-S-29", "bk-S-30",
+      "bk-S-31", "bk-S-32", "bk-S-33", "bk-S-34", "bk-S-35"
+    ]
+  },
+  "bk-silom": {
+    "name": "BTS Silom Line",
+    "color": "#00A651",
+    "stopIds": [
+      "bk-SL-01", "bk-SL-02", "bk-SL-03", "bk-SL-04", "bk-SL-05",
+      "bk-SL-06", "bk-SL-07", "bk-SL-08", "bk-SL-09", "bk-SL-10",
+      "bk-SL-11", "bk-SL-12", "bk-SL-13"
+    ]
+  },
+  "bk-blue": {
+    "name": "MRT Blue Line",
+    "color": "#1E3A8A",
+    "stopIds": [
+      "bk-B-01", "bk-B-02", "bk-B-03", "bk-B-04", "bk-B-05",
+      "bk-B-06", "bk-B-07", "bk-B-08", "bk-B-09", "bk-B-10",
+      "bk-B-11", "bk-B-12", "bk-B-13", "bk-B-14", "bk-B-15",
+      "bk-B-16", "bk-B-17", "bk-B-18", "bk-B-19", "bk-B-20",
+      "bk-B-21", "bk-B-22", "bk-B-23", "bk-B-24", "bk-B-25",
+      "bk-B-26", "bk-B-27", "bk-B-28", "bk-B-29", "bk-B-30",
+      "bk-B-31", "bk-B-32", "bk-B-33", "bk-B-34", "bk-B-35",
+      "bk-B-36", "bk-B-37", "bk-B-38"
+    ]
+  },
+  "bk-purple": {
+    "name": "MRT Purple Line",
+    "color": "#7B2D8E",
+    "stopIds": [
+      "bk-P-01", "bk-P-02", "bk-P-03", "bk-P-04", "bk-P-05",
+      "bk-P-06", "bk-P-07", "bk-P-08", "bk-P-09", "bk-P-10",
+      "bk-P-11", "bk-P-12", "bk-P-13", "bk-P-14", "bk-P-15",
+      "bk-P-16"
+    ]
+  },
+  "bk-arl": {
+    "name": "Airport Rail Link",
+    "color": "#D22630",
+    "stopIds": [
+      "bk-A-01", "bk-A-02", "bk-A-03", "bk-A-04", "bk-A-05",
+      "bk-A-06", "bk-A-07", "bk-A-08"
+    ]
+  }
+}

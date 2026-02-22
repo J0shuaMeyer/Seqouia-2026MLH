@@ -29,6 +29,15 @@ function aqiColor(aqi: number): string {
   return "text-red-400";
 }
 
+function DataRow({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="flex justify-between">
+      <span className="text-xs text-white/40">{label}</span>
+      <span className="text-xs text-white/60 tabular-nums">{value}</span>
+    </div>
+  );
+}
+
 export default function CitySidebar({
   city,
   localTime,
@@ -40,9 +49,11 @@ export default function CitySidebar({
   poiCount,
   updating,
 }: CitySidebarProps) {
+  const density = Math.round(city.population / city.areaSqMi).toLocaleString();
+
   return (
-    <aside className="fixed left-0 top-0 bottom-0 w-64 z-50 bg-black/80 backdrop-blur-md border-r border-white/[0.06] flex flex-col">
-      {/* Section 1 — Header */}
+    <aside className="fixed left-0 top-0 bottom-0 w-64 z-50 bg-black/80 backdrop-blur-md border-r border-white/[0.06] flex flex-col overflow-y-auto">
+      {/* Header */}
       <div className="px-5 pt-5 pb-4 border-b border-white/[0.06]">
         <div className="flex items-center gap-2">
           <SequoiaLogo className="w-3.5 h-[18px] text-white/70" />
@@ -50,27 +61,22 @@ export default function CitySidebar({
             SEQUOIA
           </h1>
         </div>
-        <p className="text-[10px] text-white/30 mt-1.5 tracking-widest uppercase font-medium">
-          Urban Activity Monitor
-        </p>
       </div>
 
-      {/* Section 2 — City Identity */}
+      {/* City Identity */}
       <div className="px-5 py-4 border-b border-white/[0.06]">
-        <h2 className="text-xl font-bold text-white">{city.name}</h2>
-        <p className="text-xs text-white/50 mt-0.5">{city.country}</p>
-        <p className="text-xs text-white/30 italic font-light mt-1">
-          &ldquo;{city.tagline}&rdquo;
-        </p>
+        <h2 className="text-xl font-bold text-white">
+          {city.name}, {city.countryCode}
+        </h2>
         <p className="text-lg font-light text-white/80 tabular-nums mt-2">
           {localTime}
         </p>
       </div>
 
-      {/* Section 3 — Weather */}
+      {/* Weather */}
       {weather && (
         <div className="px-5 py-4 border-b border-white/[0.06]">
-          <p className="text-[10px] tracking-widest uppercase text-white/30 mb-2">
+          <p className="text-[10px] tracking-widest uppercase text-white/50 font-bold mb-2">
             Weather
           </p>
           <p className="text-2xl font-light text-white/90">{weather.tempF}°F</p>
@@ -80,48 +86,43 @@ export default function CitySidebar({
         </div>
       )}
 
-      {/* Section 4 — Live Data */}
+      {/* Live Data */}
       <div className="px-5 py-4 border-b border-white/[0.06] space-y-1.5">
-        <p className="text-[10px] tracking-widest uppercase text-white/30 mb-2">
-          Live Data{updating && <span className="ml-2 text-white/20">updating…</span>}
+        <p className="text-[10px] tracking-widest uppercase text-white/50 font-bold mb-2">
+          Live Data{updating && <span className="ml-2 text-white/20 font-normal">updating…</span>}
         </p>
-        <div className="flex justify-between">
-          <span className="text-xs text-white/40">Traffic Reports</span>
-          <span className="text-xs text-white/60 tabular-nums">
-            {reportCount !== null ? reportCount.toLocaleString() : "—"}
-          </span>
-        </div>
-        <div className="flex justify-between">
-          <span className="text-xs text-white/40">Aircraft</span>
-          <span className="text-xs text-white/60 tabular-nums">
-            {aircraftCount !== null ? aircraftCount.toLocaleString() : "—"}
-          </span>
-        </div>
+        <DataRow label="Traffic Reports" value={reportCount !== null ? reportCount.toLocaleString() : "—"} />
+        <DataRow label="Aircraft" value={aircraftCount !== null ? aircraftCount.toLocaleString() : "—"} />
         {city.bikeNetwork && (
-          <div className="flex justify-between">
-            <span className="text-xs text-white/40">Bike Stations</span>
-            <span className="text-xs text-white/60 tabular-nums">
-              {bikeStationCount !== null ? bikeStationCount.toLocaleString() : "—"}
-            </span>
-          </div>
+          <DataRow label="Bike Stations" value={bikeStationCount !== null ? bikeStationCount.toLocaleString() : "—"} />
         )}
         {city.transitType && (
-          <div className="flex justify-between">
-            <span className="text-xs text-white/40">Transit Stops</span>
-            <span className="text-xs text-white/60 tabular-nums">
-              {transitStopCount !== null ? transitStopCount.toLocaleString() : "—"}
-            </span>
-          </div>
+          <DataRow label="Transit Stops" value={transitStopCount !== null ? transitStopCount.toLocaleString() : "—"} />
         )}
-        <div className="flex justify-between">
-          <span className="text-xs text-white/40">Points of Interest</span>
-          <span className="text-xs text-white/60 tabular-nums">
-            {poiCount !== null ? poiCount.toLocaleString() : "—"}
-          </span>
-        </div>
+        <DataRow label="Points of Interest" value={poiCount !== null ? poiCount.toLocaleString() : "—"} />
       </div>
 
-      {/* Section 5 — Footer */}
+      {/* City Profile */}
+      <div className="px-5 py-4 border-b border-white/[0.06] space-y-1.5">
+        <p className="text-[10px] tracking-widest uppercase text-white/50 font-bold mb-2">
+          City Profile
+        </p>
+        <DataRow label="Population" value={city.population.toLocaleString()} />
+        <DataRow label="Area" value={`${city.areaSqMi.toLocaleString()} mi\u00B2`} />
+        <DataRow label="Density" value={`${density} / mi\u00B2`} />
+      </div>
+
+      {/* Mobility */}
+      <div className="px-5 py-4 border-b border-white/[0.06] space-y-1.5">
+        <p className="text-[10px] tracking-widest uppercase text-white/50 font-bold mb-2">
+          Mobility
+        </p>
+        <DataRow label="Walk Score" value={`${city.walkScore} / 100`} />
+        <DataRow label="Vehicles / 1,000" value={city.vehiclesPer1000.toLocaleString()} />
+        <DataRow label="Avg Commute" value={`${city.avgCommuteMin} min`} />
+      </div>
+
+      {/* Footer */}
       <div className="mt-auto px-5 py-4">
         <Link
           href="/"

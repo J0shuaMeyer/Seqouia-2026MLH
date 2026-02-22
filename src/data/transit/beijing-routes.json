@@ -1,0 +1,108 @@
+{
+  "bj-line-1": {
+    "name": "Line 1",
+    "color": "#C23A30",
+    "stopIds": [
+      "bj-L1-01", "bj-L1-02", "bj-L1-03", "bj-L1-04", "bj-L1-05",
+      "bj-L1-06", "bj-L1-07", "bj-L1-08", "bj-L1-09", "bj-L1-10",
+      "bj-L1-11", "bj-L1-12", "bj-L1-13", "bj-L1-14", "bj-L1-15",
+      "bj-L1-16", "bj-L1-17", "bj-L1-18", "bj-L1-19", "bj-L1-20",
+      "bj-L1-21", "bj-L1-22", "bj-L1-23"
+    ]
+  },
+  "bj-line-2": {
+    "name": "Line 2 (Circular)",
+    "color": "#006098",
+    "stopIds": [
+      "bj-L2-01", "bj-L2-02", "bj-L2-03", "bj-L2-04", "bj-L2-05",
+      "bj-L2-06", "bj-L2-07", "bj-L2-08", "bj-L2-09", "bj-L2-10",
+      "bj-L2-11", "bj-L2-12", "bj-L2-13", "bj-L2-14", "bj-L2-15",
+      "bj-L2-16", "bj-L2-17", "bj-L2-18"
+    ]
+  },
+  "bj-line-4": {
+    "name": "Line 4",
+    "color": "#008E9C",
+    "stopIds": [
+      "bj-L4-01", "bj-L4-02", "bj-L4-03", "bj-L4-04", "bj-L4-05",
+      "bj-L4-06", "bj-L4-07", "bj-L4-08", "bj-L4-09", "bj-L4-10",
+      "bj-L4-11", "bj-L4-12", "bj-L4-13", "bj-L4-14", "bj-L4-15",
+      "bj-L4-16", "bj-L4-17", "bj-L4-18", "bj-L4-19", "bj-L4-20",
+      "bj-L4-21", "bj-L4-22", "bj-L4-23", "bj-L4-24"
+    ]
+  },
+  "bj-line-5": {
+    "name": "Line 5",
+    "color": "#A6217E",
+    "stopIds": [
+      "bj-L5-01", "bj-L5-02", "bj-L5-03", "bj-L5-04", "bj-L5-05",
+      "bj-L5-06", "bj-L5-07", "bj-L5-08", "bj-L5-09", "bj-L5-10",
+      "bj-L5-11", "bj-L5-12", "bj-L5-13", "bj-L5-14", "bj-L5-15",
+      "bj-L5-16", "bj-L5-17", "bj-L5-18", "bj-L5-19", "bj-L5-20",
+      "bj-L5-21", "bj-L5-22", "bj-L5-23"
+    ]
+  },
+  "bj-line-6": {
+    "name": "Line 6",
+    "color": "#D29700",
+    "stopIds": [
+      "bj-L6-01", "bj-L6-02", "bj-L6-03", "bj-L6-04", "bj-L6-05",
+      "bj-L6-06", "bj-L6-07", "bj-L6-08", "bj-L6-09", "bj-L6-10",
+      "bj-L6-11", "bj-L6-12", "bj-L6-13", "bj-L6-14", "bj-L6-15",
+      "bj-L6-16", "bj-L6-17", "bj-L6-18", "bj-L6-19", "bj-L6-20",
+      "bj-L6-21", "bj-L6-22", "bj-L6-23", "bj-L6-24", "bj-L6-25",
+      "bj-L6-26"
+    ]
+  },
+  "bj-line-8": {
+    "name": "Line 8",
+    "color": "#009B6B",
+    "stopIds": [
+      "bj-L8-01", "bj-L8-02", "bj-L8-03", "bj-L8-04", "bj-L8-05",
+      "bj-L8-06", "bj-L8-07", "bj-L8-08", "bj-L8-09", "bj-L8-10",
+      "bj-L8-11", "bj-L8-12", "bj-L8-13", "bj-L8-14", "bj-L8-15",
+      "bj-L8-16", "bj-L8-17", "bj-L8-18", "bj-L8-19", "bj-L8-20",
+      "bj-L8-21", "bj-L8-22", "bj-L8-23", "bj-L8-24", "bj-L8-25"
+    ]
+  },
+  "bj-line-10": {
+    "name": "Line 10 (Circular)",
+    "color": "#009BC0",
+    "stopIds": [
+      "bj-L10-01", "bj-L10-02", "bj-L10-03", "bj-L10-04", "bj-L10-05",
+      "bj-L10-06", "bj-L10-07", "bj-L10-08", "bj-L10-09", "bj-L10-10",
+      "bj-L10-11", "bj-L10-12", "bj-L10-13", "bj-L10-14", "bj-L10-15",
+      "bj-L10-16", "bj-L10-17", "bj-L10-18", "bj-L10-19", "bj-L10-20",
+      "bj-L10-21", "bj-L10-22", "bj-L10-23", "bj-L10-24", "bj-L10-25"
+    ]
+  },
+  "bj-line-13": {
+    "name": "Line 13",
+    "color": "#F9E700",
+    "stopIds": [
+      "bj-L13-01", "bj-L13-02", "bj-L13-03", "bj-L13-04", "bj-L13-05",
+      "bj-L13-06", "bj-L13-07", "bj-L13-08", "bj-L13-09", "bj-L13-10",
+      "bj-L13-11", "bj-L13-12", "bj-L13-13", "bj-L13-14", "bj-L13-15",
+      "bj-L13-16"
+    ]
+  },
+  "bj-line-15": {
+    "name": "Line 15",
+    "color": "#6E2D8E",
+    "stopIds": [
+      "bj-L15-01", "bj-L15-02", "bj-L15-03", "bj-L15-04", "bj-L15-05",
+      "bj-L15-06", "bj-L15-07", "bj-L15-08", "bj-L15-09", "bj-L15-10",
+      "bj-L15-11", "bj-L15-12", "bj-L15-13", "bj-L15-14", "bj-L15-15",
+      "bj-L15-16", "bj-L15-17", "bj-L15-18"
+    ]
+  },
+  "bj-line-changping": {
+    "name": "Changping Line",
+    "color": "#D986BA",
+    "stopIds": [
+      "bj-CP-01", "bj-CP-02", "bj-CP-03", "bj-CP-04", "bj-CP-05",
+      "bj-CP-06", "bj-CP-07", "bj-CP-08", "bj-CP-09", "bj-CP-10",
+      "bj-CP-11", "bj-CP-12"
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "sp-line-1-blue": {
+    "name": "Line 1 Blue",
+    "color": "#0055A4",
+    "stopIds": [
+      "sp-L1-01", "sp-L1-02", "sp-L1-03", "sp-L1-04", "sp-L1-05",
+      "sp-L1-06", "sp-L1-07", "sp-L1-08", "sp-L1-09", "sp-L1-10",
+      "sp-L1-11", "sp-L1-12", "sp-L1-13", "sp-L1-14", "sp-L1-15",
+      "sp-L1-16", "sp-L1-17", "sp-L1-18", "sp-L1-19", "sp-L1-20",
+      "sp-L1-21", "sp-L1-22", "sp-L1-23"
+    ]
+  },
+  "sp-line-2-green": {
+    "name": "Line 2 Green",
+    "color": "#007E5E",
+    "stopIds": [
+      "sp-L2-01", "sp-L2-02", "sp-L2-03", "sp-L2-04", "sp-L2-05",
+      "sp-L2-06", "sp-L2-07", "sp-L2-08", "sp-L2-09", "sp-L2-10",
+      "sp-L2-11", "sp-L2-12", "sp-L2-13", "sp-L2-14"
+    ]
+  },
+  "sp-line-3-red": {
+    "name": "Line 3 Red",
+    "color": "#EE3124",
+    "stopIds": [
+      "sp-L3-01", "sp-L3-02", "sp-L3-03", "sp-L3-04", "sp-L3-05",
+      "sp-L3-06", "sp-L3-07", "sp-L3-08", "sp-L3-09", "sp-L3-10",
+      "sp-L3-11", "sp-L3-12", "sp-L3-13", "sp-L3-14", "sp-L3-15",
+      "sp-L3-16", "sp-L3-17", "sp-L3-18"
+    ]
+  },
+  "sp-line-4-yellow": {
+    "name": "Line 4 Yellow",
+    "color": "#FFD700",
+    "stopIds": [
+      "sp-L4-01", "sp-L4-02", "sp-L4-03", "sp-L4-04", "sp-L4-05",
+      "sp-L4-06", "sp-L4-07", "sp-L4-08", "sp-L4-09", "sp-L4-10",
+      "sp-L4-11"
+    ]
+  },
+  "sp-line-5-lilac": {
+    "name": "Line 5 Lilac",
+    "color": "#9B59B6",
+    "stopIds": [
+      "sp-L5-01", "sp-L5-02", "sp-L5-03", "sp-L5-04", "sp-L5-05",
+      "sp-L5-06", "sp-L5-07", "sp-L5-08", "sp-L5-09", "sp-L5-10",
+      "sp-L5-11", "sp-L5-12", "sp-L5-13", "sp-L5-14", "sp-L5-15",
+      "sp-L5-16", "sp-L5-17"
+    ]
+  },
+  "sp-line-15-silver": {
+    "name": "Line 15 Silver",
+    "color": "#9E9E9E",
+    "stopIds": [
+      "sp-L15-01", "sp-L15-02", "sp-L15-03", "sp-L15-04", "sp-L15-05",
+      "sp-L15-06", "sp-L15-07", "sp-L15-08", "sp-L15-09", "sp-L15-10",
+      "sp-L15-11"
+    ]
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "mc-line-1": {
+    "name": "Line 1 (Observatorio - Pantitlán)",
+    "color": "#F54D9E",
+    "stopIds": [
+      "mc-L1-01", "mc-L1-02", "mc-L1-03", "mc-L1-04", "mc-L1-05",
+      "mc-L1-06", "mc-L1-07", "mc-L1-08", "mc-L1-09", "mc-L1-10",
+      "mc-L1-11", "mc-L1-12", "mc-L1-13", "mc-L1-14", "mc-L1-15",
+      "mc-L1-16", "mc-L1-17", "mc-L1-18", "mc-L1-19", "mc-L1-20"
+    ]
+  },
+  "mc-line-2": {
+    "name": "Line 2 (Cuatro Caminos - Tasqueña)",
+    "color": "#0072BC",
+    "stopIds": [
+      "mc-L2-01", "mc-L2-02", "mc-L2-03", "mc-L2-04", "mc-L2-05",
+      "mc-L2-06", "mc-L2-07", "mc-L2-08", "mc-L2-09", "mc-L2-10",
+      "mc-L2-11", "mc-L2-12", "mc-L2-13", "mc-L2-14", "mc-L2-15",
+      "mc-L2-16", "mc-L2-17", "mc-L2-18", "mc-L2-19", "mc-L2-20",
+      "mc-L2-21", "mc-L2-22", "mc-L2-23", "mc-L2-24"
+    ]
+  },
+  "mc-line-3": {
+    "name": "Line 3 (Indios Verdes - Universidad)",
+    "color": "#AEC90B",
+    "stopIds": [
+      "mc-L3-01", "mc-L3-02", "mc-L3-03", "mc-L3-04", "mc-L3-05",
+      "mc-L3-06", "mc-L3-07", "mc-L3-08", "mc-L3-09", "mc-L3-10",
+      "mc-L3-11", "mc-L3-12", "mc-L3-13", "mc-L3-14", "mc-L3-15",
+      "mc-L3-16", "mc-L3-17", "mc-L3-18", "mc-L3-19", "mc-L3-20",
+      "mc-L3-21"
+    ]
+  },
+  "mc-line-4": {
+    "name": "Line 4 (Martín Carrera - Santa Anita)",
+    "color": "#6EC8BD",
+    "stopIds": [
+      "mc-L4-01", "mc-L4-02", "mc-L4-03", "mc-L4-04", "mc-L4-05",
+      "mc-L4-06", "mc-L4-07", "mc-L4-08", "mc-L4-09", "mc-L4-10"
+    ]
+  },
+  "mc-line-5": {
+    "name": "Line 5 (Politécnico - Pantitlán)",
+    "color": "#FFCF00",
+    "stopIds": [
+      "mc-L5-01", "mc-L5-02", "mc-L5-03", "mc-L5-04", "mc-L5-05",
+      "mc-L5-06", "mc-L5-07", "mc-L5-08", "mc-L5-09", "mc-L5-10",
+      "mc-L5-11", "mc-L5-12", "mc-L5-13"
+    ]
+  },
+  "mc-line-6": {
+    "name": "Line 6 (El Rosario - Martín Carrera)",
+    "color": "#D81E05",
+    "stopIds": [
+      "mc-L6-01", "mc-L6-02", "mc-L6-03", "mc-L6-04", "mc-L6-05",
+      "mc-L6-06", "mc-L6-07", "mc-L6-08", "mc-L6-09", "mc-L6-10",
+      "mc-L6-11"
+    ]
+  },
+  "mc-line-7": {
+    "name": "Line 7 (El Rosario - Barranca del Muerto)",
+    "color": "#F68E1F",
+    "stopIds": [
+      "mc-L7-01", "mc-L7-02", "mc-L7-03", "mc-L7-04", "mc-L7-05",
+      "mc-L7-06", "mc-L7-07", "mc-L7-08", "mc-L7-09", "mc-L7-10",
+      "mc-L7-11", "mc-L7-12", "mc-L7-13", "mc-L7-14"
+    ]
+  },
+  "mc-line-8": {
+    "name": "Line 8 (Garibaldi - Constitución de 1917)",
+    "color": "#009A44",
+    "stopIds": [
+      "mc-L8-01", "mc-L8-02", "mc-L8-03", "mc-L8-04", "mc-L8-05",
+      "mc-L8-06", "mc-L8-07", "mc-L8-08", "mc-L8-09", "mc-L8-10",
+      "mc-L8-11", "mc-L8-12", "mc-L8-13", "mc-L8-14", "mc-L8-15",
+      "mc-L8-16", "mc-L8-17", "mc-L8-18", "mc-L8-19"
+    ]
+  },
+  "mc-line-9": {
+    "name": "Line 9 (Tacubaya - Pantitlán)",
+    "color": "#532921",
+    "stopIds": [
+      "mc-L9-01", "mc-L9-02", "mc-L9-03", "mc-L9-04", "mc-L9-05",
+      "mc-L9-06", "mc-L9-07", "mc-L9-08", "mc-L9-09", "mc-L9-10",
+      "mc-L9-11", "mc-L9-12"
+    ]
+  },
+  "mc-line-a": {
+    "name": "Line A (Pantitlán - La Paz)",
+    "color": "#951B81",
+    "stopIds": [
+      "mc-LA-01", "mc-LA-02", "mc-LA-03", "mc-LA-04", "mc-LA-05",
+      "mc-LA-06", "mc-LA-07", "mc-LA-08", "mc-LA-09", "mc-LA-10"
+    ]
+  },
+  "mc-line-b": {
+    "name": "Line B (Buenavista - Ciudad Azteca)",
+    "color": "#BAC616",
+    "stopIds": [
+      "mc-LB-01", "mc-LB-02", "mc-LB-03", "mc-LB-04", "mc-LB-05",
+      "mc-LB-06", "mc-LB-07", "mc-LB-08", "mc-LB-09", "mc-LB-10",
+      "mc-LB-11", "mc-LB-12", "mc-LB-13", "mc-LB-14", "mc-LB-15",
+      "mc-LB-16", "mc-LB-17", "mc-LB-18", "mc-LB-19", "mc-LB-20",
+      "mc-LB-21"
+    ]
+  },
+  "mc-line-12": {
+    "name": "Line 12 (Mixcoac - Tláhuac)",
+    "color": "#B29164",
+    "stopIds": [
+      "mc-L12-01", "mc-L12-02", "mc-L12-03", "mc-L12-04", "mc-L12-05",
+      "mc-L12-06", "mc-L12-07", "mc-L12-08", "mc-L12-09", "mc-L12-10",
+      "mc-L12-11", "mc-L12-12", "mc-L12-13", "mc-L12-14", "mc-L12-15",
+      "mc-L12-16", "mc-L12-17", "mc-L12-18", "mc-L12-19", "mc-L12-20"
+    ]
+  }
+}

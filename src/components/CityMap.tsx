@@ -538,12 +538,7 @@ export default function CityMap({ city }: CityMapProps) {
       },
       paint: {
         "line-color": "#ef4444",
-        "line-width": [
-          "interpolate", ["linear"], ["zoom"],
-          8, 1.5,
-          12, 3,
-          16, 5,
-        ],
+        "line-width": 2.5,
         "line-opacity": 0.8,
       },
     });
@@ -576,12 +571,7 @@ export default function CityMap({ city }: CityMapProps) {
         "icon-rotation-alignment": "map",
         "icon-allow-overlap": true,
         "icon-ignore-placement": true,
-        "icon-size": [
-          "interpolate", ["linear"], ["zoom"],
-          8, 0.4,
-          12, 0.7,
-          16, 1.0,
-        ],
+        "icon-size": 0.55,
       },
       paint: {
         "icon-color": "#22d3ee",

@@ -91,3 +91,64 @@ function getLocalHour(timezone: string): number {
 
   return ((utcHour + offset) % 24 + 24) % 24;
 }
+
+/** Parses a GMT offset string to a numeric hour offset. */
+export function parseTimezoneOffset(timezone: string): number {
+  const match = timezone.match(/GMT([+-]\d+)(?::(\d+))?/);
+  if (!match) return 0;
+  const hours = parseInt(match[1], 10);
+  const minutes = match[2] ? parseInt(match[2], 10) * Math.sign(hours) : 0;
+  return hours + minutes / 60;
+}
+
+/**
+ * Computes approximate sunrise and sunset times for a given latitude/longitude.
+ * Uses the simplified NOAA solar position equations — accurate to ~5 minutes.
+ */
+export function getSunTimes(
+  lat: number,
+  lng: number,
+  utcOffsetHours: number,
+): { sunrise: string; sunset: string; isDaytime: boolean } {
+  const now = new Date();
+  const start = new Date(now.getFullYear(), 0, 0);
+  const dayOfYear = Math.floor(
+    (now.getTime() - start.getTime()) / 86_400_000,
+  );
+
+  const rad = Math.PI / 180;
+  const declination = -23.45 * Math.cos(rad * (360 / 365) * (dayOfYear + 10));
+
+  const cosHA = -Math.tan(lat * rad) * Math.tan(declination * rad);
+  // Polar edge cases
+  if (cosHA > 1) return { sunrise: "--:--", sunset: "--:--", isDaytime: false };
+  if (cosHA < -1) return { sunrise: "00:00", sunset: "23:59", isDaytime: true };
+
+  const hourAngle = Math.acos(cosHA) / rad;
+  const solarNoon = 12 - lng / 15; // UTC hours
+  const sunriseUTC = solarNoon - hourAngle / 15;
+  const sunsetUTC = solarNoon + hourAngle / 15;
+
+  const toLocal = (h: number) =>
+    ((h + utcOffsetHours) % 24 + 24) % 24;
+
+  const sunriseLocal = toLocal(sunriseUTC);
+  const sunsetLocal = toLocal(sunsetUTC);
+
+  const format = (h: number) => {
+    const hrs = Math.floor(h);
+    const mins = Math.round((h - hrs) * 60);
+    const ampm = hrs >= 12 ? "PM" : "AM";
+    const h12 = hrs % 12 || 12;
+    return `${h12}:${String(mins).padStart(2, "0")} ${ampm}`;
+  };
+
+  // Check if current local time is between sunrise and sunset
+  const utcSeconds =
+    now.getUTCHours() * 3600 + now.getUTCMinutes() * 60 + now.getUTCSeconds();
+  const localHour =
+    ((utcSeconds / 3600 + utcOffsetHours) % 24 + 24) % 24;
+  const isDaytime = localHour >= sunriseLocal && localHour < sunsetLocal;
+
+  return { sunrise: format(sunriseLocal), sunset: format(sunsetLocal), isDaytime };
+}

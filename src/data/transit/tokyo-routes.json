@@ -1,0 +1,95 @@
+{
+  "tk-ginza": {
+    "name": "Ginza Line",
+    "color": "#FF9500",
+    "stopIds": [
+      "tk-G-01", "tk-G-02", "tk-G-03", "tk-G-04", "tk-G-05",
+      "tk-G-06", "tk-G-07", "tk-G-08", "tk-G-09", "tk-G-10",
+      "tk-G-11", "tk-G-12", "tk-G-13", "tk-G-14", "tk-G-15",
+      "tk-G-16", "tk-G-17", "tk-G-18", "tk-G-19"
+    ]
+  },
+  "tk-marunouchi": {
+    "name": "Marunouchi Line",
+    "color": "#F62E36",
+    "stopIds": [
+      "tk-M-01", "tk-M-02", "tk-M-03", "tk-M-04", "tk-M-05",
+      "tk-M-06", "tk-M-07", "tk-M-08", "tk-M-09", "tk-M-10",
+      "tk-M-11", "tk-M-12", "tk-M-13", "tk-M-14", "tk-M-15",
+      "tk-M-16", "tk-M-17", "tk-M-18", "tk-M-19", "tk-M-20",
+      "tk-M-21", "tk-M-22", "tk-M-23", "tk-M-24", "tk-M-25"
+    ]
+  },
+  "tk-hibiya": {
+    "name": "Hibiya Line",
+    "color": "#B5B5AC",
+    "stopIds": [
+      "tk-H-01", "tk-H-02", "tk-H-03", "tk-H-04", "tk-H-05",
+      "tk-H-06", "tk-H-07", "tk-H-08", "tk-H-09", "tk-H-10",
+      "tk-H-11", "tk-H-12", "tk-H-13", "tk-H-14", "tk-H-15",
+      "tk-H-16", "tk-H-17", "tk-H-18", "tk-H-19", "tk-H-20",
+      "tk-H-21"
+    ]
+  },
+  "tk-tozai": {
+    "name": "Tozai Line",
+    "color": "#009BBF",
+    "stopIds": [
+      "tk-T-01", "tk-T-02", "tk-T-03", "tk-T-04", "tk-T-05",
+      "tk-T-06", "tk-T-07", "tk-T-08", "tk-T-09", "tk-T-10",
+      "tk-T-11", "tk-T-12", "tk-T-13", "tk-T-14", "tk-T-15",
+      "tk-T-16", "tk-T-17", "tk-T-18", "tk-T-19", "tk-T-20",
+      "tk-T-21", "tk-T-22", "tk-T-23"
+    ]
+  },
+  "tk-chiyoda": {
+    "name": "Chiyoda Line",
+    "color": "#00BB85",
+    "stopIds": [
+      "tk-C-01", "tk-C-02", "tk-C-03", "tk-C-04", "tk-C-05",
+      "tk-C-06", "tk-C-07", "tk-C-08", "tk-C-09", "tk-C-10",
+      "tk-C-11", "tk-C-12", "tk-C-13", "tk-C-14", "tk-C-15",
+      "tk-C-16", "tk-C-17", "tk-C-18", "tk-C-19", "tk-C-20"
+    ]
+  },
+  "tk-yurakucho": {
+    "name": "Yurakucho Line",
+    "color": "#C1A470",
+    "stopIds": [
+      "tk-Y-01", "tk-Y-02", "tk-Y-03", "tk-Y-04", "tk-Y-05",
+      "tk-Y-06", "tk-Y-07", "tk-Y-08", "tk-Y-09", "tk-Y-10",
+      "tk-Y-11", "tk-Y-12", "tk-Y-13", "tk-Y-14", "tk-Y-15",
+      "tk-Y-16", "tk-Y-17", "tk-Y-18", "tk-Y-19", "tk-Y-20",
+      "tk-Y-21", "tk-Y-22", "tk-Y-23", "tk-Y-24"
+    ]
+  },
+  "tk-hanzomon": {
+    "name": "Hanzomon Line",
+    "color": "#8F76D6",
+    "stopIds": [
+      "tk-Z-01", "tk-Z-02", "tk-Z-03", "tk-Z-04", "tk-Z-05",
+      "tk-Z-06", "tk-Z-07", "tk-Z-08", "tk-Z-09", "tk-Z-10",
+      "tk-Z-11", "tk-Z-12", "tk-Z-13", "tk-Z-14"
+    ]
+  },
+  "tk-namboku": {
+    "name": "Namboku Line",
+    "color": "#00AC9B",
+    "stopIds": [
+      "tk-N-01", "tk-N-02", "tk-N-03", "tk-N-04", "tk-N-05",
+      "tk-N-06", "tk-N-07", "tk-N-08", "tk-N-09", "tk-N-10",
+      "tk-N-11", "tk-N-12", "tk-N-13", "tk-N-14", "tk-N-15",
+      "tk-N-16", "tk-N-17", "tk-N-18", "tk-N-19"
+    ]
+  },
+  "tk-fukutoshin": {
+    "name": "Fukutoshin Line",
+    "color": "#9C5E31",
+    "stopIds": [
+      "tk-F-01", "tk-F-02", "tk-F-03", "tk-F-04", "tk-F-05",
+      "tk-F-06", "tk-F-07", "tk-F-08", "tk-F-09", "tk-F-10",
+      "tk-F-11", "tk-F-12", "tk-F-13", "tk-F-14", "tk-F-15",
+      "tk-F-16"
+    ]
+  }
+}

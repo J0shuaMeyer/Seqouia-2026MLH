@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { getCityBySlug } from "@/data/cities";
 import { fetchMTASubwayData } from "@/lib/mta";
 import { fetchLAMetroData } from "@/lib/lametro";
+import { fetchGTFSStaticData } from "@/lib/gtfs-static";
 
 export async function GET(
   _req: Request,
@@ -23,11 +24,19 @@ export async function GET(
     case "lametro":
       geojson = await fetchLAMetroData();
       break;
+    case "gtfs-static":
+      geojson = await fetchGTFSStaticData(slug);
+      break;
     default:
       return NextResponse.json({ error: "Unknown transit type" }, { status: 404 });
   }
 
+  const cacheHeader =
+    city.transitType === "gtfs-static"
+      ? "public, max-age=3600"
+      : "no-store";
+
   return NextResponse.json(geojson, {
-    headers: { "Cache-Control": "no-store" },
+    headers: { "Cache-Control": cacheHeader },
   });
 }
