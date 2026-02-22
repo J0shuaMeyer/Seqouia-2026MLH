@@ -18,3 +18,8 @@ body {
   font-family: var(--font-montserrat), "Montserrat", sans-serif;
   overflow: hidden;
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

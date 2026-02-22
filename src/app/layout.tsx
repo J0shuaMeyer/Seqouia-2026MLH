@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import TransitionOverlay from "@/components/TransitionOverlay";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -21,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${montserrat.variable} antialiased`}>
+        <TransitionOverlay />
         {children}
       </body>
     </html>

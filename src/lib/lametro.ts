@@ -1,70 +1,51 @@
-// ── Types ──────────────────────────────────────────────────────────
+import lametroStops from "@/data/lametro-stops.json";
+import lametroRoutes from "@/data/lametro-routes.json";
 
-interface LAMetroVehicle {
-  latitude: number;
-  longitude: number;
-  route_id?: string;
-  run_id?: string;
-  heading?: number;
-}
+// LA Metro Rail line colors
+const LINE_COLORS: Record<string, { name: string; color: string }> = {
+  "801": { name: "A Line", color: "#0072BC" },
+  "802": { name: "B Line", color: "#EB131B" },
+  "803": { name: "C Line", color: "#58A738" },
+  "804": { name: "E Line", color: "#FDB913" },
+  "805": { name: "D Line", color: "#A05DA5" },
+  "807": { name: "K Line", color: "#E56DB1" },
+};
+
+const stops = lametroStops as Record<string, { name: string; lat: number; lon: number }>;
+const routes = lametroRoutes as Record<string, string[]>;
 
 // ── Public API ──────────────────────────────────────────────────────
 
 export async function fetchLAMetroData(): Promise<GeoJSON.FeatureCollection> {
   const features: GeoJSON.Feature[] = [];
+  const seen = new Set<string>();
 
-  const [busRes, railRes] = await Promise.allSettled([
-    fetch("https://api.metro.net/LACMTA/vehicle_positions/bus", {
-      signal: AbortSignal.timeout(10_000),
-    }),
-    fetch("https://api.metro.net/LACMTA/vehicle_positions/rail", {
-      signal: AbortSignal.timeout(10_000),
-    }),
-  ]);
+  for (const [routeId, stopIds] of Object.entries(routes)) {
+    const lineInfo = LINE_COLORS[routeId];
+    if (!lineInfo) continue;
 
-  if (busRes.status === "fulfilled" && busRes.value.ok) {
-    try {
-      const data = await busRes.value.json();
-      const vehicles: LAMetroVehicle[] = Array.isArray(data) ? data : data.items ?? data.entity ?? [];
-      for (const v of vehicles) {
-        const lat = v.latitude;
-        const lng = v.longitude;
-        if (!lat || !lng) continue;
-        features.push({
-          type: "Feature",
-          geometry: { type: "Point", coordinates: [lng, lat] },
-          properties: {
-            route: v.route_id ?? v.run_id ?? "bus",
-            vehicleType: "bus",
-            heading: v.heading ?? 0,
-          },
-        });
-      }
-    } catch (err) {
-      console.error("[lametro] bus parse error:", err);
-    }
-  }
+    for (const stopId of stopIds) {
+      // Deduplicate stops shared between lines
+      const key = `${routeId}-${stopId}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
 
-  if (railRes.status === "fulfilled" && railRes.value.ok) {
-    try {
-      const data = await railRes.value.json();
-      const vehicles: LAMetroVehicle[] = Array.isArray(data) ? data : data.items ?? data.entity ?? [];
-      for (const v of vehicles) {
-        const lat = v.latitude;
-        const lng = v.longitude;
-        if (!lat || !lng) continue;
-        features.push({
-          type: "Feature",
-          geometry: { type: "Point", coordinates: [lng, lat] },
-          properties: {
-            route: v.route_id ?? v.run_id ?? "rail",
-            vehicleType: "rail",
-            heading: v.heading ?? 0,
-          },
-        });
-      }
-    } catch (err) {
-      console.error("[lametro] rail parse error:", err);
+      const stop = stops[stopId];
+      if (!stop) continue;
+
+      features.push({
+        type: "Feature",
+        geometry: {
+          type: "Point",
+          coordinates: [stop.lon, stop.lat],
+        },
+        properties: {
+          route: lineInfo.name,
+          vehicleType: "rail",
+          color: lineInfo.color,
+          stopName: stop.name,
+        },
+      });
     }
   }
 

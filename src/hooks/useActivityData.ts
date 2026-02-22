@@ -4,9 +4,10 @@ import { useState, useEffect, useCallback } from "react";
 import { cities } from "@/data/cities";
 import { computeActivityLevel } from "@/lib/activity";
 
-/** Returns a Record<slug, activity (0-1)> for all cities, refreshed every 2 min. */
+/** Returns activity data and a loaded flag indicating first fetch completed. */
 export function useActivityData() {
   const [activityMap, setActivityMap] = useState<Record<string, number>>({});
+  const [loaded, setLoaded] = useState(false);
 
   const refresh = useCallback(async () => {
     // Fetch real data for Tier 1 cities
@@ -25,6 +26,7 @@ export function useActivityData() {
       map[city.slug] = computeActivityLevel(city, real?.alertCount);
     }
     setActivityMap(map);
+    setLoaded(true);
   }, []);
 
   useEffect(() => {
@@ -33,5 +35,5 @@ export function useActivityData() {
     return () => clearInterval(id);
   }, [refresh]);
 
-  return activityMap;
+  return { activityMap, loaded };
 }

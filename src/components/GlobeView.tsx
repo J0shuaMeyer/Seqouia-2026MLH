@@ -57,7 +57,7 @@ export default function GlobeView() {
   const dirLightRef = useRef<THREE.DirectionalLight | null>(null);
   const glowSunRef = useRef<THREE.Vector3 | null>(null);
   const router = useRouter();
-  const { activityMap } = useGlobeData();
+  const { activityMap, setGlobeReady: signalGlobeReady } = useGlobeData();
   const { material, uniforms } = useGlobeShader();
 
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
@@ -165,6 +165,7 @@ export default function GlobeView() {
 
   const handleGlobeReady = useCallback(() => {
     setGlobeReady(true);
+    signalGlobeReady();
     const globe = globeRef.current;
     if (!globe) return;
     const scene = globe.scene();
@@ -209,7 +210,7 @@ export default function GlobeView() {
       };
       animate();
     });
-  }, []);
+  }, [signalGlobeReady]);
 
   // ── Render ──────────────────────────────────────────────────────
 

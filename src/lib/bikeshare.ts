@@ -25,6 +25,55 @@ interface CityBikesStation {
   empty_slots: number;
 }
 
+// ── Flow analysis state ────────────────────────────────────────────
+// Stores previous bike counts per station, keyed by citySlug
+
+const FLOW_THRESHOLD = 3; // ignore changes smaller than ±3 bikes
+
+const prevSnapshots = new Map<string, Map<string, number>>();
+
+function applyFlowAnalysis(
+  features: GeoJSON.Feature[],
+  citySlug: string,
+): GeoJSON.Feature[] {
+  const prev = prevSnapshots.get(citySlug);
+
+  // Build current snapshot: stationName → availableBikes
+  const current = new Map<string, number>();
+  for (const f of features) {
+    const name = f.properties?.name as string;
+    const bikes = f.properties?.availableBikes as number;
+    if (name != null && bikes != null) {
+      current.set(name, bikes);
+    }
+  }
+
+  // If we have a previous snapshot, compute deltas
+  if (prev) {
+    for (const f of features) {
+      const name = f.properties?.name as string;
+      const bikesNow = f.properties?.availableBikes as number;
+      const bikesPrev = prev.get(name);
+
+      if (bikesPrev != null && bikesNow != null) {
+        const delta = bikesNow - bikesPrev;
+        // Only show flow if change exceeds threshold
+        if (Math.abs(delta) >= FLOW_THRESHOLD) {
+          f.properties!.netFlow = delta;
+        } else {
+          f.properties!.netFlow = 0;
+        }
+      }
+      // If station is new (not in prev), no flow data — property stays absent
+    }
+  }
+
+  // Store current as next previous
+  prevSnapshots.set(citySlug, current);
+
+  return features;
+}
+
 // ── GBFS fetch (Citi Bike, Ecobici, etc.) ──────────────────────────
 
 async function fetchGBFS(
@@ -118,15 +167,25 @@ async function fetchCityBikes(
 
 export async function fetchBikeShareData(
   config: BikeNetworkConfig,
+  citySlug?: string,
 ): Promise<GeoJSON.FeatureCollection> {
   try {
+    let fc: GeoJSON.FeatureCollection;
+
     if (config.type === "gbfs" && config.infoUrl && config.statusUrl) {
-      return await fetchGBFS(config.infoUrl, config.statusUrl);
+      fc = await fetchGBFS(config.infoUrl, config.statusUrl);
+    } else if (config.type === "citybikes" && config.networkId) {
+      fc = await fetchCityBikes(config.networkId);
+    } else {
+      return { type: "FeatureCollection", features: [] };
     }
-    if (config.type === "citybikes" && config.networkId) {
-      return await fetchCityBikes(config.networkId);
+
+    // Apply flow analysis if citySlug provided
+    if (citySlug) {
+      fc.features = applyFlowAnalysis(fc.features, citySlug);
     }
-    return { type: "FeatureCollection", features: [] };
+
+    return fc;
   } catch (err) {
     console.error("[bikeshare] fetch failed:", err);
     return { type: "FeatureCollection", features: [] };
