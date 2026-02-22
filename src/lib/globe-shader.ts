@@ -64,16 +64,21 @@ const fragmentShader = /* glsl */ `
     vec3 dayColor = texture2D(dayTexture, vUv).rgb;
     vec3 nightColor = texture2D(nightTexture, vUv).rgb;
 
-    // Boost city lights slightly so they pop on the dark side
-    nightColor *= ambientNight;
+    // Crush dark pixels to near-black, keep city lights as bright pinpricks
+    // luminance isolates actual city lights from dim ocean/land noise
+    float lum = dot(nightColor, vec3(0.299, 0.587, 0.114));
+    float cityMask = smoothstep(0.003, 0.025, lum);
+    nightColor = nightColor * cityMask * ambientNight;
 
     vec3 color = mix(nightColor, dayColor, blend);
 
-    // ── Subtle Fresnel rim glow (atmospheric edge) ──────────────
+    // ── Subtle Fresnel rim glow (atmospheric edge, day-side only) ──
     vec3 viewDir = normalize(cameraPosition - vWorldPosition);
     float fresnel = 1.0 - dot(viewDir, bumpedNormal);
     fresnel = pow(fresnel, 3.0);
-    color += vec3(0.25, 0.5, 0.9) * fresnel * 0.08;
+    // Only glow on the sunlit limb; fade through twilight to zero on night side
+    float sunFresnel = smoothstep(-0.05, 0.15, cosAngle);
+    color += vec3(0.25, 0.5, 0.9) * fresnel * 0.08 * sunFresnel;
 
     gl_FragColor = vec4(color, 1.0);
 
@@ -105,7 +110,7 @@ export function createDayNightMaterial(): {
     bumpTexture: { value: null },
     sunDirection: { value: new THREE.Vector3(1, 0, 0) },
     bumpScale: { value: 3.0 },
-    ambientNight: { value: 1.5 },
+    ambientNight: { value: 2.0 },
   };
 
   const material = new THREE.ShaderMaterial({
@@ -162,6 +167,7 @@ const glowFragmentShader = /* glsl */ `
   uniform vec3 glowColor;
   uniform float coefficient;
   uniform float power;
+  uniform vec3 sunDirection;
 
   varying vec3 vWorldNormal;
   varying vec3 vWorldPosition;
@@ -169,25 +175,36 @@ const glowFragmentShader = /* glsl */ `
   void main() {
     vec3 viewDir = normalize(cameraPosition - vWorldPosition);
     float intensity = pow(coefficient - dot(viewDir, vWorldNormal), power);
-    gl_FragColor = vec4(glowColor, intensity * 0.35);
+
+    // Fade glow on the night side: full glow on sunlit limb, zero on dark side
+    // Use the inward-facing normal (BackSide mesh has flipped normals)
+    float sunFacing = dot(-vWorldNormal, sunDirection);
+    float sunMask = smoothstep(-0.2, 0.3, sunFacing);
+
+    gl_FragColor = vec4(glowColor, intensity * 0.35 * sunMask);
   }
 `;
 
-export function createOuterGlow(globeRadius: number): THREE.Mesh {
+export function createOuterGlow(
+  globeRadius: number,
+  sunDirection: THREE.Vector3
+): { mesh: THREE.Mesh; uniforms: { sunDirection: THREE.IUniform<THREE.Vector3> } } {
   const geometry = new THREE.SphereGeometry(globeRadius * 1.15, 64, 64);
+  const glowUniforms = {
+    glowColor: { value: new THREE.Color("#4a90d9") },
+    coefficient: { value: 0.6 },
+    power: { value: 4.0 },
+    sunDirection: { value: sunDirection },
+  };
   const material = new THREE.ShaderMaterial({
     vertexShader: glowVertexShader,
     fragmentShader: glowFragmentShader,
-    uniforms: {
-      glowColor: { value: new THREE.Color("#4a90d9") },
-      coefficient: { value: 0.6 },
-      power: { value: 4.0 },
-    },
+    uniforms: glowUniforms,
     side: THREE.BackSide,
     blending: THREE.AdditiveBlending,
     transparent: true,
     depthWrite: false,
   });
 
-  return new THREE.Mesh(geometry, material);
+  return { mesh: new THREE.Mesh(geometry, material), uniforms: { sunDirection: glowUniforms.sunDirection } };
 }

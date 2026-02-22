@@ -55,6 +55,7 @@ const pointsData: CityPoint[] = cities.map((c) => ({
 export default function GlobeView() {
   const globeRef = useRef<GlobeMethods | undefined>(undefined);
   const dirLightRef = useRef<THREE.DirectionalLight | null>(null);
+  const glowSunRef = useRef<THREE.Vector3 | null>(null);
   const router = useRouter();
   const { activityMap } = useGlobeData();
   const { material, uniforms } = useGlobeShader();
@@ -139,6 +140,9 @@ export default function GlobeView() {
         // Update shader sun direction uniform (normalized world-space vector)
         const dir = new THREE.Vector3(pos.x, pos.y, pos.z).normalize();
         uniforms.current.sunDirection.value.copy(dir);
+
+        // Sync outer glow sun direction
+        if (glowSunRef.current) glowSunRef.current.copy(dir);
       }
     };
 
@@ -182,8 +186,10 @@ export default function GlobeView() {
       dirLightRef.current = dirLight;
     }
 
-    // Outer atmospheric glow
-    scene.add(createOuterGlow(radius));
+    // Outer atmospheric glow (sun-aware: fades on night side)
+    const glow = createOuterGlow(radius, uniforms.current.sunDirection.value.clone());
+    scene.add(glow.mesh);
+    glowSunRef.current = glow.uniforms.sunDirection.value;
 
     // Cloud layer
     new THREE.TextureLoader().load(CLOUDS_IMG, (cloudsTexture) => {
@@ -230,12 +236,10 @@ export default function GlobeView() {
       polygonGeoJsonGeometry="geometry"
       polygonCapColor="rgba(0,0,0,0)"
       polygonSideColor="rgba(0,0,0,0)"
-      polygonStrokeColor="rgba(255,255,255,0.25)"
+      polygonStrokeColor="rgba(255,255,255,0.08)"
       polygonAltitude={0.001}
-      // Atmosphere
-      showAtmosphere={true}
-      atmosphereColor="#5a9fd4"
-      atmosphereAltitude={0.18}
+      // Atmosphere (disabled — custom outer glow handles this with sun awareness)
+      showAtmosphere={false}
       // Pulsing activity rings
       ringsData={ringsData}
       ringLat="lat"

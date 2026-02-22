@@ -131,13 +131,7 @@ function addJamLayer(m: maplibregl.Map) {
       "line-join": "round",
     },
     paint: {
-      "line-color": [
-        "interpolate", ["linear"], ["get", "level"],
-        2, "#d4a017",   // amber — light congestion
-        3, "#e07020",   // orange — moderate
-        4, "#d03030",   // red — heavy
-        5, "#8b1a1a",   // dark red — standstill
-      ],
+      "line-color": "#c23030",
       "line-width": [
         "interpolate", ["linear"], ["zoom"],
         8, 1.5,
