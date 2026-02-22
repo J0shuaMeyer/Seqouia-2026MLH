@@ -9,6 +9,7 @@ import { useGlobeData } from "@/context/GlobeDataContext";
 import { getSunPosition } from "@/lib/sun";
 import { activityToRingParams } from "@/lib/activity";
 import { useGlobeShader } from "@/hooks/useGlobeShader";
+import { useSatellites } from "@/hooks/useSatellites";
 import { createOuterGlow } from "@/lib/globe-shader";
 
 // ── Types ──────────────────────────────────────────────────────────
@@ -56,9 +57,13 @@ export default function GlobeView() {
   const globeRef = useRef<GlobeMethods | undefined>(undefined);
   const dirLightRef = useRef<THREE.DirectionalLight | null>(null);
   const glowSunRef = useRef<THREE.Vector3 | null>(null);
+  const satPointsRef = useRef<THREE.Points | null>(null);
+  const satCurrentRef = useRef<Float32Array | null>(null);
+  const satTargetRef = useRef<Float32Array | null>(null);
   const router = useRouter();
   const { activityMap, setGlobeReady: signalGlobeReady } = useGlobeData();
   const { material, uniforms } = useGlobeShader();
+  const { targetPositions: satTargets, loaded: satLoaded } = useSatellites();
 
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [globeReady, setGlobeReady] = useState(false);
@@ -204,13 +209,80 @@ export default function GlobeView() {
         })
       );
       scene.add(clouds);
+
       const animate = () => {
         clouds.rotation.y += (CLOUDS_ROTATION_SPEED * Math.PI) / 180;
+
+        // Satellite lerp animation (pure buffer math, zero React re-renders)
+        if (satPointsRef.current && satCurrentRef.current && satTargetRef.current) {
+          const cur = satCurrentRef.current;
+          const tgt = satTargetRef.current;
+          for (let i = 0; i < cur.length; i++) {
+            cur[i] += (tgt[i] - cur[i]) * 0.03;
+          }
+          const posAttr = satPointsRef.current.geometry.getAttribute("position") as THREE.BufferAttribute;
+          posAttr.needsUpdate = true;
+        }
+
         requestAnimationFrame(animate);
       };
       animate();
     });
+
+    // Satellite points mesh (single draw call for all ~800 satellites)
+    const SAT_COUNT = 800;
+    const satGeo = new THREE.BufferGeometry();
+    const satPositions = new Float32Array(SAT_COUNT * 3);
+    satGeo.setAttribute("position", new THREE.BufferAttribute(satPositions, 3));
+    satGeo.setDrawRange(0, 0); // invisible until data loads
+
+    const satMat = new THREE.PointsMaterial({
+      color: 0x66ddff,
+      size: 1.5,
+      sizeAttenuation: false,
+      transparent: true,
+      opacity: 0.7,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+    });
+
+    const satPoints = new THREE.Points(satGeo, satMat);
+    scene.add(satPoints);
+    satPointsRef.current = satPoints;
+    satCurrentRef.current = satPositions;
+    satTargetRef.current = new Float32Array(SAT_COUNT * 3);
   }, [signalGlobeReady]);
+
+  // ── Sync satellite target positions ────────────────────────────
+
+  useEffect(() => {
+    const globe = globeRef.current;
+    if (!satLoaded || !globe || !satPointsRef.current || !satTargetRef.current) return;
+
+    const tgt = satTargetRef.current;
+    const count = satTargets.length;
+
+    for (let i = 0; i < count; i++) {
+      const { lat, lng, alt } = satTargets[i];
+      const coords = globe.getCoords(lat, lng, alt);
+      if (coords) {
+        tgt[i * 3] = coords.x;
+        tgt[i * 3 + 1] = coords.y;
+        tgt[i * 3 + 2] = coords.z;
+      }
+    }
+
+    // On first load, snap current positions to targets (no lerp delay)
+    if (satCurrentRef.current) {
+      const cur = satCurrentRef.current;
+      const posAttr = satPointsRef.current.geometry.getAttribute("position") as THREE.BufferAttribute;
+      if (posAttr.array === cur && satPointsRef.current.geometry.drawRange.count === 0) {
+        cur.set(tgt.subarray(0, count * 3));
+        posAttr.needsUpdate = true;
+      }
+      satPointsRef.current.geometry.setDrawRange(0, count);
+    }
+  }, [satTargets, satLoaded]);
 
   // ── Render ──────────────────────────────────────────────────────
 

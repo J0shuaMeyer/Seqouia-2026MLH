@@ -1,0 +1,370 @@
+[
+  {
+    "name": "SoFi Stadium",
+    "lat": 33.9535,
+    "lon": -118.3390,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": ""
+  },
+  {
+    "name": "Dodger Stadium",
+    "lat": 34.0739,
+    "lon": -118.2400,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": ""
+  },
+  {
+    "name": "Crypto.com Arena",
+    "lat": 34.0430,
+    "lon": -118.2673,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": ""
+  },
+  {
+    "name": "Rose Bowl Stadium",
+    "lat": 34.1613,
+    "lon": -118.1676,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": ""
+  },
+  {
+    "name": "BMO Stadium",
+    "lat": 34.0126,
+    "lon": -118.2841,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": ""
+  },
+  {
+    "name": "Los Angeles International Airport",
+    "lat": 33.9416,
+    "lon": -118.4085,
+    "category": "airport",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "Hollywood Burbank Airport",
+    "lat": 34.1975,
+    "lon": -118.3585,
+    "category": "airport",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "The Grove",
+    "lat": 34.0722,
+    "lon": -118.3578,
+    "category": "mall",
+    "hours": "10:00-21:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Westfield Century City",
+    "lat": 34.0581,
+    "lon": -118.4178,
+    "category": "mall",
+    "hours": "10:00-21:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Beverly Center",
+    "lat": 34.0759,
+    "lon": -118.3618,
+    "category": "mall",
+    "hours": "10:00-21:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Santa Monica Place",
+    "lat": 34.0147,
+    "lon": -118.4956,
+    "category": "mall",
+    "hours": "10:00-21:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Del Amo Fashion Center",
+    "lat": 33.8318,
+    "lon": -118.3477,
+    "category": "mall",
+    "hours": "10:00-21:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Universal Studios Hollywood",
+    "lat": 34.1381,
+    "lon": -118.3534,
+    "category": "theme_park",
+    "hours": "09:00-19:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Knott's Berry Farm",
+    "lat": 33.8442,
+    "lon": -118.0004,
+    "category": "theme_park",
+    "hours": "10:00-18:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Bestia",
+    "lat": 34.0367,
+    "lon": -118.2317,
+    "category": "restaurant",
+    "hours": "17:00-23:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Musso & Frank Grill",
+    "lat": 34.1017,
+    "lon": -118.3352,
+    "category": "restaurant",
+    "hours": "11:00-23:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Nobu Malibu",
+    "lat": 34.0369,
+    "lon": -118.6726,
+    "category": "restaurant",
+    "hours": "12:00-22:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "In-N-Out Burger (Westwood)",
+    "lat": 34.0587,
+    "lon": -118.4478,
+    "category": "restaurant",
+    "hours": "10:30-01:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Republique",
+    "lat": 34.0684,
+    "lon": -118.3441,
+    "category": "restaurant",
+    "hours": "08:00-22:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Providence",
+    "lat": 34.0838,
+    "lon": -118.3266,
+    "category": "restaurant",
+    "hours": "17:00-22:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Guelaguetza",
+    "lat": 34.0655,
+    "lon": -118.3098,
+    "category": "restaurant",
+    "hours": "09:00-22:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Langer's Delicatessen",
+    "lat": 34.0569,
+    "lon": -118.2709,
+    "category": "restaurant",
+    "hours": "08:00-16:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Skybar at Mondrian",
+    "lat": 34.0917,
+    "lon": -118.3826,
+    "category": "bar",
+    "hours": "18:00-02:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Clifton's Republic",
+    "lat": 34.0466,
+    "lon": -118.2534,
+    "category": "bar",
+    "hours": "17:00-02:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "No Vacancy",
+    "lat": 34.1022,
+    "lon": -118.3274,
+    "category": "bar",
+    "hours": "20:00-02:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Sound Nightclub",
+    "lat": 34.0943,
+    "lon": -118.3260,
+    "category": "bar",
+    "hours": "22:00-04:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "The Getty Center",
+    "lat": 34.0780,
+    "lon": -118.4741,
+    "category": "museum",
+    "hours": "10:00-17:30",
+    "google_place_id": ""
+  },
+  {
+    "name": "Los Angeles County Museum of Art",
+    "lat": 34.0639,
+    "lon": -118.3592,
+    "category": "museum",
+    "hours": "10:00-17:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "The Broad",
+    "lat": 34.0544,
+    "lon": -118.2505,
+    "category": "museum",
+    "hours": "10:00-17:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Natural History Museum of Los Angeles",
+    "lat": 34.0171,
+    "lon": -118.2886,
+    "category": "museum",
+    "hours": "09:30-17:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Griffith Observatory",
+    "lat": 34.1184,
+    "lon": -118.3004,
+    "category": "museum",
+    "hours": "12:00-22:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Hollywood Walk of Fame",
+    "lat": 34.1017,
+    "lon": -118.3406,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "Grand Park",
+    "lat": 34.0570,
+    "lon": -118.2468,
+    "category": "plaza",
+    "hours": "05:30-22:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Santa Monica Pier",
+    "lat": 34.0094,
+    "lon": -118.4973,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "Venice Beach Boardwalk",
+    "lat": 33.9850,
+    "lon": -118.4695,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "University of California, Los Angeles",
+    "lat": 34.0689,
+    "lon": -118.4452,
+    "category": "university",
+    "hours": "07:00-22:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "University of Southern California",
+    "lat": 34.0224,
+    "lon": -118.2851,
+    "category": "university",
+    "hours": "07:00-22:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "California Institute of Technology",
+    "lat": 34.1377,
+    "lon": -118.1253,
+    "category": "university",
+    "hours": "07:00-22:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Union Station",
+    "lat": 34.0561,
+    "lon": -118.2365,
+    "category": "transit_hub",
+    "hours": "04:00-01:30",
+    "google_place_id": ""
+  },
+  {
+    "name": "7th Street / Metro Center",
+    "lat": 34.0487,
+    "lon": -118.2589,
+    "category": "transit_hub",
+    "hours": "05:00-01:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Hollywood/Highland Station",
+    "lat": 34.1016,
+    "lon": -118.3385,
+    "category": "transit_hub",
+    "hours": "05:00-01:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Los Angeles Convention Center",
+    "lat": 34.0404,
+    "lon": -118.2698,
+    "category": "convention_center",
+    "hours": "08:00-20:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Anaheim Convention Center",
+    "lat": 33.8003,
+    "lon": -117.9190,
+    "category": "convention_center",
+    "hours": "08:00-20:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Cedars-Sinai Medical Center",
+    "lat": 34.0752,
+    "lon": -118.3802,
+    "category": "hospital",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "UCLA Medical Center",
+    "lat": 34.0665,
+    "lon": -118.4462,
+    "category": "hospital",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "Keck Hospital of USC",
+    "lat": 34.0611,
+    "lon": -118.2035,
+    "category": "hospital",
+    "hours": "24h",
+    "google_place_id": ""
+  }
+]

@@ -1,0 +1,378 @@
+[
+  {
+    "name": "Barclays Center",
+    "lat": 40.6826,
+    "lon": -73.9753,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": ""
+  },
+  {
+    "name": "Madison Square Garden",
+    "lat": 40.7505,
+    "lon": -73.9935,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": ""
+  },
+  {
+    "name": "Yankee Stadium",
+    "lat": 40.8296,
+    "lon": -73.9262,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": ""
+  },
+  {
+    "name": "Citi Field",
+    "lat": 40.7571,
+    "lon": -73.8458,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": ""
+  },
+  {
+    "name": "MetLife Stadium",
+    "lat": 40.8128,
+    "lon": -74.0742,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": ""
+  },
+  {
+    "name": "John F. Kennedy International Airport",
+    "lat": 40.6413,
+    "lon": -73.7781,
+    "category": "airport",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "LaGuardia Airport",
+    "lat": 40.7769,
+    "lon": -73.8740,
+    "category": "airport",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "Westfield World Trade Center",
+    "lat": 40.7113,
+    "lon": -74.0112,
+    "category": "mall",
+    "hours": "10:00-21:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Manhattan Mall",
+    "lat": 40.7484,
+    "lon": -73.9891,
+    "category": "mall",
+    "hours": "10:00-21:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "The Shops at Columbus Circle",
+    "lat": 40.7686,
+    "lon": -73.9832,
+    "category": "mall",
+    "hours": "10:00-21:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Brookfield Place",
+    "lat": 40.7135,
+    "lon": -74.0154,
+    "category": "mall",
+    "hours": "10:00-21:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Kings Plaza",
+    "lat": 40.6106,
+    "lon": -73.9224,
+    "category": "mall",
+    "hours": "10:00-21:30",
+    "google_place_id": ""
+  },
+  {
+    "name": "Coney Island Luna Park",
+    "lat": 40.5749,
+    "lon": -73.9859,
+    "category": "theme_park",
+    "hours": "10:00-18:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Central Park Zoo",
+    "lat": 40.7678,
+    "lon": -73.9718,
+    "category": "theme_park",
+    "hours": "10:00-17:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Peter Luger Steak House",
+    "lat": 40.7099,
+    "lon": -73.9625,
+    "category": "restaurant",
+    "hours": "11:45-21:45",
+    "google_place_id": ""
+  },
+  {
+    "name": "Katz's Delicatessen",
+    "lat": 40.7223,
+    "lon": -73.9874,
+    "category": "restaurant",
+    "hours": "08:00-22:45",
+    "google_place_id": ""
+  },
+  {
+    "name": "Le Bernardin",
+    "lat": 40.7616,
+    "lon": -73.9818,
+    "category": "restaurant",
+    "hours": "12:00-22:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Joe's Pizza",
+    "lat": 40.7306,
+    "lon": -74.0021,
+    "category": "restaurant",
+    "hours": "10:00-05:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Di Fara Pizza",
+    "lat": 40.6250,
+    "lon": -73.9613,
+    "category": "restaurant",
+    "hours": "12:00-20:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Eleven Madison Park",
+    "lat": 40.7416,
+    "lon": -73.9872,
+    "category": "restaurant",
+    "hours": "17:00-22:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Carbone",
+    "lat": 40.7262,
+    "lon": -74.0005,
+    "category": "restaurant",
+    "hours": "17:00-23:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Balthazar",
+    "lat": 40.7229,
+    "lon": -73.9985,
+    "category": "restaurant",
+    "hours": "07:30-00:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "230 Fifth Rooftop Bar",
+    "lat": 40.7441,
+    "lon": -73.9882,
+    "category": "bar",
+    "hours": "16:00-04:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "McSorley's Old Ale House",
+    "lat": 40.7284,
+    "lon": -73.9899,
+    "category": "bar",
+    "hours": "11:00-01:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Marquee New York",
+    "lat": 40.7476,
+    "lon": -74.0012,
+    "category": "bar",
+    "hours": "22:00-04:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Brooklyn Mirage",
+    "lat": 40.7094,
+    "lon": -73.9237,
+    "category": "bar",
+    "hours": "22:00-06:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "The Metropolitan Museum of Art",
+    "lat": 40.7794,
+    "lon": -73.9632,
+    "category": "museum",
+    "hours": "10:00-17:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "American Museum of Natural History",
+    "lat": 40.7813,
+    "lon": -73.9740,
+    "category": "museum",
+    "hours": "10:00-17:30",
+    "google_place_id": ""
+  },
+  {
+    "name": "Museum of Modern Art",
+    "lat": 40.7614,
+    "lon": -73.9776,
+    "category": "museum",
+    "hours": "10:30-17:30",
+    "google_place_id": ""
+  },
+  {
+    "name": "Solomon R. Guggenheim Museum",
+    "lat": 40.7830,
+    "lon": -73.9590,
+    "category": "museum",
+    "hours": "10:00-17:30",
+    "google_place_id": ""
+  },
+  {
+    "name": "Whitney Museum of American Art",
+    "lat": 40.7396,
+    "lon": -74.0089,
+    "category": "museum",
+    "hours": "10:30-18:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Times Square",
+    "lat": 40.7580,
+    "lon": -73.9855,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "Union Square",
+    "lat": 40.7359,
+    "lon": -73.9911,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "Washington Square Park",
+    "lat": 40.7308,
+    "lon": -73.9973,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "Central Park",
+    "lat": 40.7829,
+    "lon": -73.9654,
+    "category": "plaza",
+    "hours": "06:00-01:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Columbia University",
+    "lat": 40.8075,
+    "lon": -73.9626,
+    "category": "university",
+    "hours": "07:00-22:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "New York University",
+    "lat": 40.7295,
+    "lon": -73.9965,
+    "category": "university",
+    "hours": "07:00-22:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "The City College of New York",
+    "lat": 40.8200,
+    "lon": -73.9493,
+    "category": "university",
+    "hours": "07:00-22:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Grand Central Terminal",
+    "lat": 40.7527,
+    "lon": -73.9772,
+    "category": "transit_hub",
+    "hours": "05:15-02:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Penn Station",
+    "lat": 40.7506,
+    "lon": -73.9935,
+    "category": "transit_hub",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "Fulton Center",
+    "lat": 40.7092,
+    "lon": -74.0065,
+    "category": "transit_hub",
+    "hours": "05:00-01:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Atlantic Terminal",
+    "lat": 40.6843,
+    "lon": -73.9773,
+    "category": "transit_hub",
+    "hours": "05:00-01:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Port Authority Bus Terminal",
+    "lat": 40.7569,
+    "lon": -73.9903,
+    "category": "transit_hub",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "Javits Center",
+    "lat": 40.7576,
+    "lon": -74.0024,
+    "category": "convention_center",
+    "hours": "08:00-20:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "NewYork-Presbyterian Hospital",
+    "lat": 40.8404,
+    "lon": -73.9418,
+    "category": "hospital",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "Mount Sinai Hospital",
+    "lat": 40.7900,
+    "lon": -73.9526,
+    "category": "hospital",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "Bellevue Hospital",
+    "lat": 40.7392,
+    "lon": -73.9750,
+    "category": "hospital",
+    "hours": "24h",
+    "google_place_id": ""
+  }
+]

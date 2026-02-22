@@ -1,0 +1,378 @@
+[
+  {
+    "name": "Estadio Azteca",
+    "lat": 19.3029,
+    "lon": -99.1505,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": ""
+  },
+  {
+    "name": "Estadio Olímpico Universitario",
+    "lat": 19.3117,
+    "lon": -99.1896,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": ""
+  },
+  {
+    "name": "Estadio Ciudad de los Deportes",
+    "lat": 19.3681,
+    "lon": -99.1720,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": ""
+  },
+  {
+    "name": "Foro Sol",
+    "lat": 19.3906,
+    "lon": -99.0930,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": ""
+  },
+  {
+    "name": "Arena Ciudad de México",
+    "lat": 19.4063,
+    "lon": -99.0903,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": ""
+  },
+  {
+    "name": "Aeropuerto Internacional Benito Juárez",
+    "lat": 19.4363,
+    "lon": -99.0721,
+    "category": "airport",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "Aeropuerto Internacional Felipe Ángeles",
+    "lat": 19.7518,
+    "lon": -99.0095,
+    "category": "airport",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "Centro Comercial Perisur",
+    "lat": 19.3048,
+    "lon": -99.1917,
+    "category": "mall",
+    "hours": "11:00-21:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Centro Santa Fe",
+    "lat": 19.3596,
+    "lon": -99.2765,
+    "category": "mall",
+    "hours": "11:00-21:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Antara Fashion Hall",
+    "lat": 19.4347,
+    "lon": -99.2078,
+    "category": "mall",
+    "hours": "11:00-21:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Plaza Universidad",
+    "lat": 19.3476,
+    "lon": -99.1715,
+    "category": "mall",
+    "hours": "11:00-21:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Palacio de Hierro Polanco",
+    "lat": 19.4316,
+    "lon": -99.1987,
+    "category": "mall",
+    "hours": "11:00-21:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Six Flags México",
+    "lat": 19.2953,
+    "lon": -99.2091,
+    "category": "theme_park",
+    "hours": "10:00-18:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "La Feria de Chapultepec",
+    "lat": 19.4183,
+    "lon": -99.1959,
+    "category": "theme_park",
+    "hours": "10:00-18:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Pujol",
+    "lat": 19.4322,
+    "lon": -99.2044,
+    "category": "restaurant",
+    "hours": "13:00-23:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Quintonil",
+    "lat": 19.4299,
+    "lon": -99.2037,
+    "category": "restaurant",
+    "hours": "13:00-17:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Contramar",
+    "lat": 19.4184,
+    "lon": -99.1699,
+    "category": "restaurant",
+    "hours": "09:00-18:30",
+    "google_place_id": ""
+  },
+  {
+    "name": "El Cardenal",
+    "lat": 19.4346,
+    "lon": -99.1386,
+    "category": "restaurant",
+    "hours": "08:00-18:30",
+    "google_place_id": ""
+  },
+  {
+    "name": "Café de Tacuba",
+    "lat": 19.4363,
+    "lon": -99.1354,
+    "category": "restaurant",
+    "hours": "08:00-23:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Rosetta",
+    "lat": 19.4239,
+    "lon": -99.1647,
+    "category": "restaurant",
+    "hours": "13:00-23:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "El Huequito",
+    "lat": 19.4319,
+    "lon": -99.1404,
+    "category": "restaurant",
+    "hours": "09:00-23:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Los Danzantes Coyoacán",
+    "lat": 19.3490,
+    "lon": -99.1624,
+    "category": "restaurant",
+    "hours": "13:00-23:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Patrick Miller",
+    "lat": 19.3828,
+    "lon": -99.1656,
+    "category": "bar",
+    "hours": "21:00-04:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Salón Tenampa",
+    "lat": 19.4422,
+    "lon": -99.1389,
+    "category": "bar",
+    "hours": "13:00-02:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Mama Rumba",
+    "lat": 19.4219,
+    "lon": -99.1666,
+    "category": "bar",
+    "hours": "21:00-03:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "La Botica",
+    "lat": 19.4229,
+    "lon": -99.1711,
+    "category": "bar",
+    "hours": "18:00-02:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Museo Nacional de Antropología",
+    "lat": 19.4260,
+    "lon": -99.1861,
+    "category": "museum",
+    "hours": "09:00-17:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Palacio de Bellas Artes",
+    "lat": 19.4352,
+    "lon": -99.1413,
+    "category": "museum",
+    "hours": "10:00-18:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Museo Frida Kahlo",
+    "lat": 19.3554,
+    "lon": -99.1627,
+    "category": "museum",
+    "hours": "10:00-17:30",
+    "google_place_id": ""
+  },
+  {
+    "name": "Museo Soumaya",
+    "lat": 19.4408,
+    "lon": -99.2058,
+    "category": "museum",
+    "hours": "10:30-18:30",
+    "google_place_id": ""
+  },
+  {
+    "name": "Museo Nacional de Arte",
+    "lat": 19.4367,
+    "lon": -99.1393,
+    "category": "museum",
+    "hours": "10:00-17:30",
+    "google_place_id": ""
+  },
+  {
+    "name": "Zócalo",
+    "lat": 19.4326,
+    "lon": -99.1332,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "Bosque de Chapultepec",
+    "lat": 19.4204,
+    "lon": -99.1892,
+    "category": "plaza",
+    "hours": "05:00-20:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Jardín Centenario Coyoacán",
+    "lat": 19.3499,
+    "lon": -99.1621,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "Alameda Central",
+    "lat": 19.4359,
+    "lon": -99.1445,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "Universidad Nacional Autónoma de México",
+    "lat": 19.3320,
+    "lon": -99.1870,
+    "category": "university",
+    "hours": "07:00-22:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Instituto Politécnico Nacional",
+    "lat": 19.5003,
+    "lon": -99.1467,
+    "category": "university",
+    "hours": "07:00-22:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Universidad Iberoamericana",
+    "lat": 19.3707,
+    "lon": -99.2646,
+    "category": "university",
+    "hours": "07:00-22:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Metro Zócalo",
+    "lat": 19.4325,
+    "lon": -99.1335,
+    "category": "transit_hub",
+    "hours": "05:00-00:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Metro Insurgentes",
+    "lat": 19.4215,
+    "lon": -99.1540,
+    "category": "transit_hub",
+    "hours": "05:00-00:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Metro Pantitlán",
+    "lat": 19.4147,
+    "lon": -99.0729,
+    "category": "transit_hub",
+    "hours": "05:00-00:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Buenavista Station",
+    "lat": 19.4503,
+    "lon": -99.1529,
+    "category": "transit_hub",
+    "hours": "05:00-00:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Centro Banamex",
+    "lat": 19.4861,
+    "lon": -99.2320,
+    "category": "convention_center",
+    "hours": "08:00-20:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Expo Santa Fe",
+    "lat": 19.3595,
+    "lon": -99.2810,
+    "category": "convention_center",
+    "hours": "08:00-20:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Instituto Nacional de Cardiología",
+    "lat": 19.2930,
+    "lon": -99.1570,
+    "category": "hospital",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "Hospital General de México",
+    "lat": 19.4105,
+    "lon": -99.1520,
+    "category": "hospital",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "Hospital Ángeles Pedregal",
+    "lat": 19.3138,
+    "lon": -99.2063,
+    "category": "hospital",
+    "hours": "24h",
+    "google_place_id": ""
+  }
+]

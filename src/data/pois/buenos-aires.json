@@ -1,0 +1,370 @@
+[
+  {
+    "name": "Estadio Alberto J. Armando (La Bombonera)",
+    "lat": -34.6356,
+    "lon": -58.3647,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": ""
+  },
+  {
+    "name": "Estadio Monumental Antonio Vespucio Liberti",
+    "lat": -34.5453,
+    "lon": -58.4497,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": ""
+  },
+  {
+    "name": "Estadio José Amalfitani",
+    "lat": -34.6350,
+    "lon": -58.4372,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": ""
+  },
+  {
+    "name": "Luna Park",
+    "lat": -34.6024,
+    "lon": -58.3685,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": ""
+  },
+  {
+    "name": "Movistar Arena",
+    "lat": -34.6289,
+    "lon": -58.4117,
+    "category": "stadium",
+    "hours": "varies",
+    "google_place_id": ""
+  },
+  {
+    "name": "Aeropuerto Internacional Ministro Pistarini (Ezeiza)",
+    "lat": -34.8222,
+    "lon": -58.5358,
+    "category": "airport",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "Aeroparque Jorge Newbery",
+    "lat": -34.5592,
+    "lon": -58.4156,
+    "category": "airport",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "Galerías Pacífico",
+    "lat": -34.5988,
+    "lon": -58.3741,
+    "category": "mall",
+    "hours": "10:00-21:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Alto Palermo Shopping",
+    "lat": -34.5888,
+    "lon": -58.4210,
+    "category": "mall",
+    "hours": "10:00-22:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Abasto Shopping",
+    "lat": -34.6039,
+    "lon": -58.4112,
+    "category": "mall",
+    "hours": "10:00-22:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Shopping DOT Baires",
+    "lat": -34.5605,
+    "lon": -58.4589,
+    "category": "mall",
+    "hours": "10:00-22:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Patio Bullrich",
+    "lat": -34.5878,
+    "lon": -58.3906,
+    "category": "mall",
+    "hours": "10:00-21:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Tierra Santa",
+    "lat": -34.5448,
+    "lon": -58.4464,
+    "category": "theme_park",
+    "hours": "12:00-19:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Don Julio",
+    "lat": -34.5863,
+    "lon": -58.4226,
+    "category": "restaurant",
+    "hours": "12:00-01:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "El Desnivel",
+    "lat": -34.6141,
+    "lon": -58.3698,
+    "category": "restaurant",
+    "hours": "12:00-00:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Café Tortoni",
+    "lat": -34.6090,
+    "lon": -58.3801,
+    "category": "restaurant",
+    "hours": "08:00-21:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "La Cabrera",
+    "lat": -34.5868,
+    "lon": -58.4260,
+    "category": "restaurant",
+    "hours": "12:00-00:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "El Sanjuanino",
+    "lat": -34.5899,
+    "lon": -58.3959,
+    "category": "restaurant",
+    "hours": "12:00-00:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Tegui",
+    "lat": -34.5871,
+    "lon": -58.4352,
+    "category": "restaurant",
+    "hours": "20:00-00:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "El Obrero",
+    "lat": -34.6395,
+    "lon": -58.3607,
+    "category": "restaurant",
+    "hours": "12:00-15:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Parilla Don Julio",
+    "lat": -34.5863,
+    "lon": -58.4225,
+    "category": "restaurant",
+    "hours": "12:00-01:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Crobar",
+    "lat": -34.5886,
+    "lon": -58.4172,
+    "category": "bar",
+    "hours": "00:00-07:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Niceto Club",
+    "lat": -34.5869,
+    "lon": -58.4349,
+    "category": "bar",
+    "hours": "23:00-06:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Milion",
+    "lat": -34.5944,
+    "lon": -58.3944,
+    "category": "bar",
+    "hours": "18:00-02:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Florería Atlántico",
+    "lat": -34.5938,
+    "lon": -58.3875,
+    "category": "bar",
+    "hours": "19:00-03:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Museo Nacional de Bellas Artes",
+    "lat": -34.5834,
+    "lon": -58.3928,
+    "category": "museum",
+    "hours": "10:00-19:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "MALBA",
+    "lat": -34.5773,
+    "lon": -58.4035,
+    "category": "museum",
+    "hours": "12:00-20:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Museo de Arte Moderno de Buenos Aires",
+    "lat": -34.6189,
+    "lon": -58.3686,
+    "category": "museum",
+    "hours": "11:00-19:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Centro Cultural Kirchner",
+    "lat": -34.6034,
+    "lon": -58.3688,
+    "category": "museum",
+    "hours": "14:00-21:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Museo Evita",
+    "lat": -34.5803,
+    "lon": -58.4169,
+    "category": "museum",
+    "hours": "11:00-19:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Plaza de Mayo",
+    "lat": -34.6084,
+    "lon": -58.3731,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "Parque 3 de Febrero (Bosques de Palermo)",
+    "lat": -34.5714,
+    "lon": -58.4206,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "Plaza San Martín",
+    "lat": -34.5949,
+    "lon": -58.3790,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "Plaza Dorrego",
+    "lat": -34.6154,
+    "lon": -58.3694,
+    "category": "plaza",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "Universidad de Buenos Aires",
+    "lat": -34.5997,
+    "lon": -58.3734,
+    "category": "university",
+    "hours": "07:00-22:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Universidad Torcuato Di Tella",
+    "lat": -34.5424,
+    "lon": -58.4573,
+    "category": "university",
+    "hours": "07:00-22:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Pontificia Universidad Católica Argentina",
+    "lat": -34.5988,
+    "lon": -58.3671,
+    "category": "university",
+    "hours": "07:00-22:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Estación Retiro",
+    "lat": -34.5921,
+    "lon": -58.3744,
+    "category": "transit_hub",
+    "hours": "04:30-01:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Estación Constitución",
+    "lat": -34.6275,
+    "lon": -58.3815,
+    "category": "transit_hub",
+    "hours": "04:30-01:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Estación Once",
+    "lat": -34.6091,
+    "lon": -58.4062,
+    "category": "transit_hub",
+    "hours": "04:30-01:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Terminal de Ómnibus de Retiro",
+    "lat": -34.5899,
+    "lon": -58.3739,
+    "category": "transit_hub",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "La Rural - Predio Ferial",
+    "lat": -34.5767,
+    "lon": -58.4208,
+    "category": "convention_center",
+    "hours": "08:00-20:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Centro Costa Salguero",
+    "lat": -34.5550,
+    "lon": -58.4075,
+    "category": "convention_center",
+    "hours": "08:00-20:00",
+    "google_place_id": ""
+  },
+  {
+    "name": "Hospital Italiano de Buenos Aires",
+    "lat": -34.6128,
+    "lon": -58.4009,
+    "category": "hospital",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "Hospital Británico",
+    "lat": -34.6322,
+    "lon": -58.3907,
+    "category": "hospital",
+    "hours": "24h",
+    "google_place_id": ""
+  },
+  {
+    "name": "Hospital de Clínicas José de San Martín",
+    "lat": -34.5988,
+    "lon": -58.3980,
+    "category": "hospital",
+    "hours": "24h",
+    "google_place_id": ""
+  }
+]
