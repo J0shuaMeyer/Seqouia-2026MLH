@@ -9,14 +9,14 @@ export async function GET(
   const { slug } = await params;
   const city = getCityBySlug(slug);
 
-  if (!city || !city.airportBbox) {
+  if (!city) {
     return NextResponse.json(
-      { error: "No aircraft data for this city" },
+      { error: "City not found" },
       { status: 404 },
     );
   }
 
-  const geojson = await fetchAircraftData(city.airportBbox, city.slug);
+  const geojson = await fetchAircraftData(city.bbox, city.slug);
 
   return NextResponse.json(geojson, {
     headers: { "Cache-Control": "public, max-age=30" },

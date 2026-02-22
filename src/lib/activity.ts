@@ -56,6 +56,26 @@ export function getLocalTime(timezone: string): string {
   return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`;
 }
 
+/** Returns the local time as "HH:MM:SS" for a GMT-offset timezone string. */
+export function getLocalTimeWithSeconds(timezone: string): string {
+  const now = new Date();
+  const utcSeconds =
+    now.getUTCHours() * 3600 + now.getUTCMinutes() * 60 + now.getUTCSeconds();
+
+  const match = timezone.match(/GMT([+-]\d+)(?::(\d+))?/);
+  if (!match) return "--:--:--";
+
+  const offsetHours = parseInt(match[1], 10);
+  const offsetMins = match[2] ? parseInt(match[2], 10) * Math.sign(offsetHours) : 0;
+  const totalOffsetSec = (offsetHours * 60 + offsetMins) * 60;
+
+  const localSeconds = ((utcSeconds + totalOffsetSec) % 86400 + 86400) % 86400;
+  const h = Math.floor(localSeconds / 3600);
+  const m = Math.floor((localSeconds % 3600) / 60);
+  const s = localSeconds % 60;
+  return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+}
+
 /** Parses a GMT offset timezone string and returns the current local hour (0-23). */
 function getLocalHour(timezone: string): number {
   const now = new Date();

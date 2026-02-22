@@ -42,7 +42,7 @@ const VELOCITY = 9;
 const HEADING = 10;
 
 export async function fetchAircraftData(
-  airportBbox: BBox,
+  bbox: BBox,
   citySlug: string,
 ): Promise<GeoJSON.FeatureCollection> {
   // Check cache
@@ -57,7 +57,7 @@ export async function fetchAircraftData(
     return cached?.data ?? { type: "FeatureCollection", features: [] };
   }
 
-  const [south, west, north, east] = airportBbox;
+  const [south, west, north, east] = bbox;
 
   try {
     const url = `${OPENSKY_API}?lamin=${south}&lomin=${west}&lamax=${north}&lomax=${east}`;
@@ -76,9 +76,6 @@ export async function fetchAircraftData(
     const features: GeoJSON.Feature[] = [];
 
     for (const s of states) {
-      // Filter out aircraft on the ground
-      if (s[ON_GROUND]) continue;
-
       const lon = s[LON] as number | null;
       const lat = s[LAT] as number | null;
       if (lon == null || lat == null) continue;
@@ -98,6 +95,7 @@ export async function fetchAircraftData(
           altitudeFt: altFt,
           heading: (s[HEADING] as number | null) ?? 0,
           velocity: (s[VELOCITY] as number | null) ?? 0,
+          onGround: !!s[ON_GROUND],
         },
       });
     }

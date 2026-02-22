@@ -111,6 +111,15 @@ export default function TransitionOverlay() {
       >
         {transition.city.name}
       </h2>
+      <p
+        className="text-sm font-light tracking-wide text-white/40"
+        style={{
+          opacity: 0,
+          animation: "fadeIn 0.6s ease-out 0.6s forwards",
+        }}
+      >
+        {transition.city.tagline}
+      </p>
     </div>
   );
 }
