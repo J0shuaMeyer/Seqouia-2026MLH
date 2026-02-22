@@ -10,20 +10,20 @@ export function useActivityData() {
   const [loaded, setLoaded] = useState(false);
 
   const refresh = useCallback(async () => {
-    // Fetch real data for Tier 1 cities
-    let tier1Data: Record<string, { alertCount: number }> = {};
+    // Fetch batch UPI scores for all cities
+    let batchData: Record<string, { score: number; baseline: number }> = {};
     try {
       const res = await fetch("/api/activity");
-      if (res.ok) tier1Data = await res.json();
+      if (res.ok) batchData = await res.json();
     } catch {
-      // Fall back to simulated data for all
+      // Fall back to circadian baseline for all
     }
 
-    // Compute activity for every city
+    // Map UPI scores to 0-1 activity levels
     const map: Record<string, number> = {};
     for (const city of cities) {
-      const real = tier1Data[city.slug];
-      map[city.slug] = computeActivityLevel(city, real?.alertCount);
+      const real = batchData[city.slug];
+      map[city.slug] = computeActivityLevel(city, real?.score);
     }
     setActivityMap(map);
     setLoaded(true);

@@ -5,6 +5,7 @@ import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import type { City } from "@/data/cities";
 import { getLocalTimeWithSeconds } from "@/lib/activity";
+import type { UPIResult } from "@/lib/urban-pulse";
 import CitySidebar from "@/components/CitySidebar";
 import CityFilterBar, { getAvailableFilters } from "@/components/CityFilterBar";
 
@@ -20,6 +21,8 @@ const AIRCRAFT_REFRESH_MS = 30_000;  // 30 seconds
 const MARITIME_REFRESH_MS = 60_000;  // 60 seconds
 const EARTHQUAKE_REFRESH_MS = 60_000; // 60 seconds
 const POI_REFRESH_MS = 300_000;      // 5 minutes (matches server cache TTL)
+const PULSE_REFRESH_MS = 120_000;    // 2 minutes (UPI refresh)
+const EMA_ALPHA = 0.3;              // EMA smoothing factor
 
 const EMPTY_FC: GeoJSON.FeatureCollection = {
   type: "FeatureCollection",
@@ -206,11 +209,14 @@ export default function CityMap({ city }: CityMapProps) {
   const [activePoiCount, setActivePoiCount] = useState<number | null>(null);
   const [avgActivity, setAvgActivity] = useState<number | null>(null);
   const initialFetchDone = useRef(false);
+  const [pulse, setPulse] = useState<UPIResult | null>(null);
+  const smoothedScoreRef = useRef<number | null>(null);
 
   // ── Filter state ──────────────────────────────────────────────
   const availableFilters = useMemo(() => getAvailableFilters(city), [city]);
+  const DEFAULT_OFF = useMemo(() => new Set(["flights", "maritime", "quakes"]), []);
   const [filters, setFilters] = useState<Record<string, boolean>>(() =>
-    Object.fromEntries(availableFilters.map((f) => [f.key, true]))
+    Object.fromEntries(availableFilters.map((f) => [f.key, !DEFAULT_OFF.has(f.key)]))
   );
 
   const toggleFilter = useCallback(
@@ -234,6 +240,31 @@ export default function CityMap({ city }: CityMapProps) {
     },
     [availableFilters],
   );
+
+  // ── Urban Pulse Index ──────────────────────────────────────────
+
+  const fetchPulseData = useCallback(async () => {
+    try {
+      const res = await fetch(`/api/pulse/${city.slug}`);
+      if (!res.ok) return;
+      const data: UPIResult = await res.json();
+
+      // Apply EMA smoothing
+      if (smoothedScoreRef.current === null) {
+        smoothedScoreRef.current = data.score;
+      } else {
+        smoothedScoreRef.current =
+          EMA_ALPHA * data.score + (1 - EMA_ALPHA) * smoothedScoreRef.current;
+      }
+
+      setPulse({
+        ...data,
+        score: Math.round(smoothedScoreRef.current),
+      });
+    } catch (err) {
+      console.error("[CityMap] pulse fetch error:", err);
+    }
+  }, [city.slug]);
 
   // ── Waze data ───────────────────────────────────────────────────
 
@@ -505,10 +536,10 @@ export default function CityMap({ city }: CityMapProps) {
         ],
         "circle-color": [
           "interpolate", ["linear"], ["coalesce", ["get", "activity"], 0],
-          20, "rgba(251, 191, 36, 0.08)",
-          60, "rgba(251, 191, 36, 0.15)",
-          80, "rgba(245, 158, 11, 0.20)",
-          100, "rgba(239, 68, 68, 0.25)",
+          20, "rgba(249, 168, 212, 0.08)",
+          60, "rgba(249, 168, 212, 0.15)",
+          80, "rgba(244, 114, 182, 0.20)",
+          100, "rgba(236, 72, 153, 0.25)",
         ],
         "circle-blur": 1,
         "circle-opacity": 0.8,
@@ -534,9 +565,9 @@ export default function CityMap({ city }: CityMapProps) {
           "interpolate", ["linear"], ["coalesce", ["get", "activity"], 0],
           0, "#52525b",
           20, "#71717a",
-          40, "#fbbf24",
-          70, "#f59e0b",
-          90, "#ef4444",
+          40, "#f9a8d4",
+          70, "#f472b6",
+          90, "#ec4899",
         ],
         "circle-opacity": [
           "interpolate", ["linear"], ["coalesce", ["get", "activity"], 0],
@@ -644,7 +675,7 @@ export default function CityMap({ city }: CityMapProps) {
         "line-join": "round",
       },
       paint: {
-        "line-color": "#ef4444",
+        "line-color": "#f97316",
         "line-width": 2.5,
         "line-opacity": 0.8,
       },
@@ -659,7 +690,7 @@ export default function CityMap({ city }: CityMapProps) {
       filter: ["==", ["geometry-type"], "Point"],
       paint: {
         "circle-radius": 3.5,
-        "circle-color": "#f59e0b",
+        "circle-color": "#f97316",
         "circle-opacity": 0.75,
         "circle-stroke-width": 0.5,
         "circle-stroke-color": "#ffffff",
@@ -676,7 +707,7 @@ export default function CityMap({ city }: CityMapProps) {
         "circle-radius": ["match", ["get", "shipCategory"],
           "cargo", 5, "tanker", 5, "passenger", 4,
           "fishing", 2.5, "pleasure", 2, 3],
-        "circle-color": "#0ea5e9",
+        "circle-color": "#2dd4bf",
         "circle-opacity": 0.7,
         "circle-stroke-width": 1,
         "circle-stroke-color": "#ffffff",
@@ -761,7 +792,16 @@ export default function CityMap({ city }: CityMapProps) {
         "icon-halo-width": 1,
       },
     });
-  }, [mapLoaded]);
+
+    // ── Apply initial visibility for default-OFF layers ──
+    for (const def of availableFilters) {
+      if (DEFAULT_OFF.has(def.key)) {
+        for (const layerId of def.layerIds) {
+          if (m.getLayer(layerId)) m.setLayoutProperty(layerId, "visibility", "none");
+        }
+      }
+    }
+  }, [mapLoaded, availableFilters, DEFAULT_OFF]);
 
   // ── Coordinated initial data fetch ────────────────────────────
   // Runs all initial fetches in parallel, signals ready when done.
@@ -776,6 +816,7 @@ export default function CityMap({ city }: CityMapProps) {
       fetchPOIData(),
       fetchAircraftData(),
       fetchEarthquakeData(),
+      fetchPulseData(),
     ];
     if (city.bikeNetwork) fetches.push(fetchBikeData());
     if (city.transitType) fetches.push(fetchTransitData());
@@ -786,7 +827,7 @@ export default function CityMap({ city }: CityMapProps) {
         new CustomEvent("city-data-ready", { detail: { slug: city.slug } })
       );
     });
-  }, [mapLoaded, city.slug, city.bikeNetwork, city.transitType, city.isCoastal, fetchWazeData, fetchWeatherInfo, fetchPOIData, fetchBikeData, fetchTransitData, fetchAircraftData, fetchMaritimeData, fetchEarthquakeData]);
+  }, [mapLoaded, city.slug, city.bikeNetwork, city.transitType, city.isCoastal, fetchWazeData, fetchWeatherInfo, fetchPOIData, fetchBikeData, fetchTransitData, fetchAircraftData, fetchMaritimeData, fetchEarthquakeData, fetchPulseData]);
 
   // ── Refresh intervals (no initial call — coordinated effect handles it) ──
 
@@ -839,6 +880,13 @@ export default function CityMap({ city }: CityMapProps) {
     return () => clearInterval(id);
   }, [mapLoaded, fetchPOIData]);
 
+  // Pulse refresh (2 minutes)
+  useEffect(() => {
+    if (!mapLoaded) return;
+    const id = setInterval(fetchPulseData, PULSE_REFRESH_MS);
+    return () => clearInterval(id);
+  }, [mapLoaded, fetchPulseData]);
+
   // ── Live clock (updates every second) ──
   useEffect(() => {
     const id = setInterval(() => {
@@ -859,6 +907,7 @@ export default function CityMap({ city }: CityMapProps) {
         city={city}
         localTime={localTime}
         weather={weather}
+        pulse={pulse}
         reportCount={reportCount}
         aircraftCount={aircraftCount}
         vesselCount={vesselCount}

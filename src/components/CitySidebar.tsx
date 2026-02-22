@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import type { City } from "@/data/cities";
+import type { UPIResult } from "@/lib/urban-pulse";
 import SequoiaLogo from "@/components/SequoiaLogo";
 
 interface WeatherInfo {
@@ -14,6 +15,7 @@ interface CitySidebarProps {
   city: City;
   localTime: string;
   weather: WeatherInfo | null;
+  pulse: UPIResult | null;
   reportCount: number | null;
   aircraftCount: number | null;
   vesselCount: number | null;
@@ -33,6 +35,13 @@ function aqiColor(aqi: number): string {
   return "text-red-400";
 }
 
+function pulseColor(score: number): string {
+  if (score >= 70) return "text-emerald-400";
+  if (score >= 40) return "text-amber-400";
+  if (score >= 20) return "text-orange-400";
+  return "text-white/60";
+}
+
 function DataRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex justify-between">
@@ -46,6 +55,7 @@ export default function CitySidebar({
   city,
   localTime,
   weather,
+  pulse,
   reportCount,
   aircraftCount,
   vesselCount,
@@ -58,6 +68,11 @@ export default function CitySidebar({
   updating,
 }: CitySidebarProps) {
   const density = Math.round(city.population / city.areaSqMi).toLocaleString();
+
+  // Weather damping display
+  const weatherPenalty = pulse && pulse.damping < 0.95
+    ? `-${Math.round((1 - pulse.damping) * 100)}%`
+    : null;
 
   return (
     <aside className="fixed left-0 top-0 bottom-0 w-64 z-50 bg-black/80 backdrop-blur-md border-r border-white/[0.06] flex flex-col overflow-y-auto">
@@ -80,6 +95,25 @@ export default function CitySidebar({
           {localTime}
         </p>
       </div>
+
+      {/* Urban Pulse */}
+      {pulse && (
+        <div className="px-5 py-4 border-b border-white/[0.06]">
+          <p className="text-[10px] tracking-widest uppercase text-white/50 font-bold mb-2">
+            Urban Pulse
+          </p>
+          <p className={`text-2xl font-light ${pulseColor(pulse.score)}`}>
+            {pulse.score}%
+          </p>
+          <div className="mt-2 space-y-1">
+            <DataRow label="Baseline" value={`${pulse.baseline}%`} />
+            <DataRow label="Signals" value={`${pulse.signalCount} active`} />
+            {weatherPenalty && (
+              <DataRow label="Weather" value={weatherPenalty} />
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Weather */}
       {weather && (
@@ -113,7 +147,6 @@ export default function CitySidebar({
         )}
         <DataRow label="Points of Interest" value={poiCount !== null ? poiCount.toLocaleString() : "—"} />
         <DataRow label="Active Places" value={activePoiCount !== null && poiCount !== null ? `${activePoiCount} / ${poiCount}` : "—"} />
-        <DataRow label="Avg Activity" value={avgActivity !== null ? `${avgActivity}%` : "—"} />
       </div>
 
       {/* City Profile */}

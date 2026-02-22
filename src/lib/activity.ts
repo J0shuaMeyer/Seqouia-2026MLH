@@ -1,4 +1,5 @@
 import type { City } from "@/data/cities";
+import { circadianBaseline } from "@/lib/urban-pulse";
 
 export interface RingParams {
   maxRadius: number;
@@ -8,25 +9,20 @@ export interface RingParams {
 
 /**
  * Computes a 0-1 normalized activity level for a city.
- * - Tier 1 with real alertCount: normalized from Waze data
- * - Tier 2/3 or no data: simulated from local time-of-day
+ * - With UPI score: directly maps 0-100 → 0.05-1.0
+ * - Without UPI: uses circadian baseline from Gaussian mixture model
  */
 export function computeActivityLevel(
   city: City,
-  alertCount?: number
+  upiScore?: number,
 ): number {
-  if (alertCount !== undefined && alertCount >= 0) {
-    // Real data: 0 alerts → 0.1, 500+ alerts → 1.0
-    return Math.min(1.0, 0.1 + (alertCount / 500) * 0.9);
+  if (upiScore !== undefined && upiScore >= 0) {
+    return Math.min(1.0, Math.max(0.05, upiScore / 100));
   }
 
-  // Simulate based on local time and tier
+  // Fallback: circadian baseline (Gaussian mixture)
   const localHour = getLocalHour(city.timezone);
-  // Sine curve: peaks around 12-14 (afternoon rush), lowest around 3-5 AM
-  const timeFactor = Math.sin(((localHour - 5) / 12) * Math.PI);
-  const clampedTime = Math.max(0, timeFactor);
-  const tierFactor = city.dataTier === 1 ? 0.8 : city.dataTier === 2 ? 0.7 : 0.4;
-  return Math.max(0.1, clampedTime * tierFactor);
+  return circadianBaseline(localHour);
 }
 
 /** Maps a 0-1 activity level to ring visual parameters. */
@@ -77,7 +73,7 @@ export function getLocalTimeWithSeconds(timezone: string): string {
 }
 
 /** Parses a GMT offset timezone string and returns the current local hour (0-23). */
-function getLocalHour(timezone: string): number {
+export function getLocalHour(timezone: string): number {
   const now = new Date();
   const utcHour = now.getUTCHours() + now.getUTCMinutes() / 60;
 

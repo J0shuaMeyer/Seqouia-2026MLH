@@ -13,14 +13,13 @@ export interface FilterDefinition {
 }
 
 export const ALL_FILTERS: FilterDefinition[] = [
-  { key: "traffic",   icon: "", label: "TRAFFIC",   layerIds: ["waze-jams", "waze-reports"],      color: "#f59e0b", available: () => true },
+  { key: "traffic",   icon: "", label: "TRAFFIC",   layerIds: ["waze-jams", "waze-reports"],      color: "#f97316", available: () => true },
   { key: "bikes",     icon: "", label: "BIKES",     layerIds: ["bikeshare", "bikeshare-network"], color: "#a3e635", available: (c) => !!c.bikeNetwork },
   { key: "transit",   icon: "", label: "TRANSIT",   layerIds: ["transit", "transit-network"],     color: "#a78bfa", available: (c) => !!c.transitType },
   { key: "flights",   icon: "", label: "FLIGHTS",   layerIds: ["aircraft"],                       color: "#22d3ee", available: () => true },
-  { key: "maritime",  icon: "", label: "MARITIME",  layerIds: ["maritime"],                       color: "#0ea5e9", available: (c) => !!c.isCoastal },
+  { key: "maritime",  icon: "", label: "MARITIME",  layerIds: ["maritime"],                       color: "#2dd4bf", available: (c) => !!c.isCoastal },
   { key: "quakes",    icon: "", label: "QUAKES",    layerIds: ["earthquakes", "earthquakes-glow", "earthquakes-labels"], color: "#ef4444", available: () => true },
-  { key: "places",    icon: "", label: "PLACES",    layerIds: ["pois", "pois-labels", "pois-aura"], color: "#d4d4d8", available: () => true },
-  { key: "satellite", icon: "", label: "SATELLITE", layerIds: ["gibs-satellite"],                 color: "#818cf8", available: () => true },
+  { key: "places",    icon: "", label: "POI'S",    layerIds: ["pois", "pois-labels", "pois-aura"], color: "#f472b6", available: () => true },
 ];
 
 export function getAvailableFilters(city: City): FilterDefinition[] {
@@ -48,12 +47,16 @@ export default function CityFilterBar({ filters, availableFilters, onToggle }: C
           <button
             key={f.key}
             onClick={() => onToggle(f.key)}
-            className={`shrink-0 px-3 py-1.5 rounded-full border text-[10px] tracking-widest font-medium transition-all duration-200 whitespace-nowrap ${
+            className={`shrink-0 px-3 py-1.5 rounded-full border text-[10px] tracking-widest font-medium transition-all duration-200 whitespace-nowrap flex items-center gap-1.5 ${
               active
                 ? "bg-white/15 border-white/25 text-white"
                 : "bg-white/[0.05] border-white/[0.08] text-white/40 hover:bg-white/[0.08] hover:text-white/55"
             }`}
           >
+            <span
+              className="inline-block w-2 h-2 rounded-full shrink-0 transition-opacity duration-200"
+              style={{ backgroundColor: f.color, opacity: active ? 1 : 0.35 }}
+            />
             {f.label}
           </button>
         );
