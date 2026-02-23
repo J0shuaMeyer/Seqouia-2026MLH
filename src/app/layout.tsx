@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import { Analytics } from '@vercel/analytics/next';
 import TransitionOverlay from "@/components/TransitionOverlay";
 import "./globals.css";
 
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body className={`${montserrat.variable} antialiased`}>
         <TransitionOverlay />
         {children}
+        <Analytics />
       </body>
     </html>
   );
